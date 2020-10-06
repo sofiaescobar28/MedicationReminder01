@@ -17,4 +17,12 @@
     <string name="nombre">Nombre</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="icono_medicamento">Icono medicamento</string>
+    <string name="medicamento">MEDICAMENTO</string>
+    <string name="icono_historia">Icono historia</string>
+    <string name="historial">HISTORIAL</string>
+    <string name="medicamentos">Medicamentos</string>
+    <string name="dosificacion">Dosificación</string>
+    <string name="dosis">Dosis</string>
+    <string name="tomar">TOMAR</string>
 </resources>
