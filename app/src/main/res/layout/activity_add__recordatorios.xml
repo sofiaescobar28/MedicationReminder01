@@ -50,7 +50,7 @@
             <Spinner
                 android:id="@+id/spnMDH"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight="1"
                 android:entries="@array/MDH_valores"/>
             <TextView
@@ -75,17 +75,19 @@
                 android:id="@+id/radPermanente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="Permanente"
                 android:text="@string/permanente"
                 android:checked="true"/>
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal">-->
                 <RadioButton
-                    android:id="@+id/radio"
+                    android:id="@+id/radFechaFinal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/fecha_final"
+                    android:onClick="noPermanente"
                     android:layout_weight="1"/>
                 <!--<CalendarView
                     android:layout_width="wrap_content"
@@ -100,12 +102,12 @@
                     android:hint="@string/formatoFechaFinal"
                     android:inputType="numberDecimal"
                     android:importantForAutofill="no" />
-            </LinearLayout>
+            <!--</LinearLayout>-->
         </RadioGroup>
         <Spinner
             android:id="@+id/spnEstado"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:entries="@array/EstadoR_valores"/>
         </LinearLayout>
 

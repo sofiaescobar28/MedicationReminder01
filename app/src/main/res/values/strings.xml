@@ -9,4 +9,12 @@
     <string name="dd_mm_aaa">dd/mm/aaa</string>
     <string name="formatoFechaFinal">dd/MM/aaaa</string>
     <string name="logo_de_app">logo de app</string>
+    <string name="historial">HISTORIAL</string>
+    <string name="medicamento">MEDICAMENTO</string>
+    <string name="icono_de_medicamento">Icono de medicamento</string>
+    <string name="icono_de_historial">Icono de historial</string>
+    <string name="medicamentos">Medicamentos</string>
+    <string name="dosificacion">Dosificación:</string>
+    <string name="dosi">Dosi:</string>
+    <string name="tomar">TOMAR</string>
 </resources>
