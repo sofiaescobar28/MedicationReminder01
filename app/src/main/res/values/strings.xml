@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MedicationReminder</string>
+    <string name="medication_reminder">Medication Reminder</string>
+    <string name="buscar">Buscar</string>
+    <string name="personas">Personas</string>
+    <string name="recordatorios">Recordatorios</string>
 </resources>
