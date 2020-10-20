@@ -29,4 +29,5 @@
     <string name="tipo">Tipo:</string>
     <string name="seleccionar">Seleccionar</string>
     <string name="datos_de_dosis">Datos de dosis</string>
+    <string name="universo_desarrollo">Universo Desarrollo</string>
 </resources>
