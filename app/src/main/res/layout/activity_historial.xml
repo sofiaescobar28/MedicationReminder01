@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Historial">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="MED REMINDER"
+        android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/logo_de_app"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HISTORIAL"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelMedicamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="MEDICAMENTO"
+            android:textSize="24sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent">
+            <TableRow>
+                <TableRow>
+                   <Button
+                       android:text="Editar"
+                       android:layout_weight="1"
+                       />
+                </TableRow>
+                <TableRow>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:text="Eliminar"
+                        />
+                </TableRow>
+
+
+
+
+            </TableRow>
+                       <TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/Dosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Dosificación: "
+
+                        android:textSize="24sp" />
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/valorDosificacion"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Valor mg"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+
+
+            </TableRow>
+            <TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/tvNombreM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Dosis:"
+
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/labelvalorDosis"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="2 tabletas"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+
+
+            </TableRow>
+
+            <TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/fecha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Fecha: "
+
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/labelvalorFecha"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:text="1/1/2020 6:00 am"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+
+
+            </TableRow>
+            <TableRow>
+                <TableRow>
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Estado: "
+
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/labelvalorEstado"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="No tomado"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+
+
+            </TableRow>
+            <TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Comentario: "
+
+                        android:textSize="24sp" />
+                </TableRow>
+                <TableRow android:layout_height="100dp"
+                    android:layout_width="20dp">
+
+                    <TextView
+                        android:id="@+id/labelvalorComentario"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Por atrazo en el bus no pude tomarla"
+                        android:textAlignment="textStart"
+                        android:textSize="20sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+
+
+            </TableRow>
+
+
+
+
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

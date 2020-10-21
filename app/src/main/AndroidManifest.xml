@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".medicina_por_recordatorio"></activity>
+        <activity android:name=".Agregar_Medicamento"></activity>
+        <activity android:name=".Medicamento" />
+        <activity android:name=".Historial" />
+        <activity android:name=".medicina_por_recordatorio" />
         <activity android:name=".Elegir_medicamento" />
         <activity android:name=".Tomar_medicamento" />
         <activity android:name=".medicamento_recordatorio" />
