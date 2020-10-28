@@ -3,5 +3,9 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="rojo">#F10505</color>
+    <color name="verde">#028704</color>
     <color name="fondo_splash">#FF000000</color>
+    <color name="naranja">#CA4203</color>
+
 </resources>

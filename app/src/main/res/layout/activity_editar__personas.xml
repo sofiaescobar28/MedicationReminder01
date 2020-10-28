@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Add_Personas">
+    tools:context=".Editar_Personas">
 
     <TextView
         android:id="@+id/textView5"
@@ -22,12 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:text="Editar Persona"
         android:textColor="#000000"
-        android:text="@string/agregar_persona"
-        android:textSize="25sp"/>
+        android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/etNombrePersona"
+        android:id="@+id/etNombrePersonaEditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,15 +43,15 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnGuardar"
+            android:id="@+id/btnGuardarEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="insertarPersona"
+            android:onClick="updatePersona"
             android:layout_weight="1"
             android:text="@string/guardar" />
 
         <Button
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnCancelarEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="Cancelar"
@@ -60,7 +60,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/lblvalidarpersona"
+        android:id="@+id/lblvalidarpersonaEditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
