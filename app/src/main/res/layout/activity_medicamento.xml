@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Medicamento">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="MED REMINDER"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MEDICAMENTOS"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnAgregarMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pantallaNuevoMed"
+        android:text="agregar medicamento" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtBuscarMedicamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nombre del medicamento" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblsuceso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/lyContenedorMedicamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="134dp"
+
+            android:background="@color/colorAccent">
+
+            <TableRow android:gravity="end">
+
+                <TableRow>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:text="Editar" />
+                </TableRow>
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TableRow>
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="Nombre: "
+
+                        android:textSize="24sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/labelNombre"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Nombre"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TableRow>
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Tipo:"
+
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/labelTipo"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Antibiótico"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
+                        tools:ignore="RtlCompat" />
+                </TableRow>
+
+
+            </TableRow>
+
+
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

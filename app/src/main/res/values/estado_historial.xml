@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="estado_historial">
-        <ite>Estado</ite>
-        <ite>Tomado</ite>
-        <ite>No tomado</ite>
-        <ite>Retrasado</ite>
+        <item>Estado</item>
+        <item>Tomado</item>
+        <item>No tomado</item>
+        <item>Retrasado</item>
     </string-array>
 </resources>

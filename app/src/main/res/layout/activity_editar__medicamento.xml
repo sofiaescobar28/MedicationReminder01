@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Editar_Medicamento">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="MED REMINDER"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EDITAR MEDICAMENTO"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtNombreMedEditar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Nombre del medicamento" />
+
+        <EditText
+            android:id="@+id/txtTipoMedEditar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Tipo de medicamento" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="updateMedicamento"
+            android:text="guardar cambios"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="Cancelar"
+            android:text="Salir" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblValidacionEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark" />
+
+</LinearLayout>
