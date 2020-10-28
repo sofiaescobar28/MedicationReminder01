@@ -9,9 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Agregar_Medicamento"></activity>
-        <activity android:name=".Medicamento" />
-        <activity android:name=".Historial" />
+        <activity android:name=".Editar_Personas"></activity>
+        <activity android:name=".Editar_Medicamento" />
+        <activity android:name=".Agregar_Medicamento">
+
+        </activity>
+        <activity android:name=".Medicamento" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Historial" >
+
+        </activity>
         <activity android:name=".medicina_por_recordatorio" />
         <activity android:name=".Elegir_medicamento" />
         <activity android:name=".Tomar_medicamento" />
@@ -23,11 +35,7 @@
         <activity android:name=".Personas" />
         <activity android:name=".Principal" />
         <activity android:name=".Splash_inicio">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

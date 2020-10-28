@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".Historial">
+    tools:context=".Medicamento">
 
     <TextView
         android:id="@+id/textView2"
@@ -16,13 +16,6 @@
         android:text="MED REMINDER"
         android:textSize="28sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/logo_de_app"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
@@ -31,16 +24,39 @@
         android:textAlignment="center"
         android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/btnAgregarMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pantallaNuevoMed"
+        android:text="agregar medicamento" />
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtBuscarMedicamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nombre del medicamento" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblsuceso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/lyContenedorMedicamentos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Nombre del medicamento"/>
 
         <TableLayout
             android:layout_width="match_parent"

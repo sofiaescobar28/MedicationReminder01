@@ -16,12 +16,7 @@
         android:text="MED REMINDER"
         android:textSize="28sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/logo_de_app"
-        tools:srcCompat="@tools:sample/avatars" />
+
 
     <TextView
         android:id="@+id/textView12"
@@ -34,6 +29,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/lySecundario"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
@@ -45,32 +41,39 @@
             android:text="MEDICAMENTO"
             android:textSize="24sp" />
 
+        <TextView
+            android:id="@+id/lblValidarCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorAccent">
+            android:background="@android:color/holo_blue_light">
+
             <TableRow>
+
                 <TableRow>
-                   <Button
-                       android:text="Editar"
-                       android:layout_weight="1"
-                       />
+
                 </TableRow>
+
                 <TableRow>
 
                     <Button
+
                         android:layout_weight="1"
-                        android:text="Eliminar"
-                        />
+                        android:onClick="EditarHistorico"
+                        android:text="Editar" />
                 </TableRow>
 
 
-
-
             </TableRow>
-                       <TableRow>
+
+            <TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/Dosis"
                         android:layout_width="match_parent"
@@ -82,10 +85,11 @@
 
                         android:textSize="24sp" />
                 </TableRow>
+
                 <TableRow>
 
                     <TextView
-                        android:id="@+id/valorDosificacion"
+                        android:id="@+id/lblalorDosificacion"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -99,14 +103,14 @@
                 </TableRow>
 
 
-
-
             </TableRow>
+
             <TableRow>
+
                 <TableRow>
 
                     <TextView
-                        android:id="@+id/tvNombreM"
+                        android:id="@+id/lblDosis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
@@ -118,6 +122,7 @@
                         android:textSize="24sp"
                         tools:ignore="RtlCompat" />
                 </TableRow>
+
                 <TableRow>
 
                     <TextView
@@ -135,11 +140,10 @@
                 </TableRow>
 
 
-
-
             </TableRow>
 
             <TableRow>
+
                 <TableRow>
 
                     <TextView
@@ -155,25 +159,27 @@
                         android:textSize="24sp"
                         tools:ignore="RtlCompat" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/labelvalorFecha"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="textStart"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textSize="24sp"
                         android:text="1/1/2020 6:00 am"
+                        android:textAlignment="textStart"
+                        android:textSize="24sp"
                         tools:ignore="RtlCompat" />
                 </TableRow>
 
 
-
-
             </TableRow>
+
             <TableRow>
+
                 <TableRow>
 
                     <TextView
@@ -189,6 +195,7 @@
                         android:textSize="24sp"
                         tools:ignore="RtlCompat" />
                 </TableRow>
+
                 <TableRow>
 
                     <TextView
@@ -206,11 +213,12 @@
                 </TableRow>
 
 
-
-
             </TableRow>
+
             <TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -221,8 +229,10 @@
 
                         android:textSize="24sp" />
                 </TableRow>
-                <TableRow android:layout_height="100dp"
-                    android:layout_width="20dp">
+
+                <TableRow
+                    android:layout_width="20dp"
+                    android:layout_height="100dp">
 
                     <TextView
                         android:id="@+id/labelvalorComentario"
@@ -239,11 +249,7 @@
                 </TableRow>
 
 
-
-
             </TableRow>
-
-
 
 
         </TableLayout>
