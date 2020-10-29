@@ -2,6 +2,7 @@ package sv.edu.catolica.medicationreminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -30,12 +31,12 @@ public class Historial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
-        Dosis = findViewById(R.id.labelvalorDosis);
+        /*Dosis = findViewById(R.id.labelvalorDosis);
         Dosificacion= findViewById(R.id.lblalorDosificacion);
         Estado=findViewById(R.id.labelvalorEstado);
         Comentario=findViewById(R.id.labelvalorComentario);
         Fecha = findViewById(R.id.labelvalorFecha);
-        valor = findViewById(R.id.lblValidarCantidad);
+        valor = findViewById(R.id.lblValidarCantidad);*/
        ly = findViewById(R.id.lySecundario);
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
@@ -43,42 +44,42 @@ public class Historial extends AppCompatActivity {
         ArrayList<EHistorial> historial = new ArrayList<EHistorial>();
         historial =BuscarHistorial();
       for (EHistorial h: historial){
-
+final String n = h.MEDxRE;
             TableLayout tl=new TableLayout(getApplicationContext());
           tl.setShrinkAllColumns(true);
           tl.setStretchAllColumns(true);
 
+
             TableRow rowTitle = new TableRow(getApplicationContext());
             rowTitle.setGravity(Gravity.CENTER_HORIZONTAL);
+          TableRow rowBoton = new TableRow(getApplicationContext());
+          TableRow rowid= new TableRow(getApplicationContext());
           TableRow rowDosificacion = new TableRow(getApplicationContext());
           TableRow rowDosis= new TableRow(getApplicationContext());
           TableRow rowFecha = new TableRow(getApplicationContext());
           TableRow rowEstado = new TableRow(getApplicationContext());
           TableRow rowComentario = new TableRow(getApplicationContext());
-          TableRow rowBoton = new TableRow(getApplicationContext());
 
-          TextView title = new TextView(this);
+
+          final TextView title = new TextView(this);
+          TextView empty = new TextView(this);
+          TextView lblID =new TextView(this);
           TextView lblDosificacion=new TextView(this);
             TextView lblDosis=new TextView(this);
             TextView lblFecha=new TextView(this);
             TextView lblEstado=new TextView(this);
             TextView lblComentario=new TextView(this);
-            Button btnEditar = new Button(this);
+
 
             title.setText(h.RECORDATORIO);
+            empty.setText("");
+          lblID.setText("Id: ");
             lblDosificacion.setText("Dosificación: ");
             lblDosis.setText("Dosis: ");
             lblFecha.setText("Fecha: ");
             lblEstado.setText("Estado: ");
             lblComentario.setText("Comentario: ");
-            btnEditar.setText("Editar");
-            btnEditar.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View view) {
 
-                                             }
-                                         }
-            );
 
             title.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
             title.setGravity(Gravity.CENTER);
@@ -88,25 +89,50 @@ public class Historial extends AppCompatActivity {
             params.span = 2;
 
             rowTitle.addView(title, params);
+            rowBoton.addView(empty);
+            rowid.addView(lblID);
             rowDosificacion.addView(lblDosificacion);
             rowDosis.addView(lblDosis);
             rowFecha.addView(lblFecha);
             rowEstado.addView(lblEstado);
             rowComentario.addView(lblComentario);
-            rowBoton.addView(btnEditar);
 
-            TextView ValorDosificacion=new TextView(this);
-            TextView ValorDosis=new TextView(this);
-            TextView ValorFecha=new TextView(this);
-            TextView ValorEstado=new TextView(this);
-            TextView ValorComentario=new TextView(this);
+            final  TextView valorIDH=new TextView(this);
+            final TextView ValorDosificacion=new TextView(this);
+            final TextView ValorDosis=new TextView(this);
+            final TextView ValorFecha=new TextView(this);
+            final TextView ValorEstado=new TextView(this);
+            final TextView ValorComentario=new TextView(this);
+          final Button btnEditar = new Button(this);
+          btnEditar.setText("Editar");
 
+
+            valorIDH.setText(String.valueOf(h.H_COD));
             ValorDosificacion.setText(h.DOSIFICACION);
             ValorDosis.setText(h.DOSIS);
             ValorFecha.setText(h.H_FECHA);
             ValorEstado.setText(h.H_ESTADO);
             ValorComentario.setText(h.H_COMENTARIO);
+          btnEditar.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View view) {
+                                                        finish();
+                                                        Intent ventanaEditarHistorial = new Intent(getApplicationContext(),Editar_Historial.class);
+                                                        ventanaEditarHistorial.putExtra("Titulo",title.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Medre",n.toString());
+                                                        ventanaEditarHistorial.putExtra("IDEH",valorIDH.getText());
+                                                        ventanaEditarHistorial.putExtra("Dosificacion",ValorDosificacion.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Dosis",ValorDosis.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Fecha",ValorFecha.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Estado",ValorEstado.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Comentario",ValorComentario.getText().toString());
+                                                        startActivity(ventanaEditarHistorial);
 
+                                           }
+                                       }
+          );
+
+          rowBoton.addView(btnEditar);
           rowDosificacion.addView(ValorDosificacion);
           rowDosis.addView(ValorDosis);
           rowFecha.addView(ValorFecha);
@@ -115,12 +141,13 @@ public class Historial extends AppCompatActivity {
 
 
             tl.addView(rowTitle);
+          tl.addView(rowBoton);
             tl.addView(rowDosificacion);
             tl.addView(rowDosis);
             tl.addView(rowFecha);
             tl.addView(rowEstado);
             tl.addView(rowComentario);
-            tl.addView(rowBoton);
+
 
            ly.addView(tl);
 
@@ -135,7 +162,7 @@ public class Historial extends AppCompatActivity {
         db = admin.getWritableDatabase();
         Cursor fila = db.rawQuery("SELECT HISTORIAL.H_COD,RECORDATORIO.RE_TITULO,"+
                " HISTORIAL.H_FECHA,HISTORIAL.H_ESTADO,HISTORIAL.H_COMENTARIO,"+
-                " MEDXRE.MEDXRED_DOSIFICACION,MEDXRE.RE_DOSIS"+
+                " MEDXRE.MEDXRED_DOSIFICACION,MEDXRE.RE_DOSIS,MEDXRE.MEDXRED_COD"+
                 " FROM HISTORIAL"+
                 " INNER JOIN MEDXRE  ON HISTORIAL.MEDXRED_COD = MEDXRE.MEDXRED_COD"+
                 " INNER JOIN RECORDATORIO ON MEDXRE.RE_COD = RECORDATORIO.RE_COD"
@@ -152,6 +179,7 @@ public class Historial extends AppCompatActivity {
             _histo.H_COMENTARIO=fila.getString(4);
             _histo.DOSIFICACION=fila.getString(5);
             _histo.DOSIS=fila.getString(6);
+            _histo.MEDxRE=fila.getString(7);
             historial.add(_histo);
 
         }

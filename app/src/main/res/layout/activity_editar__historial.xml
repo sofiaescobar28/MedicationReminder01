@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Editar_Historial"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="APLICATION REMINDER"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/lbltituloEditHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/recordatorio"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dosificación:" />
+
+        <TextView
+            android:id="@+id/lblValorDosificacionEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dosis: " />
+
+        <TextView
+            android:id="@+id/lblValorDosisEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha: " />
+
+        <TextView
+            android:id="@+id/lblValorFechaEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spnEstado"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:entries="@array/estado_historial" />
+
+    <EditText
+        android:id="@+id/txtEHComentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Comentario"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btnGuardarRec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="updateHistorial"
+        android:text="GUARDAR CAMBIOS"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnCancelarRec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Salir"
+        android:text="SALIR"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/lblvalidarHistoEd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
