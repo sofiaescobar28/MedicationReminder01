@@ -30,4 +30,10 @@
     <string name="seleccionar">Seleccionar</string>
     <string name="datos_de_dosis">Datos de dosis</string>
     <string name="universo_desarrollo">Universo Desarrollo</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="mensaje_eliminar_persona">¿Está seguro que desea eliminar a esta persona y todos sus registros?</string>
+    <string name="titulo_eliminar_persona">Confirmar eliminar persona</string>esta persona
+    <string name="si">Sí</string>
+    <string name="no">No</string>
 </resources>

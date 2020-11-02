@@ -15,11 +15,7 @@
 
         </activity>
         <activity android:name=".Medicamento" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Historial" >
 
@@ -32,7 +28,13 @@
         <activity android:name=".Recordatorios" />
         <activity android:name=".Add_Personas" />
         <activity android:name=".Add_Recordatorios" />
-        <activity android:name=".Personas" />
+        <activity android:name=".Personas">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Principal" />
         <activity android:name=".Splash_inicio">
 

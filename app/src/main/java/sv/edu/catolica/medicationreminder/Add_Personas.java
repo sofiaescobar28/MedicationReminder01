@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -78,5 +79,16 @@ public class Add_Personas extends AppCompatActivity {
         db.close();
         return num;
 
+    }
+
+    //Al presionar el botón Atrás
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK){
+            finish();
+            Intent ventana= new Intent(getApplicationContext(), Personas.class);
+            startActivity(ventana);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
