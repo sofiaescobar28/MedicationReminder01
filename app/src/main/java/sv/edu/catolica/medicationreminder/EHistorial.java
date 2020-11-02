@@ -8,5 +8,6 @@ public class EHistorial {
     String H_COMENTARIO;
     String DOSIFICACION;
     String DOSIS;
+    String MEDxRE;
 
 }
