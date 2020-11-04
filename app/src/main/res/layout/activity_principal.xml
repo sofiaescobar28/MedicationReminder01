@@ -14,57 +14,65 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="60dp"
         android:text="@string/medication_reminder"
         android:textColor="#000000"
         android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <ImageView
-            android:id="@+id/ivPersona"
-            android:layout_width="218dp"
-            android:layout_height="137dp"
-            android:contentDescription="@string/personas"
-            android:onClick="persona"
-            app:srcCompat="@drawable/personas" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            android:text="@string/personas" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/ivRecor"
-            android:layout_width="match_parent"
-            android:layout_height="173dp"
-            android:contentDescription="@string/recordatorios"
-            android:onClick="recordatorio"
-            app:srcCompat="@drawable/reloj" />
-
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="@string/recordatorios" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivPersona"
+                android:layout_width="match_parent"
+                android:layout_height="137dp"
+                android:contentDescription="@string/personas"
+                android:onClick="persona"
+                app:srcCompat="@drawable/personas" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:text="@string/personas" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivRecor"
+                android:layout_width="match_parent"
+                android:layout_height="173dp"
+                android:contentDescription="@string/recordatorios"
+                android:onClick="recordatorio"
+                app:srcCompat="@drawable/botiquin" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:text="@string/recordatorios" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
