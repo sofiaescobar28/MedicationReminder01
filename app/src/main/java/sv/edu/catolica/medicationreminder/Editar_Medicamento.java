@@ -46,12 +46,12 @@ public class Editar_Medicamento extends AppCompatActivity {
         if (NombreMedicamento.getText().toString().trim().isEmpty() &&
         TipoMed.getText().toString().trim().isEmpty()){
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("Los campos no pueden quedar en blanco.");
+            validacion.setText(R.string.campos_vacios);
         }else
         {
             if (validarInsertMedicamentoEditar().size()>0){
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Ya existen un medicamento llamado "+NombreMedicamento.getText().toString().trim()+".");
+                validacion.setText(R.string.yaexiste_med+" "+NombreMedicamento.getText().toString().trim()+".");
             }
             else{
                 ContentValues registro = new ContentValues();
@@ -66,7 +66,7 @@ public class Editar_Medicamento extends AppCompatActivity {
                 }else
                 {
                     validacion.setTextColor(getColor(R.color.rojo));
-                    validacion.setText("Sucedió un problema al modificar.");
+                    validacion.setText(R.string.error_update);
 
                 }
             }
@@ -93,7 +93,13 @@ public class Editar_Medicamento extends AppCompatActivity {
         db.close();
         return meds;
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent ventana= new Intent(getApplicationContext(),Medicamento.class);
+        startActivity(ventana);
+    }
     public void Cancelar(View view) {
         finish();
         Intent ventana= new Intent(getApplicationContext(),Medicamento.class);

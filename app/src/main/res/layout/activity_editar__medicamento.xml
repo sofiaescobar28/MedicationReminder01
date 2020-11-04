@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="MED REMINDER"
+        android:text="@string/med_reminder"
         android:textSize="28sp" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EDITAR MEDICAMENTO"
+        android:text="@string/editar_medicamento"
         android:textAlignment="center"
         android:textSize="18sp" />
 
@@ -34,19 +34,19 @@
             android:id="@+id/txtNombreMedEditar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Nombre del medicamento" />
+            android:hint="@string/nombre_del_medicamento" />
 
         <EditText
             android:id="@+id/txtTipoMedEditar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Tipo de medicamento" />
+            android:hint="@string/tipo_de_medicamento" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="updateMedicamento"
-            android:text="guardar cambios"
+            android:text="@string/guardar_cambios"
 
             />
 
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="Cancelar"
-            android:text="Salir" />
+            android:text="@string/salir" />
     </LinearLayout>
 
     <TextView

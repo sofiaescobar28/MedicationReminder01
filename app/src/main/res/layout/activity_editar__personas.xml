@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Editar Persona"
+        android:text="@string/editar_persona"
         android:textColor="#000000"
         android:textSize="25sp" />
 
