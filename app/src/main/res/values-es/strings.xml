@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MedicationReminder</string>
+    <string name="recordatorio">Recordatorio</string>
+    <string name="titulo_recordatorio">Título del recordatorio</string>
+    <string name="MDH">Minutos/horas/dias</string>
+    <string name="valor_intervalo">Valor de intervalo</string>
+    <string name="permanente">Permanente</string>
+    <string name="fecha_final">Fecha final</string>
+    <string name="dd_mm_aaa">dd/mm/aaa</string>
+    <string name="formatoFechaFinal">dd/MM/aaaa</string>
+    <string name="logo_de_app">logo de app</string>
+    <string name="personas">Personas</string>
+    <string name="recordatorios">Recordatorios</string>
+    <string name="medication_reminder">Medication Reminder</string>
+    <string name="buscar">Buscar</string>
+    <string name="agregar_persona">Agregar persona</string>
+    <string name="nombre">Nombre</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="icono_medicamento">Icono medicamento</string>
+    <string name="medicamento">MEDICAMENTO</string>
+    <string name="icono_historia">Icono historia</string>
+    <string name="historial">HISTORIAL</string>
+    <string name="dosificacion">Dosificación</string>
+    <string name="medicamentos">Medicamentos</string>
+    <string name="dosis">Dosis</string>
+    <string name="tomar">TOMAR</string>
+    <string name="comentario">Comentario</string>
+    <string name="tipo">Tipo:</string>
+    <string name="seleccionar">Seleccionar</string>
+    <string name="datos_de_dosis">Datos de dosis</string>
+    <string name="universo_desarrollo" translatable="false">Universo Desarrollo</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="mensaje_eliminar_persona">¿Está seguro que desea eliminar a esta persona y todos sus registros?</string>
+    <string name="titulo_eliminar_persona">Confirmar eliminar persona</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="campos_vacios">Los campos no pueden quedar en blanco.</string>
+    <string name="yaexiste_med">\"Ya existen un medicamento llamado \"</string>
+    <string name="med_insertado">Medicamento registrado correctamente.</string>
+    <string name="error">Sucedió un error al guardar.</string>
+    <string name="no_hay_elementos">No se encontró nada.</string>
+    <string name="error_update">Sucedió un problema al modificar.</string>
+    <string name="id">\"Id: \"</string>
+    <string name="dosificacion2">\"Dosificación: \"</string>
+    <string name="dosis2">\"Dosis: \"</string>
+    <string name="fecha2">\"Fecha: \"</string>
+    <string name="estado2">\"Estado: \"</string>
+    <string name="comentario2">\"Comentario: \"</string>
+    <string name="nuevo_medicamento">NUEVO MEDICAMENTO</string>
+    <string name="nombre_del_medicamento">Nombre del medicamento</string>
+    <string name="tipo_de_medicamento">Tipo de medicamento</string>
+    <string name="guardar_cambios">guardar cambios</string>
+    <string name="medicamento2">\"Medicamento: \"</string>
+    <string name="tipo2">\"Tipo: \"</string>
+    <string name="busquedanoencontrada">No hay elementos para esta búsqueda.</string>
+    <string name="salir">Salir</string>
+    <string name="editar_medicamento">EDITAR MEDICAMENTO</string>
+    <string name="med_reminder" translatable="false">MED REMINDER</string>
+    <string name="editar_persona">Editar Persona</string>
+    <string name="editar_persona">Editar Persona</string>
+    <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
+</resources>

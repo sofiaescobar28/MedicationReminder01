@@ -36,11 +36,11 @@ public class Agregar_Medicamento extends AppCompatActivity {
                 TipoMed.getText().toString().trim().isEmpty())
         {
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("Los campos no pueden quedar en blanco.");
+            validacion.setText(R.string.campos_vacios);
         }else{
             if (validarInsertMedicamento().size()>0){
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Ya existen un medicamento llamado "+NombreMedicamento.getText().toString().trim()+".");
+                validacion.setText(getString(R.string.yaexiste_med)+NombreMedicamento.getText().toString().trim()+".");
             }
             else{
                 int count =getCount();
@@ -58,12 +58,12 @@ public class Agregar_Medicamento extends AppCompatActivity {
 
                 if (filaAfectadas !=-1){
                     validacion.setTextColor(getColor(R.color.verde));
-                    validacion.setText("Medicamento registrado correctamente.");
+                    validacion.setText(R.string.med_insertado);
                     LimpiarCasilas();
                 }else
                 {
                     validacion.setTextColor(getColor(R.color.rojo));
-                    validacion.setText("Sucedió un error al guardar.");
+                    validacion.setText(R.string.error);
                 }
                 db.close();
             }
@@ -83,7 +83,7 @@ public class Agregar_Medicamento extends AppCompatActivity {
 
         }else   {
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("No se encontró nada.");
+            validacion.setText(R.string.no_hay_elementos);
         }
         db.close();
         return num;

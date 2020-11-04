@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="APLICATION REMINDER"
+        android:text="@string/aplication_reminder"
         android:textSize="28sp" />
 
     <TextView
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dosificación:" />
+            android:text="@string/dosificacion2" />
 
         <TextView
             android:id="@+id/lblValorDosificacionEditar"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dosis: " />
+            android:text="@string/dosis2" />
 
         <TextView
             android:id="@+id/lblValorDosisEditar"
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fecha: " />
+            android:text="@string/fecha2" />
 
         <TextView
             android:id="@+id/lblValorFechaEditar"
@@ -92,7 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Comentario"
+        android:hint="@string/comentario"
         android:inputType="textMultiLine" />
 
     <Button
@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="updateHistorial"
-        android:text="GUARDAR CAMBIOS"
+        android:text="@string/guardar_cambios"
         android:textSize="20sp" />
 
     <Button
@@ -108,7 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="Salir"
-        android:text="SALIR"
+        android:text="@string/salir"
         android:textSize="20sp" />
 
     <TextView

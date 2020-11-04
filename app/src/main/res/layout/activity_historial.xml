@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="MED REMINDER"
+        android:text="@string/med_reminder"
         android:textSize="28sp" />
 
 
@@ -22,7 +22,7 @@
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HISTORIAL"
+        android:text="@string/historial"
         android:textAlignment="center"
         android:textSize="18sp" />
 
