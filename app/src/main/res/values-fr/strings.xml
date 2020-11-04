@@ -4,11 +4,16 @@
     <string name="recordatorio">Rappel</string>
     <string name="titulo_recordatorio">Titre du rappel</string>
     <string name="MDH">Minutes/Heures/Jours</string>
+
+    <string name="dd">JJ</string>
+    <string name="mm">MM</string>
+    <string name="aaaa">AAAA</string>
+    <string name="pleca">/</string>
+
     <string name="valor_intervalo">Valeur d\'intervalle</string>
     <string name="permanente">Permanent</string>
     <string name="fecha_final">" Date finale"</string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
-    <string name="formatoFechaFinal">dd/MM/aaaa</string>
     <string name="logo_de_app">" logo de l'application"</string>
     <string name="personas">Gens</string>
     <string name="recordatorios">" Rappels"</string>

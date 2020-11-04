@@ -4,11 +4,16 @@
     <string name="recordatorio">Promemoria</string>
     <string name="titulo_recordatorio">Titolo promemoria</string>
     <string name="MDH">Minuti/Ore/Giorni</string>
+
+    <string name="dd">GG</string>
+    <string name="mm">MM</string>
+    <string name="aaaa">AAAA</string>
+    <string name="pleca">/</string>
+
     <string name="valor_intervalo">Valore dell\'intervallo</string>
     <string name="permanente">Permanente</string>
     <string name="fecha_final">" Data finale"</string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
-    <string name="formatoFechaFinal">dd/MM/aaaa</string>
     <string name="logo_de_app">" logo dell'app"</string>
     <string name="personas">" Persone"</string>
     <string name="recordatorios">" Promemoria"</string>

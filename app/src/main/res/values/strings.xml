@@ -1,13 +1,18 @@
 <resources>
     <string name="app_name">MedicationReminder</string>
-    <string name="recordatorio">Recordatorio</string>
-    <string name="titulo_recordatorio">Título del recordatorio</string>
-    <string name="MDH">Minutos/horas/dias</string>
-    <string name="valor_intervalo">Valor de intervalo</string>
-    <string name="permanente">Permanente</string>
-    <string name="fecha_final">Fecha final</string>
+    <string name="recordatorio">Reminder</string>
+    <string name="titulo_recordatorio">Reminder title</string>
+    <string name="MDH">Minutes/hours/days</string>
+
+    <string name="dd">DD</string>
+    <string name="mm">MM</string>
+    <string name="aaaa">YYYY</string>
+    <string name="pleca">/</string>
+
+    <string name="valor_intervalo">Interval value</string>
+    <string name="permanente">Permanent</string>
+    <string name="fecha_final">Final date</string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
-    <string name="formatoFechaFinal">dd/MM/aaaa</string>
     <string name="logo_de_app">" app logo"</string>
     <string name="personas">" People"</string>
     <string name="recordatorios">Reminders</string>
