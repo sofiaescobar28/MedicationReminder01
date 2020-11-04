@@ -7,7 +7,6 @@
     <string name="permanente">Permanente</string>
     <string name="fecha_final">Fecha final</string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
-    <string name="formatoFechaFinal">dd/MM/aaaa</string>
     <string name="logo_de_app">logo de app</string>
     <string name="personas">Personas</string>
     <string name="recordatorios">Recordatorios</string>
@@ -30,4 +29,8 @@
     <string name="seleccionar">Seleccionar</string>
     <string name="datos_de_dosis">Datos de dosis</string>
     <string name="universo_desarrollo">Universo Desarrollo</string>
+    <string name="dd">DD</string>
+    <string name="pleca">/</string>
+    <string name="mm">MM</string>
+    <string name="aaaa">AAAA</string>
 </resources>
