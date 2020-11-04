@@ -30,7 +30,7 @@ public class ManejadorBD extends SQLiteOpenHelper {
                 "RE_INTERVALO_VALOR int," +
                 "RE_F_FINAL text," +
                 "RE_ESTADO text," +
-                "foreign key (PER_COD) references PERSONA(PER_COD))");
+                "foreign key (PER_COD) references PERSONA(PER_COD) ON DELETE CASCADE)");
 
         db.execSQL("CREATE TABLE MEDICAMENTO " +
                 "(MED_COD int primary key," +
@@ -42,15 +42,15 @@ public class ManejadorBD extends SQLiteOpenHelper {
                 "MED_COD int," +
                 "MEDXRED_DOSIFICACION text," +
                 "RE_DOSIS text," +
-                "foreign key (RE_COD) references RECORDATORIO(RE_COD)," +
-                "foreign key (MED_COD) references MEDICAMENTO(MED_COD))");
+                "foreign key (RE_COD) references RECORDATORIO(RE_COD) ON DELETE CASCADE," +
+                "foreign key (MED_COD) references MEDICAMENTO(MED_COD) ON DELETE CASCADE)");
         db.execSQL("CREATE TABLE HISTORIAL " +
                 "(H_COD int primary key," +
                 "MEDXRED_COD int," +
                 "H_FECHA text," +
                 "H_ESTADO text," +
                 "H_COMENTARIO text," +
-                "foreign key (MEDXRED_COD) references MEDXRE(MEDXRED_COD))");
+                "foreign key (MEDXRED_COD) references MEDXRE(MEDXRED_COD) ON DELETE CASCADE)");
 
     }
 

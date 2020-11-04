@@ -83,13 +83,20 @@ private String titulo,dosificacion,dosis,fecha,estado,comentario,id,medre;
                 }else
                 {
                     validacion.setTextColor(getColor(R.color.rojo));
-                    validacion.setText("Sucedió un problema al modificar.");
+                    validacion.setText(R.string.error_update);
 
                 }
 
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent ventana= new Intent(getApplicationContext(),Historial.class);
+        startActivity(ventana);
+    }
 
     public void Salir(View view) {
         finish();

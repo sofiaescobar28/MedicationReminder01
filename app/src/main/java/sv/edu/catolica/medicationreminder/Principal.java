@@ -1,9 +1,12 @@
 package sv.edu.catolica.medicationreminder;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,13 +22,47 @@ public class Principal extends AppCompatActivity {
         ivRecord = findViewById(R.id.ivRecor);
     }
 
+    //Ir a Personas
     public void persona(View v){
+        finish();
         Intent perso = new Intent(Principal.this, Personas.class);
         startActivity(perso);
     }
 
+    //Ir a Recordatorios
     public void recordatorio(View v){
+        finish();
         Intent recor = new Intent(Principal.this, Recordatorios.class);
         startActivity(recor);
+    }
+
+    //Método para salir y detener la aplicación
+    public void Salir(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("¿Está seguro de salir de Medication Reminder?").setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish(); System.exit(0);
+            }
+        }).setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    //Al presionar Atrás
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK){
+            Salir();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

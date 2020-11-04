@@ -73,12 +73,12 @@ final String n = h.MEDxRE;
 
             title.setText(h.RECORDATORIO);
             empty.setText("");
-          lblID.setText("Id: ");
-            lblDosificacion.setText("Dosificación: ");
-            lblDosis.setText("Dosis: ");
-            lblFecha.setText("Fecha: ");
-            lblEstado.setText("Estado: ");
-            lblComentario.setText("Comentario: ");
+          lblID.setText(R.string.id);
+            lblDosificacion.setText(R.string.dosificacion2);
+            lblDosis.setText(R.string.dosis2);
+            lblFecha.setText(R.string.fecha2);
+            lblEstado.setText(R.string.estado2);
+            lblComentario.setText(R.string.comentario2);
 
 
             title.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
@@ -104,7 +104,7 @@ final String n = h.MEDxRE;
             final TextView ValorEstado=new TextView(this);
             final TextView ValorComentario=new TextView(this);
           final Button btnEditar = new Button(this);
-          btnEditar.setText("Editar");
+          btnEditar.setText(R.string.editar);
 
 
             valorIDH.setText(String.valueOf(h.H_COD));

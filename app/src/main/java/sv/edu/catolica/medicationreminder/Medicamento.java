@@ -76,9 +76,9 @@ public class Medicamento extends AppCompatActivity {
 
 
             empty.setText("");
-            lblID.setText("Id: ");
-            lblNombre.setText("Medicamento: ");
-            lblTipo.setText("Tipo: ");
+            lblID.setText(R.string.id);
+            lblNombre.setText(R.string.medicamento2);
+            lblTipo.setText(R.string.tipo2);
 
 
             rowBoton.addView(empty);
@@ -88,7 +88,7 @@ public class Medicamento extends AppCompatActivity {
 
 
             Button btnEditarMed = new Button(this);
-            btnEditarMed.setText("Editar");
+            btnEditarMed.setText(R.string.editar);
 
             final TextView lblIdValor=new TextView(this);
             final TextView lblNombreValor=new TextView(this);
@@ -185,7 +185,7 @@ public class Medicamento extends AppCompatActivity {
                 construirInterfaz(HisMedicamentos);
             }else{
                 suceso.setTextColor(getResources().getColor(R.color.naranja));
-                suceso.setText("No hay elementos para esta búsqueda.");
+                suceso.setText(R.string.busquedanoencontrada);
             }
 
 
