@@ -27,7 +27,7 @@ public class ManejadorBD extends SQLiteOpenHelper {
                 "RE_TITULO text," +
                 "RE_F_INICIO text," +
                 "RE_INTERVALO_MDH text," +
-                "RE_INTERVALO_VALOR txt," +
+                "RE_INTERVALO_VALOR int," +
                 "RE_F_FINAL text," +
                 "RE_ESTADO text," +
                 "foreign key (PER_COD) references PERSONA(PER_COD) ON DELETE CASCADE)");
