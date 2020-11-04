@@ -1,5 +1,6 @@
 package sv.edu.catolica.medicationreminder;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,7 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -51,6 +56,35 @@ public class Recordatorios extends AppCompatActivity {
                 llenarListView();
             }
         });
+
+        registerForContextMenu(lvRecordatorio);
+    }
+
+    //Crear menuRecordatorio
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflador = getMenuInflater();
+
+        if(v.getId()==R.id.lvRecordar){
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            inflador.inflate(R.menu.menurecordatorio, menu);
+        }
+    }
+
+    //Acciones a realizar dependiendo de la opción seleccionada
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+            case R.id.listaRecordatorioEditar:
+                //código para editar
+                break;
+            default:
+        }
+        return super.onContextItemSelected(item);
     }
 
     //Método de inicio de actividad
