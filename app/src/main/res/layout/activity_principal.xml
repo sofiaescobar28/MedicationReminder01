@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="173dp"
                 android:contentDescription="@string/recordatorios"
-                android:onClick="recordatorio"
+                android:onClick="medicamento"
                 app:srcCompat="@drawable/botiquin" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
-                android:text="@string/recordatorios" />
+                android:text="@string/medicamentos" />
         </LinearLayout>
 
     </LinearLayout>

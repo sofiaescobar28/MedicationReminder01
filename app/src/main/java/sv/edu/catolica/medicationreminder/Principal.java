@@ -30,9 +30,9 @@ public class Principal extends AppCompatActivity {
     }
 
     //Ir a Recordatorios
-    public void recordatorio(View v){
+    public void medicamento(View v){
         finish();
-        Intent recor = new Intent(Principal.this, Recordatorios.class);
+        Intent recor = new Intent(Principal.this, Medicamento.class);
         startActivity(recor);
     }
 

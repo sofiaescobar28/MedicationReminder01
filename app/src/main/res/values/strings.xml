@@ -58,6 +58,11 @@
     <string name="guardar_cambios">Save Changes</string>
     <string name="tipo_de_medicamento">Medication type</string>
     <string name="nuevo_medicamento">NEW MEDICINE</string>
+    <string name="dd" translatable="false">DD</string>
+    <string name="mm" translatable="false">MM</string>
+    <string name="aaaa" translatable="false">YYYY</string>
+    <string name="pleca" translatable="false">/</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Edit Person</string>
+
 </resources>
