@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".Elegir_medicamento">
     <TextView
         android:id="@+id/textView2"
@@ -20,25 +21,31 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/logo_de_app"
         tools:srcCompat="@tools:sample/avatars" />
+    <EditText
+        android:id="@+id/etBuscarM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buscar por nombre del medicamento" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/medicamento"
+        android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/medicamento"
-            android:textSize="24sp"/>
+        android:orientation="vertical">
+
         <TableLayout
+            android:id="@+id/lyConMedicinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/colorAccent">
+
             <TableRow>
                 <TextView
-                    android:id="@+id/tvNombreM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -49,7 +56,6 @@
             </TableRow>
             <TableRow>
                 <TextView
-                    android:id="@+id/tvTipoM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

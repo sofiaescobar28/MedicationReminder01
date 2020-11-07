@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Editar_Recordatorio"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/logo_de_app"
+        tools:srcCompat="@tools:sample/avatars" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/recordatorio"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:id="@+id/etTitRecordatorioEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/titulo_recordatorio"
+            android:importantForAutofill="no" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spnMDHEdit"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:entries="@array/MDH_valores"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/MDH"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etValorIntervaloEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/valor_intervalo"
+            android:inputType="number"
+            android:importantForAutofill="no" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radPermanenteEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="PermanenteEdit"
+                android:text="@string/permanente"
+                android:checked="true"/>
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">-->
+            <RadioButton
+                android:id="@+id/radFechaFinalEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_final"
+                android:onClick="noPermanenteEdit"
+                android:layout_weight="1"/>
+            <!--<CalendarView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dateTextAppearance="@id"/>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/etDiaEdit"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dd"
+                    android:inputType="number"
+                    android:importantForAutofill="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/pleca"/>
+                <EditText
+                    android:id="@+id/etMesEdit"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mm"
+                    android:inputType="number"
+                    android:importantForAutofill="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/pleca"/>
+                <EditText
+                    android:id="@+id/etAnioEdit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/aaaa"
+                    android:inputType="number"
+                    android:importantForAutofill="no" />
+            </LinearLayout>
+            <!--</LinearLayout>-->
+        </RadioGroup>
+        <Spinner
+            android:id="@+id/spnEstadoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:entries="@array/EstadoR_valores"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvValidarReEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:onClick="GuardarEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar"
+            android:textSize="20sp" />
+        <Button
+            android:onClick="CancelarEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelar"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</LinearLayout>
