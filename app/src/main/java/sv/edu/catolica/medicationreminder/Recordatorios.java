@@ -103,6 +103,7 @@ public class Recordatorios extends AppCompatActivity {
 
     //Método de inicio de actividad
     public void llenarListView(){
+        String intervalo = "";
         if (!etBuscarRecordatorio.getText().toString().trim().isEmpty()){
             db = admin.getWritableDatabase();
             Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
@@ -113,10 +114,26 @@ public class Recordatorios extends AppCompatActivity {
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
             while (fila.moveToNext()){
+                switch (fila.getString(2)) {
+                    case "1":
+                        intervalo = "Minutos";
+                        break;
+                    case "2":
+                        intervalo = "Hora";
+                        break;
+                    case "3":
+                        intervalo = "Días";
+                        break;
+                    case "4":
+                        intervalo = "Semanas";
+                        break;
+                    default:
+                }
+
                 Map<String, String> datum = new HashMap<String, String>(5);
                 datum.put("titulo", fila.getString(0));
                 datum.put("inicio", "Fecha de inicio: " + fila.getString(1));
-                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " " + fila.getString(2));
+                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " " + intervalo);
                 datum.put("final", "Fecha final: " + fila.getString(4));
                 datum.put("estado", "Estado: " + fila.getString(5));
                 data.add(datum);
@@ -141,11 +158,29 @@ public class Recordatorios extends AppCompatActivity {
 
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
+
+
             while (fila.moveToNext()){
+                switch (fila.getString(2)) {
+                    case "1":
+                        intervalo = "Minutos";
+                        break;
+                    case "2":
+                        intervalo = "Hora";
+                        break;
+                    case "3":
+                        intervalo = "Días";
+                        break;
+                    case "4":
+                        intervalo = "Semanas";
+                        break;
+                    default:
+                }
+
                 Map<String, String> datum = new HashMap<String, String>(5);
                 datum.put("titulo", fila.getString(0));
                 datum.put("inicio", "Fecha de inicio: " + fila.getString(1));
-                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " "+ fila.getString(2));
+                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " "+ intervalo);
                 datum.put("final", "Fecha final: " + fila.getString(4));
                 datum.put("estado", "Estado: " + fila.getString(5));
                 data.add(datum);
