@@ -26,7 +26,6 @@ public class Add_Personas extends AppCompatActivity {
         validacion=findViewById(R.id.lblvalidarpersona);
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
-
     }
 
     public void insertarPersona(View view) {

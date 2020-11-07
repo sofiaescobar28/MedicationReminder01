@@ -155,6 +155,9 @@ public class Personas extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
+            case R.id.listaRecordatorios:
+                recordatoriosPersona(lvPersona.getAdapter().getItem(info.position).toString());
+                break;
             case R.id.listaEditar:
                 editarPersona(lvPersona.getAdapter().getItem(info.position).toString());
                 break;
@@ -164,6 +167,23 @@ public class Personas extends AppCompatActivity {
             default:
         }
         return super.onContextItemSelected(item);
+    }
+
+    //Enviar datos para ver recordatorios
+    public void recordatoriosPersona(String nombre){
+        db = admin.getWritableDatabase();
+
+        Cursor fila = db.rawQuery("SELECT PER_COD, PER_NOMBRE FROM PERSONA" +
+                " WHERE PER_NOMBRE = '" + nombre + "'",null);
+
+        if (fila.moveToFirst()){
+            Intent recordatorios_persona = new Intent(Personas.this, Recordatorios.class);
+            recordatorios_persona.putExtra("persona_id", fila.getString(0));
+            startActivityForResult(recordatorios_persona,777);
+        }else{
+            Toast.makeText(getApplicationContext(), "Error al seleccionar la persona", Toast.LENGTH_LONG).show();
+        }
+        db.close();
     }
 
     //Enviar datos para editar un nombre
