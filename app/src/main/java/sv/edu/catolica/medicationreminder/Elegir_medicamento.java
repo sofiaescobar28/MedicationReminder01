@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import javax.crypto.BadPaddingException;
 
 public class Elegir_medicamento extends AppCompatActivity {
     ManejadorBD admin;
@@ -123,20 +127,20 @@ public class Elegir_medicamento extends AppCompatActivity {
             TableRow lineaTipo= new TableRow(getApplicationContext());
             TableRow lineaBoton = new TableRow(getApplicationContext());
 
-            TextView vacio = new TextView(this);
-            TextView tvID = new TextView(this);
-            final TextView tvNombre = new TextView(this);
-            TextView tvTipo=new TextView(this);
+            //TextView vacio = new TextView(this);
+            //TextView tvID = new TextView(this);
+            //final TextView tvNombre = new TextView(this);
+            //TextView tvTipo=new TextView(this);
 
-            vacio.setText("");
-            tvID.setText(R.string.id);
-            tvNombre.setText(R.string.medicamento2);
-            tvTipo.setText(R.string.tipo2);
+            //vacio.setText("");
+            //tvID.setText(R.string.id);
+            //tvNombre.setText(R.string.medicamento2);
+            //tvTipo.setText(R.string.tipo2);
 
-            lineaBoton.addView(vacio);
-            lineaIdMed.addView(tvID);
-            lineaNombre.addView(tvNombre);
-            lineaTipo.addView(tvTipo);
+            //lineaBoton.addView(vacio);
+            //lineaIdMed.addView(tvID);
+            //lineaNombre.addView(tvNombre);
+            //lineaTipo.addView(tvTipo);
 
             Button btnSel = new Button(this);
             btnSel.setText(R.string.seleccionar);
@@ -145,9 +149,15 @@ public class Elegir_medicamento extends AppCompatActivity {
             final TextView tvNombreValor=new TextView(this);
             final TextView tvTipoValor=new TextView(this);
 
+
             tvIdValor.setText(String.valueOf(m.MED_COD));
             tvNombreValor.setText(m.MED_NOMBRE);
             tvTipoValor.setText(m.MED_TIPO);
+
+            tvIdValor.setVisibility(View.INVISIBLE);
+            tvNombreValor.setGravity(Gravity.CENTER);
+            tvNombreValor.setTextSize(20);
+
             btnSel.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
@@ -170,6 +180,8 @@ public class Elegir_medicamento extends AppCompatActivity {
             tablaVista.addView(lineaNombre);
             tablaVista.addView(lineaTipo);
             tablaVista.addView(lineaBoton);
+
+            tablaVista.setPadding(10,10,10,10);
 
             contenedor.addView(tablaVista);
         }

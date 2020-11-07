@@ -30,12 +30,15 @@
         <activity android:name=".medicamento_recordatorio" />
         <activity android:name=".Recordatorio_pregunta" />
         <activity android:name=".Recordatorios">
+
         </activity>
         <activity android:name=".Add_Personas"></activity>
         <activity android:name=".Add_Recordatorios"></activity>
         <activity android:name=".Personas" />
         <activity android:name=".Principal" />
-        <activity android:name=".Splash_inicio"></activity>
+        <activity android:name=".Splash_inicio">
+
+        </activity>
     </application>
 
 </manifest>

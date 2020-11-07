@@ -32,17 +32,20 @@
         android:gravity="center"
         android:text="@string/medicamento"
         android:textSize="24sp"/>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TableLayout
             android:id="@+id/lyConMedicinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/colorAccent">
+            android:layout_margin="10dp">
 
             <TableRow>
                 <TextView
@@ -71,4 +74,5 @@
             </TableRow>
         </TableLayout>
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>
