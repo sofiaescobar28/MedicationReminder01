@@ -65,4 +65,5 @@
     <string name="nuevo_medicamento">NEW MEDICINE</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Edit Person</string>
+
 </resources>

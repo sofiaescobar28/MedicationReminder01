@@ -218,6 +218,7 @@ public class Personas extends AppCompatActivity {
 
     //Abrir la pantalla Add_Persona
     public void persona(View v){
+        finish();
         Intent perso = new Intent(Personas.this, Add_Personas.class);
         startActivity(perso);
     }

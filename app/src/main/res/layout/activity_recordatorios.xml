@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:context=".Recordatorios">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/medication_reminder"
         android:textColor="#000000"
         android:textSize="30sp" />
@@ -21,23 +22,31 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/recordatorios"
         android:textColor="#000000"
         android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/etBuscar2"
+    <Button
+        android:id="@+id/btnAgregar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="nuevoRecordatorio"
+        android:text="Agregar Recordatorio" />
+
+    <EditText
+        android:id="@+id/etBuscarRecordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="@string/buscar"
         android:importantForAutofill="no"
         android:inputType="textPersonName" />
 
     <ListView
+        android:id="@+id/lvRecordar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp" />
+        android:layout_height="match_parent" />
 </LinearLayout>

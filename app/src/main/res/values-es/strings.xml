@@ -66,4 +66,5 @@
     <string name="med_reminder" translatable="false">MED REMINDER</string>
     <string name="editar_persona">Editar Persona</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
+
 </resources>
