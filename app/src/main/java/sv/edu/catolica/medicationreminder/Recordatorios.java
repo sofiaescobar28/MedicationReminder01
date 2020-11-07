@@ -85,12 +85,20 @@ public class Recordatorios extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
+            case R.id.listaRecordatorioSeleccionar:
+                finish();
+                break;
             case R.id.listaRecordatorioEditar:
-                //código para editar
+                llenarRE();
                 break;
             default:
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void llenarRE() {
+        finish();
+        Intent EditarRec = new Intent(Recordatorios.this,Editar_Recordatorio.class);
     }
 
     //Método de inicio de actividad
@@ -161,6 +169,7 @@ public class Recordatorios extends AppCompatActivity {
     public void nuevoRecordatorio(View view) {
         finish();
         Intent nuevoRecord = new Intent(getApplicationContext(), Add_Recordatorios.class);
+        nuevoRecord.putExtra("PER_COD",persona_id);
         startActivity(nuevoRecord);
     }
 

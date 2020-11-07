@@ -21,11 +21,6 @@
         <activity android:name=".medicamento_recordatorio" />
         <activity android:name=".Recordatorio_pregunta" />
         <activity android:name=".Recordatorios" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Add_Personas" >
         </activity>

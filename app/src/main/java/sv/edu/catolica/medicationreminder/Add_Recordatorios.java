@@ -22,11 +22,11 @@ public class Add_Recordatorios extends AppCompatActivity {
     private EditText etTit,etValor,etDD,etMM,etAA;
     private Spinner spnMDH,spnEstado;
     private RadioButton radPerm,radFFinal;
-    private String titulo,fInicio,fFinal,estado;
+    private String titulo,fInicio,fFinal,id_persona;
     private TextView validacion;
     ManejadorBD admin;
     SQLiteDatabase db;
-    int filaAfectadas,valor,mdh,id_persona;
+    int filaAfectadas,valor,mdh, estado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class Add_Recordatorios extends AppCompatActivity {
         validacion = findViewById(R.id.tvValidarRe);
 
         Bundle extras =getIntent().getExtras();
-        id_persona = extras.getInt("PER_ID");
+        id_persona = extras.getString("PER_COD");
 
         etDD.setEnabled(false);
         etMM.setEnabled(false);
@@ -77,7 +77,7 @@ public class Add_Recordatorios extends AppCompatActivity {
                     ContentValues registro = new ContentValues();
                     Date Hoy = new Date();
                     mdh = spnMDH.getSelectedItemPosition();
-                    estado = spnEstado.getSelectedItem().toString();
+                    estado = spnEstado.getSelectedItemPosition();
 
                     fInicio = String.valueOf(Hoy.getMinutes());
                     fInicio +=":";
@@ -179,7 +179,18 @@ public class Add_Recordatorios extends AppCompatActivity {
 
     public void Cancelar(View view) {
         this.finish();
-        Intent personas = new Intent(getApplicationContext(),Personas.class);
-        startActivity(personas);
+        Intent recordatorios = new Intent(getApplicationContext(),Recordatorios.class);
+        recordatorios.putExtra("persona_id",id_persona);
+        startActivity(recordatorios);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        this.finish();
+        Intent recordatorios = new Intent(getApplicationContext(),Recordatorios.class);
+        recordatorios.putExtra("persona_id",id_persona);
+        startActivity(recordatorios);
     }
 }

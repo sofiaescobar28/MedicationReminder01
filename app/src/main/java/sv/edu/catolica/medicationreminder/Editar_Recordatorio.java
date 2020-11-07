@@ -24,7 +24,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
     private TextView validacion;
     ManejadorBD admin;
     SQLiteDatabase db;
-    int filaAfectadas,valor,mdh,id,id_persona;
+    int filaAfectadas,valor,mdh,id,id_persona,idRec;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
 
         /**campos de extras
          * id (int)
+         * idRec
          * Per_Cod (int)
          * Valor (string)
          * Rec_cod (string)
@@ -105,7 +106,8 @@ public class Editar_Recordatorio extends AppCompatActivity {
                     fInicio += getString(R.string.pleca) + Hoy.getYear();
 
                     registro.put("RE_COD",id);
-                    //registro.put("PER_COD");
+                    registro.put("RE_COD",idRec);
+                    registro.put("PER_COD",id_persona);
                     registro.put("RE_TITULO", titulo);
                     registro.put("RE_F_INICIO", fInicio);
                     registro.put("RE_INTERVALO_MDH", mdh);
