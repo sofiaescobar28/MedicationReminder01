@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ public class Recordatorios extends AppCompatActivity {
     SQLiteDatabase db;
     private ListView lvRecordatorio;
     private EditText etBuscarRecordatorio;
+    String persona_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,10 @@ public class Recordatorios extends AppCompatActivity {
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
         lvRecordatorio = findViewById(R.id.lvRecordar);
         etBuscarRecordatorio = findViewById(R.id.etBuscarRecordatorio);
+
+        //Obtener id de la persona de la actividad Persona
+        Bundle extras = getIntent().getExtras();
+        persona_id = extras.getString("persona_id");
 
         llenarListView();
 
@@ -92,7 +98,8 @@ public class Recordatorios extends AppCompatActivity {
         if (!etBuscarRecordatorio.getText().toString().trim().isEmpty()){
             db = admin.getWritableDatabase();
             Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
-                            "WHERE RE_TITULO like '%"+etBuscarRecordatorio.getText().toString().trim()+"%' ORDER BY RE_TITULO"
+                            "WHERE PER_COD = '" + persona_id + "' AND RE_TITULO like '%"+etBuscarRecordatorio.getText().toString().trim()+"%' " +
+                            "ORDER BY RE_TITULO"
                     ,null);
 
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
@@ -120,7 +127,8 @@ public class Recordatorios extends AppCompatActivity {
             lvRecordatorio.setAdapter(adapter);
         }else{
             db = admin.getWritableDatabase();
-            Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO ORDER BY RE_TITULO"
+            Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO " +
+                            "FROM RECORDATORIO WHERE PER_COD = '" + persona_id + "' ORDER BY RE_TITULO"
                     ,null);
 
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
@@ -149,9 +157,20 @@ public class Recordatorios extends AppCompatActivity {
         }
     }
 
+    //Actividad nuevo recordatorio
     public void nuevoRecordatorio(View view) {
         finish();
         Intent nuevoRecord = new Intent(getApplicationContext(), Add_Recordatorios.class);
         startActivity(nuevoRecord);
+    }
+
+    //Al presionar el botón Atrás
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK){
+            finish();
+            Intent persona = new Intent(getApplicationContext(), Personas.class);
+            startActivity(persona);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
