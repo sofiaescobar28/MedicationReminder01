@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,13 +16,18 @@ import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.SimpleFormatter;
 
 public class Editar_Recordatorio extends AppCompatActivity {
     private EditText etTit,etValor,etDD,etMM,etAA;
     private Spinner spnMDH,spnEstado;
     private RadioButton radPerm,radFFinal;
-    private String titulo,fInicio,fFinal,estado;
+    private String titulo,fInicio,fFinal,estado,info;
+    private Date Re_f_final;
     private TextView validacion;
     ManejadorBD admin;
     SQLiteDatabase db;
@@ -52,30 +59,62 @@ public class Editar_Recordatorio extends AppCompatActivity {
          * Anio (string)
          * MDH (int)
          * Estado (tentativo)**/
-        Bundle extras =getIntent().getExtras();
-        etValor.setText(extras.getString("Valor"));
-        id=extras.getInt("Rec_Cod");
-        id_persona=extras.getInt("Per_Cod");
-        if (extras.getString("Dia").trim().equals("")){
+
+        Bundle extra = getIntent().getExtras();
+        info=extra.getString("Info");
+
+        String[] parts = info.split(",");
+        String part1 = parts[0];//RE_COD
+
+        String[] porPuntos = part1.split(": ");
+        id = Integer.parseInt(porPuntos[1]);
+
+
+        llenarValores();
+        if (fFinal.trim().equals(getText(R.string.permanente))){
             radPerm.isChecked();
             etDD.setText(null);
             etMM.setText(null);
             etAA.setText(null);
+            etDD.setEnabled(false);
+            etMM.setEnabled(false);
+            etAA.setEnabled(false);
         }else{
             radFFinal.isChecked();
-            etDD.setText(extras.getString("Dia"));
-            etMM.setText(extras.getString("Mes"));
-            etAA.setText(extras.getString("Anio"));
+            try {
+                Re_f_final =new SimpleDateFormat("dd/MM/yyyy").parse(fFinal);
+                etDD.setText(Re_f_final.getDay());
+                etMM.setText(Re_f_final.getMonth());
+                etAA.setText(Re_f_final.getYear());
+            }catch (Exception e){
+                validacion.setTextColor(Color.RED);
+                validacion.setText(R.string.error);
+            }
         }
-        spnMDH.setSelection(extras.getInt("MDH"));
 
-        //spnEstado.setSelection(extras.getString("Estado"));
-
-        etDD.setEnabled(false);
-        etMM.setEnabled(false);
-        etAA.setEnabled(false);
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
     }
+
+    public void llenarValores(){
+        db = admin.getWritableDatabase();
+        Cursor fila = db.rawQuery("SELECT RE_COD, PER_COD, RE_TITULO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
+                        "WHERE RE_COD = '" + id + "'"
+                ,null);
+
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+
+        while (fila.moveToNext()) {
+            id = fila.getInt(0);
+            id_persona = fila.getInt(1);
+            etTit.setText(fila.getString(2));
+            spnMDH.setSelection( fila.getInt(2));
+            etValor.setText( fila.getString(3));
+            fFinal = fila.getString(4);
+            spnEstado.setSelection(fila.getInt(5));
+        }
+    }
+
+
     public void PermanenteEdit (View v){
         etDD.setEnabled(false);
         etMM.setEnabled(false);
