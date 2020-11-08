@@ -12,6 +12,13 @@
         android:textSize="20sp"
         android:textColor="@android:color/black"/>
     <TextView
+        android:id="@+id/list_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#4C4B4B"
+        android:visibility="gone"/>
+    <TextView
         android:id="@+id/list_Fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

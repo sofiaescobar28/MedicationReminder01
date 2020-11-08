@@ -106,7 +106,7 @@ public class Recordatorios extends AppCompatActivity {
         String intervalo = "";
         if (!etBuscarRecordatorio.getText().toString().trim().isEmpty()){
             db = admin.getWritableDatabase();
-            Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
+            Cursor fila = db.rawQuery("SELECT RE_COD, RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
                             "WHERE PER_COD = '" + persona_id + "' AND RE_TITULO like '%"+etBuscarRecordatorio.getText().toString().trim()+"%' " +
                             "ORDER BY RE_TITULO"
                     ,null);
@@ -130,20 +130,21 @@ public class Recordatorios extends AppCompatActivity {
                     default:
                 }
 
-                Map<String, String> datum = new HashMap<String, String>(5);
-                datum.put("titulo", fila.getString(0));
-                datum.put("inicio", "Fecha de inicio: " + fila.getString(1));
-                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " " + intervalo);
-                datum.put("final", "Fecha final: " + fila.getString(4));
-                datum.put("estado", "Estado: " + fila.getString(5));
-                data.add(datum);
+                Map<String, String> datum = new HashMap<String, String>(6);
+                datum.put("id", fila.getString(0));
+                datum.put("titulo", fila.getString(1));
+                datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
+                datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
+                datum.put("final", "Fecha final: " + fila.getString(5));
+                datum.put("estado", "Estado: " + fila.getString(6));
             }
 
             db.close();
 
             SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.list_item,
-                    new String[] {"titulo", "inicio", "intervalo", "final", "estado"},
-                    new int[] {R.id.list_Principal,
+                    new String[] {"id","titulo", "inicio", "intervalo", "final", "estado"},
+                    new int[] {R.id.list_ID,
+                            R.id.list_Principal,
                             R.id.list_Fecha,
                             R.id.list_Intervalo,
                             R.id.list_FechaF,
@@ -152,7 +153,7 @@ public class Recordatorios extends AppCompatActivity {
             lvRecordatorio.setAdapter(adapter);
         }else{
             db = admin.getWritableDatabase();
-            Cursor fila = db.rawQuery("SELECT RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO " +
+            Cursor fila = db.rawQuery("SELECT RE_COD, RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO " +
                             "FROM RECORDATORIO WHERE PER_COD = '" + persona_id + "' ORDER BY RE_TITULO"
                     ,null);
 
@@ -161,7 +162,7 @@ public class Recordatorios extends AppCompatActivity {
 
 
             while (fila.moveToNext()){
-                switch (fila.getString(2)) {
+                switch (fila.getString(3)) {
                     case "1":
                         intervalo = "Minutos";
                         break;
@@ -177,20 +178,22 @@ public class Recordatorios extends AppCompatActivity {
                     default:
                 }
 
-                Map<String, String> datum = new HashMap<String, String>(5);
-                datum.put("titulo", fila.getString(0));
-                datum.put("inicio", "Fecha de inicio: " + fila.getString(1));
-                datum.put("intervalo", "Intervalo: " + fila.getString(3) + " "+ intervalo);
-                datum.put("final", "Fecha final: " + fila.getString(4));
-                datum.put("estado", "Estado: " + fila.getString(5));
+                Map<String, String> datum = new HashMap<String, String>(6);
+                datum.put("id", fila.getString(0));
+                datum.put("titulo", fila.getString(1));
+                datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
+                datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
+                datum.put("final", "Fecha final: " + fila.getString(5));
+                datum.put("estado", "Estado: " + fila.getString(6));
                 data.add(datum);
             }
 
             db.close();
 
             SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.list_item,
-                    new String[] {"titulo", "inicio", "intervalo", "final", "estado"},
-                    new int[] {R.id.list_Principal,
+                    new String[] {"id","titulo", "inicio", "intervalo", "final", "estado"},
+                    new int[] {R.id.list_ID,
+                            R.id.list_Principal,
                             R.id.list_Fecha,
                             R.id.list_Intervalo,
                             R.id.list_FechaF,
