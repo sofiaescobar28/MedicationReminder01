@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Tomar_medicamento">
+    tools:context=".Tomar_medicamento"
+    android:padding="20dp">
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -31,12 +32,12 @@
             android:text="@string/historial"
             android:textSize="24sp"/>
         <Spinner
-            android:id="@+id/spnEstado"
+            android:id="@+id/spnEstadoTomar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:entries="@array/estado_historial"/>
         <EditText
-            android:id="@+id/ed"
+            android:id="@+id/etComentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -44,6 +45,10 @@
             android:inputType="textPersonName"
             android:importantForAutofill="no" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/tvValidarToma"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,12 +58,14 @@
             android:id="@+id/btnGuardarH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="GuardarToma"
             android:text="GUARDAR"
             android:textSize="20sp" />
         <Button
             android:id="@+id/btnCancelarH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="CancelarToma"
             android:text="CANCELAR"
             android:textSize="20sp" />
     </LinearLayout>

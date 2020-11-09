@@ -28,14 +28,15 @@ public class Elegir_medicamento extends AppCompatActivity {
     SQLiteDatabase db;
     private LinearLayout contenedor;
     private EditText buscar;
-    private int IDrec=0;
+    private String IDrec,id_persona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elegir_medicamento);
 
-        /*Bundle extras = getIntent().getExtras();
-        IDrec=extras.getInt("RE_COD");*/
+        Bundle extras = getIntent().getExtras();
+        IDrec=extras.getString("RE_COD");
+        id_persona = extras.getString("PER_COD");
 
         buscar=findViewById(R.id.etBuscarM);
         contenedor=findViewById(R.id.lyConMedicinas);
@@ -116,7 +117,7 @@ public class Elegir_medicamento extends AppCompatActivity {
         return meds;
 
     }
-    public void construirInterfaz(ArrayList<EMedicamento> MedHistory){
+    public void construirInterfaz(final ArrayList<EMedicamento> MedHistory){
         for ( EMedicamento m: MedHistory){
             TableLayout tablaVista=new TableLayout(getApplicationContext());
             tablaVista.setShrinkAllColumns(true);
@@ -126,21 +127,6 @@ public class Elegir_medicamento extends AppCompatActivity {
             TableRow lineaNombre = new TableRow(getApplicationContext());
             TableRow lineaTipo= new TableRow(getApplicationContext());
             TableRow lineaBoton = new TableRow(getApplicationContext());
-
-            //TextView vacio = new TextView(this);
-            //TextView tvID = new TextView(this);
-            //final TextView tvNombre = new TextView(this);
-            //TextView tvTipo=new TextView(this);
-
-            //vacio.setText("");
-            //tvID.setText(R.string.id);
-            //tvNombre.setText(R.string.medicamento2);
-            //tvTipo.setText(R.string.tipo2);
-
-            //lineaBoton.addView(vacio);
-            //lineaIdMed.addView(tvID);
-            //lineaNombre.addView(tvNombre);
-            //lineaTipo.addView(tvTipo);
 
             Button btnSel = new Button(this);
             btnSel.setText(R.string.seleccionar);
@@ -164,9 +150,10 @@ public class Elegir_medicamento extends AppCompatActivity {
                                                     finish();
                                                     Intent MEDxRE = new Intent(Elegir_medicamento.this,medicina_por_recordatorio.class);
                                                     MEDxRE.putExtra("id_medicamento",tvIdValor.getText());
-                                                    MEDxRE.putExtra("id_recordatorio",IDrec);
+                                                    MEDxRE.putExtra("id_recordatorio",String.valueOf(IDrec));
                                                     MEDxRE.putExtra("medicamento",tvNombreValor.getText());
                                                     MEDxRE.putExtra("tipo",tvTipoValor.getText());
+                                                    MEDxRE.putExtra("Per_cod",id_persona);
                                                     startActivity(MEDxRE);
                                                 }
                                             }
@@ -185,5 +172,15 @@ public class Elegir_medicamento extends AppCompatActivity {
 
             contenedor.addView(tablaVista);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent mr = new Intent(Elegir_medicamento.this,medicamento_recordatorio.class);
+        mr.putExtra("RE_COD",String.valueOf(IDrec));
+        mr.putExtra("PER_COD",id_persona);
+        startActivity(mr);
     }
 }

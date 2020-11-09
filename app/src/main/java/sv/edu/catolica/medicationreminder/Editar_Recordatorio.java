@@ -26,12 +26,11 @@ public class Editar_Recordatorio extends AppCompatActivity {
     private EditText etTit,etValor,etDD,etMM,etAA;
     private Spinner spnMDH,spnEstado;
     private RadioButton radPerm,radFFinal;
-    private String titulo,fInicio,fFinal,estado,info;
-    private Date Re_f_final;
+    private String titulo,fInicio,fFinal,info;
     private TextView validacion;
     ManejadorBD admin;
     SQLiteDatabase db;
-    int filaAfectadas,valor,mdh,id,id_persona,idRec;
+    int filaAfectadas,valor,mdh,id,id_persona,estado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +43,8 @@ public class Editar_Recordatorio extends AppCompatActivity {
         etAA = findViewById(R.id.etAnioEdit);
         spnMDH = findViewById(R.id.spnMDHEdit);
         spnEstado = findViewById(R.id.spnEstadoEdit);
-        radPerm = findViewById(R.id.radPermanenteEdit);
-        radFFinal = findViewById(R.id.radFechaFinalEdit);
+        radPerm = findViewById(R.id.radPEdit);
+        radFFinal = findViewById(R.id.radFFinalEdit);
         validacion = findViewById(R.id.tvValidarReEdit);
 
         /**campos de extras
@@ -64,15 +63,18 @@ public class Editar_Recordatorio extends AppCompatActivity {
         info=extra.getString("Info");
 
         String[] parts = info.split(",");
-        String part1 = parts[0];//RE_COD
+        String part1 = parts[4];//RE_COD
 
-        String[] porPuntos = part1.split(": ");
+        String[] porPuntos = part1.split("=");
         id = Integer.parseInt(porPuntos[1]);
 
+        admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
 
         llenarValores();
         if (fFinal.trim().equals(getText(R.string.permanente))){
-            radPerm.isChecked();
+            radPerm.setChecked(true);
+            radFFinal.setChecked(false);
+
             etDD.setText(null);
             etMM.setText(null);
             etAA.setText(null);
@@ -80,37 +82,37 @@ public class Editar_Recordatorio extends AppCompatActivity {
             etMM.setEnabled(false);
             etAA.setEnabled(false);
         }else{
-            radFFinal.isChecked();
-            try {
-                Re_f_final =new SimpleDateFormat("dd/MM/yyyy").parse(fFinal);
-                etDD.setText(Re_f_final.getDay());
-                etMM.setText(Re_f_final.getMonth());
-                etAA.setText(Re_f_final.getYear());
-            }catch (Exception e){
-                validacion.setTextColor(Color.RED);
-                validacion.setText(R.string.error);
-            }
-        }
+            radFFinal.setChecked(true);
+            radPerm.setChecked(false);
 
-        admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
+            String [] ff = fFinal.split("/");
+            String dia = ff[0];
+            String mes = ff[1];
+            String año = ff[2];
+
+            etDD.setText(dia);
+            etMM.setText(mes);
+            etAA.setText(año);
+        }
     }
 
     public void llenarValores(){
         db = admin.getWritableDatabase();
-        Cursor fila = db.rawQuery("SELECT RE_COD, PER_COD, RE_TITULO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
+        Cursor fila = db.rawQuery("SELECT RE_COD, PER_COD, RE_TITULO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO, RE_F_INICIO FROM RECORDATORIO " +
                         "WHERE RE_COD = '" + id + "'"
                 ,null);
 
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         while (fila.moveToNext()) {
-            id = fila.getInt(0);
+            //id = fila.getInt(0);
             id_persona = fila.getInt(1);
             etTit.setText(fila.getString(2));
-            spnMDH.setSelection( fila.getInt(2));
-            etValor.setText( fila.getString(3));
-            fFinal = fila.getString(4);
-            spnEstado.setSelection(fila.getInt(5));
+            spnMDH.setSelection( fila.getInt(3));
+            etValor.setText( fila.getString(4));
+            fFinal = fila.getString(5);
+            spnEstado.setSelection(fila.getInt(6));
+            fInicio = fila.getString(7);
         }
     }
 
@@ -136,16 +138,10 @@ public class Editar_Recordatorio extends AppCompatActivity {
                 valor = Integer.parseInt(etValor.getText().toString().trim());
                 if (valor>0){
                     ContentValues registro = new ContentValues();
-                    Date Hoy = new Date();
                     mdh = spnMDH.getSelectedItemPosition();
-                    estado = spnEstado.getSelectedItem().toString();
-
-                    fInicio = String.valueOf(Hoy.getDay()+1);
-                    fInicio += getString(R.string.pleca) + Hoy.getMonth();
-                    fInicio += getString(R.string.pleca) + Hoy.getYear();
+                    estado = spnEstado.getSelectedItemPosition();
 
                     registro.put("RE_COD",id);
-                    registro.put("RE_COD",idRec);
                     registro.put("PER_COD",id_persona);
                     registro.put("RE_TITULO", titulo);
                     registro.put("RE_F_INICIO", fInicio);
@@ -175,11 +171,12 @@ public class Editar_Recordatorio extends AppCompatActivity {
                     }
                     registro.put("RE_ESTADO", estado);
 
-                    filaAfectadas = db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
+                    filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
                     if (filaAfectadas ==1){
                         validacion.setText("");
                         finish();
-                        Intent ventana= new Intent(getApplicationContext(),Historial.class);
+                        Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
+                        ventana.putExtra("persona_id",String.valueOf(id_persona));
                         startActivity(ventana);
                     }else
                     {
@@ -222,5 +219,19 @@ public class Editar_Recordatorio extends AppCompatActivity {
     }
 
     public void CancelarEdit(View view) {
+        finish();
+        Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
+        ventana.putExtra("persona_id",String.valueOf(id_persona));
+        startActivity(ventana);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+        Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
+        ventana.putExtra("persona_id",String.valueOf(id_persona));
+        startActivity(ventana);
     }
 }

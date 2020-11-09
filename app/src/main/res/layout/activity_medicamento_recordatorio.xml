@@ -20,6 +20,12 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/logo_de_app"
         tools:srcCompat="@tools:sample/avatars" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:onClick="elegirMed"
+        android:text="Elegir Medicamentos" />
 
     <TextView
         android:layout_width="match_parent"
@@ -32,58 +38,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/colorAccent">
-        <TableLayout
+            android:id="@+id/ContenedorTomar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TableRow>
-                <TextView
-                    android:id="@+id/tvMedicamento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Medicamento"
-                    android:textSize="24sp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"/>
-                <Button
-                    android:layout_height="50dp"
-                    android:layout_width="50dp"
-                    android:background="@android:drawable/ic_delete"/>
-                <Button
-                    android:layout_height="50dp"
-                    android:layout_width="50dp"
-                    android:background="@android:drawable/ic_menu_edit"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/tvDosificacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/dosificacion"
-                    android:textSize="18sp"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/tvDosis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/dosis"
-                    android:textSize="18sp"/>
-            </TableRow>
-            <TableRow>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="@string/tomar"/>
-            </TableRow>
-        </TableLayout>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Medicamento"
+                        android:textSize="24sp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:background="@android:drawable/ic_delete"/>
+                    <Button
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:background="@android:drawable/ic_menu_edit"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/dosificacion"
+                        android:textSize="18sp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/dosis"
+                        android:textSize="18sp"/>
+                </TableRow>
+                <TableRow>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/tomar"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

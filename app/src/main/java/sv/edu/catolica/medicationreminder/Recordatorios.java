@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,23 +88,32 @@ public class Recordatorios extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.listaRecordatorioSeleccionar:
                 finish();
+                Intent pregunta = new Intent(Recordatorios.this,Recordatorio_pregunta.class);
+                pregunta.putExtra("Info",lvRecordatorio.getAdapter().getItem(info.position).toString());
+                startActivity(pregunta);
                 break;
             case R.id.listaRecordatorioEditar:
-                llenarRE();
-                break;
+                try {
+                    finish();
+                    Intent EditarRec = new Intent(Recordatorios.this,Editar_Recordatorio.class);
+                    EditarRec.putExtra("Info",lvRecordatorio.getAdapter().getItem(info.position).toString());
+                    startActivity(EditarRec);
+                    break;
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),e.toString()+e.getMessage(),Toast.LENGTH_LONG).show();
+                }
             default:
         }
         return super.onContextItemSelected(item);
     }
 
-    private void llenarRE() {
-        finish();
-        Intent EditarRec = new Intent(Recordatorios.this,Editar_Recordatorio.class);
-    }
+
+
 
     //Método de inicio de actividad
     public void llenarListView(){
         String intervalo = "";
+        String estado ="";
         if (!etBuscarRecordatorio.getText().toString().trim().isEmpty()){
             db = admin.getWritableDatabase();
             Cursor fila = db.rawQuery("SELECT RE_COD, RE_TITULO, RE_F_INICIO, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_F_FINAL, RE_ESTADO FROM RECORDATORIO " +
@@ -130,13 +140,23 @@ public class Recordatorios extends AppCompatActivity {
                     default:
                 }
 
+                switch (fila.getString(6)) {
+                    case "1":
+                        estado= "En curso";
+                        break;
+                    case "2":
+                        estado = "Terminado";
+                        break;
+                    default:
+                }
+
                 Map<String, String> datum = new HashMap<String, String>(6);
                 datum.put("id", fila.getString(0));
                 datum.put("titulo", fila.getString(1));
                 datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
                 datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
                 datum.put("final", "Fecha final: " + fila.getString(5));
-                datum.put("estado", "Estado: " + fila.getString(6));
+                datum.put("estado", "Estado: " + estado);
             }
 
             db.close();
@@ -178,13 +198,23 @@ public class Recordatorios extends AppCompatActivity {
                     default:
                 }
 
+                switch (fila.getString(6)) {
+                    case "1":
+                        estado= "En curso";
+                        break;
+                    case "2":
+                        estado = "Terminado";
+                        break;
+                    default:
+                }
+
                 Map<String, String> datum = new HashMap<String, String>(6);
                 datum.put("id", fila.getString(0));
                 datum.put("titulo", fila.getString(1));
                 datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
                 datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
                 datum.put("final", "Fecha final: " + fila.getString(5));
-                datum.put("estado", "Estado: " + fila.getString(6));
+                datum.put("estado", "Estado: " + estado);
                 data.add(datum);
             }
 

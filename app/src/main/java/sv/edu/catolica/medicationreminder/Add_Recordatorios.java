@@ -79,15 +79,15 @@ public class Add_Recordatorios extends AppCompatActivity {
                     mdh = spnMDH.getSelectedItemPosition();
                     estado = spnEstado.getSelectedItemPosition();
 
-                    fInicio = String.valueOf(Hoy.getMinutes());
+                    fInicio = String.valueOf(Hoy.getHours());
                     fInicio +=":";
-                    fInicio += String.valueOf(Hoy.getHours());
+                    fInicio += String.valueOf(Hoy.getMinutes());
                     fInicio +=" ";
                     fInicio += String.valueOf(Hoy.getDay()+1);
                     fInicio += getString(R.string.pleca) + Hoy.getMonth();
                     fInicio += getString(R.string.pleca) + Hoy.getYear();
 
-                    registro.put("RE_COD",(ultimoID_RE()+1));
+                    registro.put("RE_COD",ultimoID_RE());
                     registro.put("PER_COD",id_persona);
                     registro.put("RE_TITULO", titulo);
                     registro.put("RE_F_INICIO", fInicio);
@@ -120,8 +120,10 @@ public class Add_Recordatorios extends AppCompatActivity {
                     db = admin.getWritableDatabase();
                     filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
                     if (filaAfectadas != -1) {
-                        validacion.setTextColor(getColor(R.color.verde));
-                        validacion.setText("Recordatorio guardado correctamente.");
+                        finish();
+                        Intent ventana= new Intent(Add_Recordatorios.this,Recordatorios.class);
+                        ventana.putExtra("persona_id",String.valueOf(id_persona));
+                        startActivity(ventana);
                     } else {
                         validacion.setTextColor(getColor(R.color.rojo));
                         validacion.setText("Sucedió un error al guardar.");
@@ -166,12 +168,14 @@ public class Add_Recordatorios extends AppCompatActivity {
     public int ultimoID_RE(){
         db = admin.getWritableDatabase();
         int num=-1;
-        Cursor fila = db.rawQuery("SELECT COUNT(RE_COD) FROM RECORDATORIO;",null);
+        Cursor fila = db.rawQuery("SELECT RE_COD FROM RECORDATORIO" +
+                " ORDER BY RE_COD DESC"+
+                " LIMIT 1;",null);
         if (fila.moveToFirst()){
             num=fila.getInt(0);
+            num++;
         }else   {
-            validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("No se encontró nada.");
+            num = 1;
         }
         db.close();
         return num;

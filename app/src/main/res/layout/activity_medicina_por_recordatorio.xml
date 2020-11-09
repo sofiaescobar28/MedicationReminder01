@@ -65,6 +65,7 @@
 
         <Button
             android:id="@+id/btnCancelar"
+            android:onClick="CancelarMR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

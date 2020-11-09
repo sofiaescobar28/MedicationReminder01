@@ -36,6 +36,7 @@
         </activity>
         <activity android:name=".Splash_inicio">
         </activity>
+        <activity android:name=".Editar_Recordatorio"/>
     </application>
 
 </manifest>
