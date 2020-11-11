@@ -73,7 +73,7 @@ public class Tomar_medicamento extends AppCompatActivity {
                 startActivity(mr);
             } else {
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Sucedió un error al guardar.");
+                validacion.setText(getText(R.string.error_guardar));
             }
             db.close();
         }else{

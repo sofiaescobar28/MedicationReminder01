@@ -103,13 +103,13 @@ public class Add_Recordatorios extends AppCompatActivity {
                         fFinal += getString(R.string.pleca) + aa;
                         if (dd.isEmpty() && mm.isEmpty() && aa.isEmpty()) {
                             validacion.setTextColor(getColor(R.color.rojo));
-                            validacion.setText("Los campos no pueden quedar en blanco.");
+                            validacion.setText(getText(R.string.campos_vacios));
                         } else {
                             if (validarFecha(fFinal)) {
                                 registro.put("RE_F_FINAL", fFinal);
                             }else{
                                 validacion.setTextColor(getColor(R.color.rojo));
-                                validacion.setText("Fecha invalida");
+                                validacion.setText(R.string.fecha_invalida);
                             }
                         }
                     }else  if(radPerm.isChecked()){
@@ -126,22 +126,22 @@ public class Add_Recordatorios extends AppCompatActivity {
                         startActivity(ventana);
                     } else {
                         validacion.setTextColor(getColor(R.color.rojo));
-                        validacion.setText("Sucedió un error al guardar.");
+                        validacion.setText(R.string.error_guardar);
                     }
                     db.close();
                 }
                 else{
                     validacion.setTextColor(getColor(R.color.rojo));
-                    validacion.setText("El valor del intervalo tiene que ser mayor a 0");
+                    validacion.setText(R.string.fecha_mayor_cero);
                 }
             } else {
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Los campos no pueden quedar en blanco.");
+                validacion.setText(getText(R.string.campos_vacios));
             }
         }
         else {
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("Los campos no pueden quedar en blanco.");
+            validacion.setText(getText(R.string.campos_vacios));
         }
     }
 

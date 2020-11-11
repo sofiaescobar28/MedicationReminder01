@@ -37,7 +37,7 @@ public class Add_Personas extends AppCompatActivity {
             int count =getCountPersona();
             ContentValues registro = new ContentValues();
             if (count>0){
-                registro.put("PER_COD",(count+1));
+                registro.put("PER_COD",(count));
 
             }else{
                 registro.put("PER_COD",1);
@@ -67,13 +67,18 @@ public class Add_Personas extends AppCompatActivity {
     public int getCountPersona(){
         db = admin.getWritableDatabase();
         int num=-1;
-        Cursor fila = db.rawQuery("SELECT COUNT(PER_COD) FROM PERSONA ",null);
+        Cursor fila = db.rawQuery("SELECT PER_COD FROM PERSONA" +
+                " ORDER BY PER_COD DESC"+
+                " LIMIT 1;",null);
+
         if (fila.moveToFirst()){
             num=fila.getInt(0);
+            num++;
 
         }else   {
-            validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("No se encontró nada.");
+            num = 1;
+           /* validacion.setTextColor(getColor(R.color.rojo));
+            validacion.setText(R.string.no_hay_elementos);*/
         }
         db.close();
         return num;

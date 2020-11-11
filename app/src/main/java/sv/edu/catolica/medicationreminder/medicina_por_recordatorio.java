@@ -63,7 +63,7 @@ public class medicina_por_recordatorio extends AppCompatActivity {
                 startActivity(MedicamentoRE);
             } else {
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Error al guardar");
+                validacion.setText(getText(R.string.error_guardar));
             }
             db.close();
         }

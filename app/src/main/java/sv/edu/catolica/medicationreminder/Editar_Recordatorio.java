@@ -157,13 +157,13 @@ public class Editar_Recordatorio extends AppCompatActivity {
                         fFinal += getString(R.string.pleca) + aa;
                         if (dd.isEmpty() && mm.isEmpty() && aa.isEmpty()) {
                             validacion.setTextColor(getColor(R.color.rojo));
-                            validacion.setText("Los campos no pueden quedar en blanco.");
+                            validacion.setText(getText(R.string.campos_vacios));
                         } else {
                             if (validarFechaEdit(fFinal)) {
                                 registro.put("RE_F_FINAL", fFinal);
                             }else{
                                 validacion.setTextColor(getColor(R.color.rojo));
-                                validacion.setText("Fecha invalida");
+                                validacion.setText(getText(R.string.fecha_invalida));
                             }
                         }
                     }else  if(radPerm.isChecked()){
@@ -187,16 +187,16 @@ public class Editar_Recordatorio extends AppCompatActivity {
                 }
                 else{
                     validacion.setTextColor(getColor(R.color.rojo));
-                    validacion.setText("El valor del intervalo tiene que ser mayor a 0");
+                    validacion.setText(getText(R.string.fecha_mayor_cero));
                 }
             } else {
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Los campos no pueden quedar en blanco.");
+                validacion.setText(getText(R.string.campos_vacios));
             }
         }
         else {
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("Los campos no pueden quedar en blanco.");
+            validacion.setText(getText(R.string.campos_vacios));
         }
     }
 

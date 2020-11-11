@@ -66,4 +66,9 @@
     <string name="nombre_del_medicamento">Nome del farmaco</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Modifica persona</string>
+    <string name="fecha_invalida">Data non valida</string>
+    <string name="error_guardar">Si è verificato un errore durante il salvataggio</string>
+    <string name="fecha_mayor_cero">Il valore dell´intervallo deve essere maggiore di 0</string>
+    <string name="preg_eliminar_medicLista">Vuoi rimuovere questo farmaco dall´elenco dei promemoria?</string>
+    <string name="eliminar_medicLista">Rimuovi i farmaci dal promemoria</string>
 </resources>

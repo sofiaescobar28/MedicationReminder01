@@ -39,7 +39,7 @@ public class Editar_Personas extends AppCompatActivity {
         db = admin.getWritableDatabase();
 
         Cursor fila = db.rawQuery("SELECT PER_COD, PER_NOMBRE FROM PERSONA" +
-                " WHERE PER_NOMBRE = '" + nombre + "'",null);
+                " WHERE PER_NOMBRE = '" + nombre + "' AND PER_COD != '" + persona_id + "'",null);
 
         int valor = 0;
         if (fila.moveToFirst()){
