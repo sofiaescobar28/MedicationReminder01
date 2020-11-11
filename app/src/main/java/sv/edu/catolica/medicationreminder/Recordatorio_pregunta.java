@@ -48,14 +48,19 @@ public class Recordatorio_pregunta extends AppCompatActivity {
 
     public void MedicamentoP (View v)
     {
+        finish();
         Intent medicamento = new Intent(Recordatorio_pregunta.this,medicamento_recordatorio.class);
         medicamento.putExtra("RE_COD",Re_cod);
         medicamento.putExtra("PER_COD",Per_cod);
         startActivity(medicamento);
     }
-    public void HistorialP (View v)
+    public void HistorialR (View v)
     {
-
+        finish();
+        Intent historial = new Intent(Recordatorio_pregunta.this,Historial.class);
+        historial.putExtra("RE_COD",Re_cod);
+        historial.putExtra("PER_COD",Per_cod);
+        startActivity(historial);
     }
 
     @Override

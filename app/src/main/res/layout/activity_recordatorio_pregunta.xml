@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="HistorialR"
     tools:context=".Recordatorio_pregunta">
 
     <ImageView
@@ -12,10 +13,10 @@
         android:layout_height="151dp"
         android:layout_marginTop="140dp"
         android:contentDescription="@string/icono_medicamento"
+        android:onClick="MedicamentoP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="MedicamentoP"
         app:srcCompat="@drawable/medicamento" />
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_height="174dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/icono_historia"
+        android:onClick="HistorialR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

@@ -32,7 +32,7 @@ public class Agregar_Medicamento extends AppCompatActivity {
     }
 
     public void insertarMedicamento(View v){
-        if (NombreMedicamento.getText().toString().trim().isEmpty() &&
+        if (NombreMedicamento.getText().toString().trim().isEmpty() ||
                 TipoMed.getText().toString().trim().isEmpty())
         {
             validacion.setTextColor(getColor(R.color.rojo));
@@ -46,7 +46,7 @@ public class Agregar_Medicamento extends AppCompatActivity {
                 int count =getCount();
                 ContentValues registro = new ContentValues();
                 if (count>0){
-                    registro.put("MED_COD",(count+1));
+                    registro.put("MED_COD",(count));
 
                 }else{
                     registro.put("MED_COD",1);
@@ -77,18 +77,24 @@ public class Agregar_Medicamento extends AppCompatActivity {
     public int getCount(){
         db = admin.getWritableDatabase();
         int num=-1;
-        Cursor fila = db.rawQuery("SELECT COUNT(MED_COD) FROM MEDICAMENTO ",null);
+        Cursor fila = db.rawQuery("SELECT MED_COD FROM MEDICAMENTO" +
+                " ORDER BY MED_COD DESC"+
+                " LIMIT 1;",null);
+
         if (fila.moveToFirst()){
            num=fila.getInt(0);
+            num++;
 
         }else   {
-            validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText(R.string.no_hay_elementos);
+            num = 1;
+           /* validacion.setTextColor(getColor(R.color.rojo));
+            validacion.setText(R.string.no_hay_elementos);*/
         }
         db.close();
         return num;
 
     }
+
 
     public  ArrayList<EMedicamento> validarInsertMedicamento(){
         db = admin.getWritableDatabase();

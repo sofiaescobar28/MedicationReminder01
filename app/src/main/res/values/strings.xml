@@ -65,5 +65,10 @@
     <string name="nuevo_medicamento">NEW MEDICINE</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Edit Person</string>
+    <string name="time">Time</string>
+    <string name="tomado">Tomado</string>
+    <string name="no_tomado">No tomado</string>
+    <string name="retrasado">Retrasado</string>
+    <string name="estado_i0">Estado</string>
 
 </resources>

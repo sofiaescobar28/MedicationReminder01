@@ -128,6 +128,7 @@ public class Medicamento extends AppCompatActivity {
     }
 
     public void pantallaNuevoMed(View view) {
+
         Intent nuevo = new Intent(getApplicationContext(),Agregar_Medicamento.class);
         startActivity(nuevo);
     }
