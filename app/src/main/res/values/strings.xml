@@ -65,5 +65,10 @@
     <string name="nuevo_medicamento">NEW MEDICINE</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Edit Person</string>
+    <string name="fecha_invalida">Invalid date</string>
+    <string name="error_guardar">An error occurred while saving</string>
+    <string name="fecha_mayor_cero">The interval value must be greater than 0</string>
+    <string name="preg_eliminar_medicLista">Do you want to remove this medicine from your reminder list?</string>
+    <string name="eliminar_medicLista">Remove medication from reminder</string>
 
 </resources>

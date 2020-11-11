@@ -114,8 +114,8 @@ public class medicamento_recordatorio extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder pregunta = new AlertDialog.Builder(medicamento_recordatorio.this);
-                    pregunta.setMessage("Desea eliminar este medicamento de su listado?");
-                    pregunta.setTitle(R.string.titulo_eliminar_persona);
+                    pregunta.setMessage(R.string.preg_eliminar_medicLista);
+                    pregunta.setTitle(R.string.eliminar_medicLista);
                     pregunta.setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

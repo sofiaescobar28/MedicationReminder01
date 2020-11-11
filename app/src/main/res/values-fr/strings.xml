@@ -66,4 +66,9 @@
     <string name="nombre_del_medicamento">Nom du médicament</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
     <string name="editar_persona">Modifier la personne</string>
+    <string name="fecha_invalida">date invalide</string>
+    <string name="error_guardar">Une erreur s´est produite lors de l´enregistrement</string>
+    <string name="fecha_mayor_cero">La valeur de l´intervalle doit être supérieure à 0</string>
+    <string name="preg_eliminar_medicLista">Voulez-vous supprimer ce médicament de votre liste de rappels?</string>
+    <string name="eliminar_medicLista">Retirer le médicament du rappel</string>
 </resources>

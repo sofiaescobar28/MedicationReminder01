@@ -66,5 +66,10 @@
     <string name="med_reminder" translatable="false">MED REMINDER</string>
     <string name="editar_persona">Editar Persona</string>
     <string name="aplication_reminder" translatable="false">APLICATION REMINDER</string>
+    <string name="fecha_invalida">Fecha invalida</string>
+    <string name="error_guardar">Sucedió un error al guardar</string>
+    <string name="fecha_mayor_cero">El valor del intervalo tiene que ser mayor a 0</string>
+    <string name="preg_eliminar_medicLista">Desea eliminar este medicamento de su listado de recordatorio?</string>
+    <string name="eliminar_medicLista">Eliminar medicamento del recordatorio</string>
 
 </resources>
