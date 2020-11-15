@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -23,6 +24,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class medicamento_recordatorio extends AppCompatActivity {
@@ -31,6 +34,7 @@ public class medicamento_recordatorio extends AppCompatActivity {
     private LinearLayout contenedor;
     ManejadorBD admin;
     SQLiteDatabase db;
+    FloatingActionButton boton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,8 @@ public class medicamento_recordatorio extends AppCompatActivity {
         Re_cod = extras.getString("RE_COD");
         Per_cod =extras.getString("PER_COD");
         contenedor = findViewById(R.id.ContenedorTomar);
+        boton = findViewById(R.id.ElegirMed);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
         buscarMedNombres();

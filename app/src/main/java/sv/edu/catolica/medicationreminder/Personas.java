@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -24,6 +25,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 
@@ -33,7 +36,7 @@ public class Personas extends AppCompatActivity {
     private Button btnAgregar;
     private ListView lvPersona;
     private EditText etBuscarPersona;
-
+    FloatingActionButton boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public class Personas extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btnAgregar);
         lvPersona = findViewById(R.id.lvPersona);
         etBuscarPersona = findViewById(R.id.etBuscarPersona);
+        boton = findViewById(R.id.addPersonas);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         //Llenar la lista
         buscarPersonaNombres();

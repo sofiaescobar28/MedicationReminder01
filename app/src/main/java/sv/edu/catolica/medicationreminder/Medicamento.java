@@ -4,6 +4,7 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class Medicamento extends AppCompatActivity {
@@ -26,6 +29,7 @@ public class Medicamento extends AppCompatActivity {
     private LinearLayout lyMedicamentos;
     private EditText busqueda;
     private TextView suceso;
+    FloatingActionButton boton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,8 @@ public class Medicamento extends AppCompatActivity {
         suceso = findViewById(R.id.lblsuceso);
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
         busqueda.findFocus();
+        boton = findViewById(R.id.addMed);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         buscarMedNombres();
         busqueda.addTextChangedListener(new TextWatcher() {

@@ -7,5 +7,8 @@
     <color name="verde">#028704</color>
     <color name="fondo_splash">#FF000000</color>
     <color name="naranja">#CA4203</color>
-
+    <color name="pNaranja">#FF9A76</color>
+    <color name="pRosa">#FFEADB</color>
+    <color name="pAzul">#679B9B</color>
+    <color name="pGris">#637373</color>
 </resources>
