@@ -28,13 +28,13 @@
         </activity>
         <activity android:name=".Personas" />
         <activity android:name=".Principal">
+        </activity>
+        <activity android:name=".Splash_inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Splash_inicio">
         </activity>
         <activity android:name=".Editar_Recordatorio"/>
     </application>
