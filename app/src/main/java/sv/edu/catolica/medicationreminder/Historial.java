@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Layout;
+import android.text.format.DateFormat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -19,14 +20,17 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Historial extends AppCompatActivity {
     private TextView Dosis,Dosificacion,Estado,Comentario,Fecha,valor;
     ManejadorBD admin;
     SQLiteDatabase db;
     private LinearLayout ly;
-
+    private String persona_cod,recor_cod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +45,18 @@ public class Historial extends AppCompatActivity {
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
 
+    Bundle extras = getIntent().getExtras();
+    recor_cod=extras.getString("RE_COD");
+    persona_cod=extras.getString("PER_COD");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yy");
+        SimpleDateFormat formatterHora = new SimpleDateFormat("HH:mm");
+
         ArrayList<EHistorial> historial = new ArrayList<EHistorial>();
         historial =BuscarHistorial();
       for (EHistorial h: historial){
 final String n = h.MEDxRE;
+final String f = h.H_FECHA;
             TableLayout tl=new TableLayout(getApplicationContext());
           tl.setShrinkAllColumns(true);
           tl.setStretchAllColumns(true);
@@ -57,6 +69,7 @@ final String n = h.MEDxRE;
           TableRow rowDosificacion = new TableRow(getApplicationContext());
           TableRow rowDosis= new TableRow(getApplicationContext());
           TableRow rowFecha = new TableRow(getApplicationContext());
+          TableRow rowHora = new TableRow(getApplicationContext());
           TableRow rowEstado = new TableRow(getApplicationContext());
           TableRow rowComentario = new TableRow(getApplicationContext());
 
@@ -67,16 +80,18 @@ final String n = h.MEDxRE;
           TextView lblDosificacion=new TextView(this);
             TextView lblDosis=new TextView(this);
             TextView lblFecha=new TextView(this);
+            TextView lblHora = new TextView(this);
             TextView lblEstado=new TextView(this);
             TextView lblComentario=new TextView(this);
 
 
-            title.setText(h.RECORDATORIO);
+            title.setText(h.MEDICAMENTO);
             empty.setText("");
           lblID.setText(R.string.id);
             lblDosificacion.setText(R.string.dosificacion2);
             lblDosis.setText(R.string.dosis2);
             lblFecha.setText(R.string.fecha2);
+            lblHora.setText(R.string.time);
             lblEstado.setText(R.string.estado2);
             lblComentario.setText(R.string.comentario2);
 
@@ -94,6 +109,7 @@ final String n = h.MEDxRE;
             rowDosificacion.addView(lblDosificacion);
             rowDosis.addView(lblDosis);
             rowFecha.addView(lblFecha);
+             rowHora.addView(lblHora);
             rowEstado.addView(lblEstado);
             rowComentario.addView(lblComentario);
 
@@ -101,6 +117,7 @@ final String n = h.MEDxRE;
             final TextView ValorDosificacion=new TextView(this);
             final TextView ValorDosis=new TextView(this);
             final TextView ValorFecha=new TextView(this);
+            final  TextView ValorHora = new TextView(this);
             final TextView ValorEstado=new TextView(this);
             final TextView ValorComentario=new TextView(this);
           final Button btnEditar = new Button(this);
@@ -110,8 +127,20 @@ final String n = h.MEDxRE;
             valorIDH.setText(String.valueOf(h.H_COD));
             ValorDosificacion.setText(h.DOSIFICACION);
             ValorDosis.setText(h.DOSIS);
-            ValorFecha.setText(h.H_FECHA);
-            ValorEstado.setText(h.H_ESTADO);
+            Date date= new Date(h.H_FECHA);
+            ValorFecha.setText(formatter.format(date));
+            ValorHora.setText(formatterHora.format(date));
+
+            if (h.H_ESTADO.equals("1")){
+                ValorEstado.setText(R.string.tomado);
+            }else if (h.H_ESTADO.equals("2")){
+                ValorEstado.setText(R.string.no_tomado);
+            }else if (h.H_ESTADO.equals("3")){
+              ValorEstado.setText(R.string.retrasado);
+          }else {
+                ValorEstado.setText(R.string.estado_i0);
+            }
+
             ValorComentario.setText(h.H_COMENTARIO);
           btnEditar.setOnClickListener(new View.OnClickListener() {
                                            @Override
@@ -123,9 +152,13 @@ final String n = h.MEDxRE;
                                                         ventanaEditarHistorial.putExtra("IDEH",valorIDH.getText());
                                                         ventanaEditarHistorial.putExtra("Dosificacion",ValorDosificacion.getText().toString());
                                                         ventanaEditarHistorial.putExtra("Dosis",ValorDosis.getText().toString());
-                                                        ventanaEditarHistorial.putExtra("Fecha",ValorFecha.getText().toString());
-                                                        ventanaEditarHistorial.putExtra("Estado",ValorEstado.getText().toString());
+                                                        ventanaEditarHistorial.putExtra("Fecha",f);
+                                               ventanaEditarHistorial.putExtra("Hora",ValorHora.getText().toString());
+
+                                               ventanaEditarHistorial.putExtra("Estado",ValorEstado.getText().toString());
                                                         ventanaEditarHistorial.putExtra("Comentario",ValorComentario.getText().toString());
+                                               ventanaEditarHistorial.putExtra("RE_COD",recor_cod);
+                                               ventanaEditarHistorial.putExtra("PER_COD",persona_cod);
                                                         startActivity(ventanaEditarHistorial);
 
                                            }
@@ -136,6 +169,7 @@ final String n = h.MEDxRE;
           rowDosificacion.addView(ValorDosificacion);
           rowDosis.addView(ValorDosis);
           rowFecha.addView(ValorFecha);
+          rowHora.addView(ValorHora);
           rowEstado.addView(ValorEstado);
           rowComentario.addView(ValorComentario);
 
@@ -145,6 +179,7 @@ final String n = h.MEDxRE;
             tl.addView(rowDosificacion);
             tl.addView(rowDosis);
             tl.addView(rowFecha);
+            tl.addView(rowHora);
             tl.addView(rowEstado);
             tl.addView(rowComentario);
 
@@ -162,10 +197,13 @@ final String n = h.MEDxRE;
         db = admin.getWritableDatabase();
         Cursor fila = db.rawQuery("SELECT HISTORIAL.H_COD,RECORDATORIO.RE_TITULO,"+
                " HISTORIAL.H_FECHA,HISTORIAL.H_ESTADO,HISTORIAL.H_COMENTARIO,"+
-                " MEDXRE.MEDXRED_DOSIFICACION,MEDXRE.RE_DOSIS,MEDXRE.MEDXRED_COD"+
+                " MEDXRE.MEDXRED_DOSIFICACION,MEDXRE.RE_DOSIS,MEDXRE.MEDXRED_COD," +
+                        " MEDICAMENTO.MED_NOMBRE"+
                 " FROM HISTORIAL"+
                 " INNER JOIN MEDXRE  ON HISTORIAL.MEDXRED_COD = MEDXRE.MEDXRED_COD"+
-                " INNER JOIN RECORDATORIO ON MEDXRE.RE_COD = RECORDATORIO.RE_COD"
+                " INNER JOIN RECORDATORIO ON MEDXRE.RE_COD = RECORDATORIO.RE_COD" +
+                        " INNER JOIN MEDICAMENTO ON MEDXRE.MED_COD = MEDICAMENTO.MED_COD" +
+                        " WHERE RECORDATORIO.RE_COD = "+recor_cod
 
                 ,null);
         ArrayList<EHistorial> historial = new ArrayList<EHistorial>();
@@ -180,6 +218,7 @@ final String n = h.MEDxRE;
             _histo.DOSIFICACION=fila.getString(5);
             _histo.DOSIS=fila.getString(6);
             _histo.MEDxRE=fila.getString(7);
+            _histo.MEDICAMENTO=fila.getString(8);
             historial.add(_histo);
 
         }
@@ -188,5 +227,14 @@ final String n = h.MEDxRE;
         return historial;
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent persona = new Intent(Historial.this,Recordatorios.class);
+        persona.putExtra("persona_id",persona_cod);
+        startActivity(persona);
     }
 }

@@ -9,5 +9,6 @@ public class EHistorial {
     String DOSIFICACION;
     String DOSIS;
     String MEDxRE;
+    String MEDICAMENTO;
 
 }

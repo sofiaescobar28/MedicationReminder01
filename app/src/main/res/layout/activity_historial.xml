@@ -25,15 +25,20 @@
         android:text="@string/historial"
         android:textAlignment="center"
         android:textSize="18sp" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lySecundario"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lySecundario"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
 
-    </LinearLayout>
 
 </LinearLayout>
