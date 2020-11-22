@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     tools:context=".Editar_Personas">
 
     <TextView
@@ -31,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="20sp"
         android:layout_margin="20dp"
         android:inputType="textPersonName"
         android:hint="@string/nombre"
@@ -47,6 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="updatePersona"
+            android:background="#FF9A76"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:text="@string/guardar" />
 
@@ -55,7 +59,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="Cancelar"
+            android:background="#679B9B"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:text="@string/cancelar" />
     </LinearLayout>
 

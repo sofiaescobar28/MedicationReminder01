@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     tools:context=".medicamento_recordatorio"
     android:padding="20dp">
     <TextView
@@ -86,6 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:background="#FF9A76"
                         android:text="@string/tomar"/>
                 </TableRow>
             </TableLayout>

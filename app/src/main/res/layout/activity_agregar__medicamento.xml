@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="#FFEADB"
     tools:context=".Agregar_Medicamento">
 
     <TextView
@@ -36,6 +37,7 @@
             android:layout_height="match_parent"
             android:hint="@string/nombre_del_medicamento"
             android:importantForAutofill="no"
+            android:textSize="20sp"
             android:inputType="text" />
 
         <EditText
@@ -44,6 +46,7 @@
             android:layout_height="match_parent"
             android:hint="@string/tipo_de_medicamento"
             android:importantForAutofill="no"
+            android:textSize="20sp"
             android:inputType="text" />
 
         <Button
@@ -51,13 +54,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/guardar"
-
+            android:textSize="20sp"
+            android:background="#FF9A76"
             />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="Cancelar"
+            android:background="#679B9B"
+            android:textSize="20sp"
             android:text="@string/salir" />
     </LinearLayout>
 

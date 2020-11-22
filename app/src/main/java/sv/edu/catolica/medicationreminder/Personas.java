@@ -73,6 +73,13 @@ public class Personas extends AppCompatActivity {
 
         //Asignar el menú contextual a la lista
         registerForContextMenu(lvPersona);
+
+        lvPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                recordatoriosPersona(lvPersona.getAdapter().getItem(i).toString());
+            }
+        });
     }
 
     //Método para traer todos los nombres
@@ -160,9 +167,6 @@ public class Personas extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.listaRecordatorios:
-                recordatoriosPersona(lvPersona.getAdapter().getItem(info.position).toString());
-                break;
             case R.id.listaEditar:
                 editarPersona(lvPersona.getAdapter().getItem(info.position).toString());
                 break;

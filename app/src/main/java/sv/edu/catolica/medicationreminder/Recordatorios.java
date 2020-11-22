@@ -71,6 +71,16 @@ public class Recordatorios extends AppCompatActivity {
         });
 
         registerForContextMenu(lvRecordatorio);
+
+        lvRecordatorio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                finish();
+                Intent pregunta = new Intent(Recordatorios.this,Recordatorio_pregunta.class);
+                pregunta.putExtra("Info",lvRecordatorio.getAdapter().getItem(i).toString());
+                startActivity(pregunta);
+            }
+        });
     }
 
     //Crear menuRecordatorio
@@ -92,12 +102,6 @@ public class Recordatorios extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.listaRecordatorioSeleccionar:
-                finish();
-                Intent pregunta = new Intent(Recordatorios.this,Recordatorio_pregunta.class);
-                pregunta.putExtra("Info",lvRecordatorio.getAdapter().getItem(info.position).toString());
-                startActivity(pregunta);
-                break;
             case R.id.listaRecordatorioEditar:
                 try {
                     finish();

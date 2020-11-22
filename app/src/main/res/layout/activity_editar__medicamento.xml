@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     android:padding="10dp"
     tools:context=".Editar_Medicamento">
 
@@ -34,18 +35,26 @@
             android:id="@+id/txtNombreMedEditar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/nombre_del_medicamento" />
+            android:textSize="20sp"
+            android:hint="@string/nombre_del_medicamento"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/txtTipoMedEditar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/tipo_de_medicamento" />
+            android:hint="@string/tipo_de_medicamento"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="updateMedicamento"
+            android:background="#FF9A76"
+            android:textSize="20sp"
             android:text="@string/guardar_cambios"
 
             />
@@ -54,6 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="Cancelar"
+            android:background="#679B9B"
+            android:textSize="20sp"
             android:text="@string/salir" />
     </LinearLayout>
 

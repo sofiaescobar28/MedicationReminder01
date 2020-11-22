@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     android:padding="20dp"
     tools:context=".Elegir_medicamento">
     <TextView
@@ -25,7 +26,10 @@
         android:id="@+id/etBuscarM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar por nombre del medicamento" />
+        android:textSize="20sp"
+        android:hint="Buscar por nombre del medicamento"
+        android:importantForAutofill="no"
+        android:inputType="text" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,13 +67,15 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/tipo"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <Button
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:background="#FF9A76"
                     android:text="@string/seleccionar"/>
             </TableRow>
         </TableLayout>

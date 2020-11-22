@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     tools:context=".Add_Recordatorios"
     android:padding="20dp">
 
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:textSize="20sp"
             android:hint="@string/titulo_recordatorio"
             android:importantForAutofill="no" />
 
@@ -51,10 +53,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+                android:textSize="20sp"
                 android:entries="@array/MDH_valores"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="@string/MDH"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -64,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textSize="20sp"
             android:hint="@string/valor_intervalo"
             android:inputType="number"
             android:importantForAutofill="no" />
@@ -75,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="Permanente"
+                android:textSize="20sp"
                 android:text="@string/permanente"
                 android:checked="true"/>
             <!--<LinearLayout
@@ -86,6 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/fecha_final"
+                    android:textSize="20sp"
                     android:onClick="noPermanente"
                     android:layout_weight="1"/>
                 <!--<CalendarView
@@ -133,6 +140,7 @@
             android:id="@+id/spnEstado"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:textSize="20sp"
             android:entries="@array/EstadoR_valores"/>
     </LinearLayout>
     <TextView
@@ -150,12 +158,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/guardar"
+            android:background="#FF9A76"
             android:textSize="20sp" />
         <Button
             android:onClick="Cancelar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cancelar"
+            android:background="#679B9B"
             android:textSize="20sp" />
 
     </LinearLayout>

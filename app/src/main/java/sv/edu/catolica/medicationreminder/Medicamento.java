@@ -88,6 +88,7 @@ public class Medicamento extends AppCompatActivity {
 
 
             rowBoton.addView(empty);
+
             rowIdMed.addView(lblID);
             rowNombre.addView(lblNombre);
             rowTipo.addView(lblTipo);
@@ -95,6 +96,7 @@ public class Medicamento extends AppCompatActivity {
 
             Button btnEditarMed = new Button(this);
             btnEditarMed.setText(R.string.editar);
+            btnEditarMed.setTextSize(20);
 
             final TextView lblIdValor=new TextView(this);
             final TextView lblNombreValor=new TextView(this);
@@ -102,8 +104,13 @@ public class Medicamento extends AppCompatActivity {
 
 
             lblIdValor.setText(String.valueOf(m.MED_COD));
+            lblIdValor.setTextSize(20);
             lblNombreValor.setText(m.MED_NOMBRE);
+            lblNombreValor.setTextSize(20);
+
             lblTipoValor.setText(m.MED_TIPO);
+            lblTipoValor.setTextSize(20);
+
             btnEditarMed.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Tomar_medicamento"
+    android:background="#FFEADB"
     android:padding="20dp">
     <TextView
         android:id="@+id/textView2"
@@ -35,6 +36,7 @@
             android:id="@+id/spnEstadoTomar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:textSize="20sp"
             android:entries="@array/estado_historial"/>
         <EditText
             android:id="@+id/etComentario"
@@ -42,6 +44,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/comentario"
+            android:textSize="20sp"
             android:inputType="textPersonName"
             android:importantForAutofill="no" />
     </LinearLayout>
@@ -60,6 +63,7 @@
             android:layout_height="wrap_content"
             android:onClick="GuardarToma"
             android:text="GUARDAR"
+            android:background="#FF9A76"
             android:textSize="20sp" />
         <Button
             android:id="@+id/btnCancelarH"
@@ -67,6 +71,7 @@
             android:layout_height="wrap_content"
             android:onClick="CancelarToma"
             android:text="CANCELAR"
+            android:background="#679B9B"
             android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

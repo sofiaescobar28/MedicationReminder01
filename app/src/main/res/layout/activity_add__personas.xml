@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     tools:context=".Add_Personas">
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_margin="20dp"
         android:inputType="textPersonName"
         android:hint="@string/nombre"
+        android:textSize="20sp"
         android:importantForAutofill="no" />
 
     <LinearLayout
@@ -48,6 +50,8 @@
             android:layout_height="wrap_content"
             android:onClick="insertarPersona"
             android:layout_weight="1"
+            android:background="#FF9A76"
+            android:textSize="20sp"
             android:text="@string/guardar" />
 
         <Button
@@ -56,6 +60,8 @@
             android:layout_height="wrap_content"
             android:onClick="Cancelar"
             android:layout_weight="1"
+            android:background="#679B9B"
+            android:textSize="20sp"
             android:text="@string/cancelar" />
     </LinearLayout>
 

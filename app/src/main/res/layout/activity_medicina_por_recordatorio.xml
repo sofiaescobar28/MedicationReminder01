@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     android:padding="20dp"
     tools:context=".medicina_por_recordatorio">
 
@@ -35,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="20sp"
         android:hint="example: 500mg"
         android:inputType="text" />
 
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:textSize="20sp"
         android:hint="Dosis (numero de unidades)" />
     <TextView
         android:id="@+id/lblValidacionMEDxRE"
@@ -61,6 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="#FF9A76"
             android:text="@string/guardar" />
 
         <Button
@@ -69,6 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="#679B9B"
             android:text="@string/cancelar" />
     </LinearLayout>
 </LinearLayout>
