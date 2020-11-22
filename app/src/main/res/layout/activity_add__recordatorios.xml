@@ -156,13 +156,6 @@
                 android:importantForAutofill="no" />
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spnEstado"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:entries="@array/EstadoR_valores"/>
     </LinearLayout>
     <TextView
         android:id="@+id/tvValidarRe"
