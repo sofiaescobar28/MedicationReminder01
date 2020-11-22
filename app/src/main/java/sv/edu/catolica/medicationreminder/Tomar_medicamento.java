@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tomar_medicamento extends AppCompatActivity {
@@ -49,13 +51,13 @@ public class Tomar_medicamento extends AppCompatActivity {
             Date Hoy = new Date();
             int est =estado.getSelectedItemPosition();
 
-            fecha = String.valueOf(Hoy.getHours());
+            DecimalFormat df = new DecimalFormat("##");
+
+            fecha = df.format(Hoy.getHours());
             fecha +=":";
-            fecha += String.valueOf(Hoy.getMinutes());
+            fecha += df.format(Hoy.getMinutes());
             fecha +=" ";
-            fecha += String.valueOf(Hoy.getDay()+1);
-            fecha += getString(R.string.pleca) + Hoy.getMonth();
-            fecha += getString(R.string.pleca) + Hoy.getYear();
+            fecha += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
 
             registro.put("H_COD",ultimoID_RE());
             registro.put("MEDXRED_COD",MEDxRE);
