@@ -5,30 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     android:background="#FFEADB"
     tools:context=".Agregar_Medicamento">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:text="@string/med_reminder"
-        android:textSize="28sp" />
+        android:textColor="#000000"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView12"
+        android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/nuevo_medicamento"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        android:layout_marginBottom="20dp"
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <EditText
@@ -37,7 +39,8 @@
             android:layout_height="match_parent"
             android:hint="@string/nombre_del_medicamento"
             android:importantForAutofill="no"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
             android:inputType="text" />
 
         <EditText
@@ -46,25 +49,35 @@
             android:layout_height="match_parent"
             android:hint="@string/tipo_de_medicamento"
             android:importantForAutofill="no"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
             android:inputType="text" />
 
-        <Button
-            android:onClick="insertarMedicamento"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/guardar"
-            android:textSize="20sp"
-            android:background="#FF9A76"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="Cancelar"
-            android:background="#679B9B"
-            android:textSize="20sp"
-            android:text="@string/salir" />
+            <Button
+                android:onClick="insertarMedicamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guardar"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:background="#FF9A76"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Cancelar"
+                android:layout_weight="1"
+                android:background="#679B9B"
+                android:textSize="20sp"
+                android:text="@string/salir" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

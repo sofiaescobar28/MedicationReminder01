@@ -33,7 +33,6 @@ import java.util.IllegalFormatCodePointException;
 public class Personas extends AppCompatActivity {
     ManejadorBD admin;
     SQLiteDatabase db;
-    private Button btnAgregar;
     private ListView lvPersona;
     private EditText etBuscarPersona;
     FloatingActionButton boton;
@@ -44,7 +43,6 @@ public class Personas extends AppCompatActivity {
         setContentView(R.layout.activity_personas);
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
-        btnAgregar = findViewById(R.id.btnAgregar);
         lvPersona = findViewById(R.id.lvPersona);
         etBuscarPersona = findViewById(R.id.etBuscarPersona);
         boton = findViewById(R.id.addPersonas);

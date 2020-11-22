@@ -5,34 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFEADB"
-    tools:context=".Add_Recordatorios"
-    android:padding="20dp">
+    android:padding="15dp"
+    tools:context=".Add_Recordatorios">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textSize="28sp" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="@string/med_reminder"
+        android:textColor="#000000"
+        android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/logo_de_app"
-        tools:srcCompat="@tools:sample/avatars" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/recordatorio"
-            android:textSize="24sp"/>
+            android:layout_marginBottom="20dp"
+            android:textColor="#000000"
+            android:textSize="25sp"/>
 
         <EditText
             android:id="@+id/etTitRecordatorio"
@@ -40,13 +37,16 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:hint="@string/titulo_recordatorio"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
             android:importantForAutofill="no" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
             <Spinner
                 android:id="@+id/spnMDH"
@@ -54,11 +54,13 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:textSize="20sp"
+                android:textColor="#000000"
                 android:entries="@array/MDH_valores"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:textColor="#000000"
                 android:text="@string/MDH"
                 android:layout_weight="1"/>
         </LinearLayout>
@@ -68,19 +70,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:hint="@string/valor_intervalo"
+            android:textColor="#000000"
             android:inputType="number"
+            android:layout_marginBottom="10dp"
             android:importantForAutofill="no" />
+
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
             <RadioButton
                 android:id="@+id/radPermanente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="Permanente"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:textColor="#000000"
                 android:text="@string/permanente"
                 android:checked="true"/>
             <!--<LinearLayout
@@ -92,55 +99,69 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/fecha_final"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
                     android:onClick="noPermanente"
                     android:layout_weight="1"/>
                 <!--<CalendarView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:dateTextAppearance="@id"/>-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <EditText
-                        android:id="@+id/etDia"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/dd"
-                        android:inputType="number"
-                        android:importantForAutofill="no" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="@string/pleca"/>
-                    <EditText
-                        android:id="@+id/etMes"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/mm"
-                        android:inputType="number"
-                        android:importantForAutofill="no" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="@string/pleca"/>
-                    <EditText
-                        android:id="@+id/etAnio"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/aaaa"
-                        android:inputType="number"
-                        android:importantForAutofill="no" />
-                </LinearLayout>
+
             <!--</LinearLayout>-->
         </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+            <EditText
+                android:id="@+id/etDia"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/dd"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="@string/pleca"/>
+            <EditText
+                android:id="@+id/etMes"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/mm"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="@string/pleca"/>
+            <EditText
+                android:id="@+id/etAnio"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/aaaa"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+
         <Spinner
             android:id="@+id/spnEstado"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:textSize="20sp"
+            android:textColor="#000000"
             android:entries="@array/EstadoR_valores"/>
     </LinearLayout>
     <TextView
@@ -151,19 +172,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <Button
             android:onClick="Guardar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/guardar"
             android:background="#FF9A76"
             android:textSize="20sp" />
         <Button
             android:onClick="Cancelar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/cancelar"
             android:background="#679B9B"
             android:textSize="20sp" />

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Layout;
@@ -86,14 +87,32 @@ final String f = h.H_FECHA;
 
 
             title.setText(h.MEDICAMENTO);
+          title.setTextSize(20);
+          title.setTextColor(Color.parseColor("#000000"));
             empty.setText("");
+          empty.setTextSize(18);
+          empty.setTextColor(Color.parseColor("#000000"));
           lblID.setText(R.string.id);
+          lblID.setTextSize(18);
+          lblID.setTextColor(Color.parseColor("#000000"));
             lblDosificacion.setText(R.string.dosificacion2);
+          lblDosificacion.setTextSize(18);
+          lblDosificacion.setTextColor(Color.parseColor("#000000"));
             lblDosis.setText(R.string.dosis2);
+          lblDosis.setTextSize(18);
+          lblDosis.setTextColor(Color.parseColor("#000000"));
             lblFecha.setText(R.string.fecha2);
+          lblFecha.setTextSize(18);
+          lblFecha.setTextColor(Color.parseColor("#000000"));
             lblHora.setText(R.string.time);
+          lblHora.setTextSize(18);
+          lblHora.setTextColor(Color.parseColor("#000000"));
             lblEstado.setText(R.string.estado2);
+          lblEstado.setTextSize(18);
+          lblEstado.setTextColor(Color.parseColor("#000000"));
             lblComentario.setText(R.string.comentario2);
+          lblComentario.setTextSize(18);
+          lblComentario.setTextColor(Color.parseColor("#000000"));
 
 
             title.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
@@ -122,23 +141,43 @@ final String f = h.H_FECHA;
             final TextView ValorComentario=new TextView(this);
           final Button btnEditar = new Button(this);
           btnEditar.setText(R.string.editar);
+          btnEditar.setTextSize(20);
+          btnEditar.setBackgroundColor(Color.parseColor("#FF9A76"));
 
 
             valorIDH.setText(String.valueOf(h.H_COD));
+          valorIDH.setTextSize(18);
+          valorIDH.setTextColor(Color.parseColor("#000000"));
             ValorDosificacion.setText(h.DOSIFICACION);
+          ValorDosificacion.setTextSize(18);
+          ValorDosificacion.setTextColor(Color.parseColor("#000000"));
             ValorDosis.setText(h.DOSIS);
+          ValorDosis.setTextSize(18);
+          ValorDosis.setTextColor(Color.parseColor("#000000"));
             Date date= new Date(h.H_FECHA);
             ValorFecha.setText(formatter.format(date));
+          ValorFecha.setTextSize(18);
+          ValorFecha.setTextColor(Color.parseColor("#000000"));
             ValorHora.setText(formatterHora.format(date));
+          ValorHora.setTextSize(18);
+          ValorHora.setTextColor(Color.parseColor("#000000"));
 
             if (h.H_ESTADO.equals("1")){
                 ValorEstado.setText(R.string.tomado);
+                ValorEstado.setTextSize(18);
+                ValorEstado.setTextColor(Color.parseColor("#000000"));
             }else if (h.H_ESTADO.equals("2")){
                 ValorEstado.setText(R.string.no_tomado);
+                ValorEstado.setTextSize(18);
+                ValorEstado.setTextColor(Color.parseColor("#000000"));
             }else if (h.H_ESTADO.equals("3")){
               ValorEstado.setText(R.string.retrasado);
+                ValorEstado.setTextSize(18);
+                ValorEstado.setTextColor(Color.parseColor("#000000"));
           }else {
                 ValorEstado.setText(R.string.estado_i0);
+                ValorEstado.setTextSize(18);
+                ValorEstado.setTextColor(Color.parseColor("#000000"));
             }
 
             ValorComentario.setText(h.H_COMENTARIO);

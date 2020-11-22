@@ -10,22 +10,22 @@
     tools:context=".Personas">
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="295dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:text="@string/medication_reminder"
+        android:text="@string/med_reminder"
         android:textColor="#000000"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/btnAgregar"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:onClick="persona"
-        android:text="@string/agregar_persona"
-        android:visibility="invisible"/>
+        android:textColor="#000000"
+        android:text="@string/personas"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/etBuscarPersona"

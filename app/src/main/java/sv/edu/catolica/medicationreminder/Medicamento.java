@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -82,9 +84,17 @@ public class Medicamento extends AppCompatActivity {
 
 
             empty.setText("");
+            empty.setTextSize(18);
+            empty.setTextColor(Color.parseColor("#000000"));
             lblID.setText(R.string.id);
+            lblID.setTextSize(18);
+            lblID.setTextColor(Color.parseColor("#000000"));
             lblNombre.setText(R.string.medicamento2);
+            lblNombre.setTextSize(18);
+            lblNombre.setTextColor(Color.parseColor("#000000"));
             lblTipo.setText(R.string.tipo2);
+            lblTipo.setTextSize(18);
+            lblTipo.setTextColor(Color.parseColor("#000000"));
 
 
             rowBoton.addView(empty);
@@ -97,6 +107,7 @@ public class Medicamento extends AppCompatActivity {
             Button btnEditarMed = new Button(this);
             btnEditarMed.setText(R.string.editar);
             btnEditarMed.setTextSize(20);
+            btnEditarMed.setBackgroundColor(Color.parseColor("#FF9A76"));
 
             final TextView lblIdValor=new TextView(this);
             final TextView lblNombreValor=new TextView(this);
@@ -104,13 +115,14 @@ public class Medicamento extends AppCompatActivity {
 
 
             lblIdValor.setText(String.valueOf(m.MED_COD));
-            lblIdValor.setTextSize(20);
+            lblIdValor.setTextSize(18);
+            lblIdValor.setTextColor(Color.parseColor("#000000"));
             lblNombreValor.setText(m.MED_NOMBRE);
-            lblNombreValor.setTextSize(20);
-
+            lblNombreValor.setTextSize(18);
+            lblNombreValor.setTextColor(Color.parseColor("#000000"));
             lblTipoValor.setText(m.MED_TIPO);
-            lblTipoValor.setTextSize(20);
-
+            lblTipoValor.setTextSize(18);
+            lblTipoValor.setTextColor(Color.parseColor("#000000"));
             btnEditarMed.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
@@ -141,9 +153,20 @@ public class Medicamento extends AppCompatActivity {
     }
 
     public void pantallaNuevoMed(View view) {
-
+        finish();
         Intent nuevo = new Intent(getApplicationContext(),Agregar_Medicamento.class);
         startActivity(nuevo);
+    }
+
+    //Al presionar el botón Atrás
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK){
+            finish();
+            Intent principal = new Intent(getApplicationContext(), Principal.class);
+            startActivity(principal);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     public  ArrayList<EMedicamento> BuscarMedicamentos(){

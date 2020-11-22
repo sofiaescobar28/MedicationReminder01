@@ -6,38 +6,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFEADB"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".Editar_Medicamento">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="@string/med_reminder"
-        android:textSize="28sp" />
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/editar_medicamento"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/txtNombreMedEditar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:hint="@string/nombre_del_medicamento"
             android:inputType="text"
+            android:textColor="#000000"
+            android:layout_marginBottom="10dp"
             android:importantForAutofill="no" />
 
         <EditText
@@ -45,27 +49,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/tipo_de_medicamento"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:inputType="text"
+            android:textColor="#000000"
+            android:layout_marginBottom="20dp"
             android:importantForAutofill="no" />
 
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="updateMedicamento"
             android:background="#FF9A76"
             android:textSize="20sp"
-            android:text="@string/guardar_cambios"
-
-            />
+            android:text="@string/guardar_cambios"/>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="Cancelar"
             android:background="#679B9B"
             android:textSize="20sp"
             android:text="@string/salir" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

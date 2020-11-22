@@ -6,36 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFEADB"
-    android:padding="20dp"
+    android:padding="15dp"
     tools:context=".Elegir_medicamento">
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/app_name"
-        android:textSize="28sp" />
+        android:text="@string/med_reminder"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"/>
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/logo_de_app"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="@string/medicamento"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="25sp"/>
+
     <EditText
         android:id="@+id/etBuscarM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:hint="Buscar por nombre del medicamento"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
         android:importantForAutofill="no"
         android:inputType="text" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/medicamento"
-        android:textSize="24sp"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -48,8 +49,7 @@
         <TableLayout
             android:id="@+id/lyConMedicinas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content">
 
             <TableRow>
                 <TextView
@@ -57,8 +57,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/nombre"
-                    android:textSize="24sp"
-                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
                     android:layout_weight="1"/>
             </TableRow>
             <TableRow>
@@ -67,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/tipo"
-                    android:textSize="20sp"/>
+                    android:textColor="#000000"
+                    android:textSize="18sp"/>
             </TableRow>
             <TableRow>
                 <Button
