@@ -71,4 +71,9 @@
     <string name="fecha_mayor_cero">Il valore dell´intervallo deve essere maggiore di 0</string>
     <string name="preg_eliminar_medicLista">Vuoi rimuovere questo farmaco dall´elenco dei promemoria?</string>
     <string name="eliminar_medicLista">Rimuovi i farmaci dal promemoria</string>
+    <string name="time">Tempo</string>
+    <string name="tomado">Ubriaco</string>
+    <string name="no_tomado">Non ubriaco</string>
+    <string name="retrasado">Ritardato</string>
+    <string name="estado_i0">Stato</string>
 </resources>

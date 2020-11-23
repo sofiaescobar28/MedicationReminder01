@@ -71,4 +71,9 @@
     <string name="fecha_mayor_cero">La valeur de l´intervalle doit être supérieure à 0</string>
     <string name="preg_eliminar_medicLista">Voulez-vous supprimer ce médicament de votre liste de rappels?</string>
     <string name="eliminar_medicLista">Retirer le médicament du rappel</string>
+    <string name="time">Temps</string>
+    <string name="tomado">Ivre</string>
+    <string name="no_tomado">Pas ivre</string>
+    <string name="retrasado">Différé</string>
+    <string name="estado_i0">Etat</string>
 </resources>

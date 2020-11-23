@@ -71,5 +71,10 @@
     <string name="fecha_mayor_cero">El valor del intervalo tiene que ser mayor a 0</string>
     <string name="preg_eliminar_medicLista">Desea eliminar este medicamento de su listado de recordatorio?</string>
     <string name="eliminar_medicLista">Eliminar medicamento del recordatorio</string>
+    <string name="tomado">Tomado</string>
+    <string name="no_tomado">No tomado</string>
+    <string name="retrasado">Retrasado</string>
+    <string name="estado_i0">Estado</string>
+    <string name="time">Hora:</string>
 
 </resources>

@@ -2,6 +2,7 @@ package sv.edu.catolica.medicationreminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,6 +21,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class Historial extends AppCompatActivity {
     SQLiteDatabase db;
     private LinearLayout ly;
     private String persona_cod,recor_cod;
+    private boolean notificacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +49,12 @@ public class Historial extends AppCompatActivity {
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
 
     Bundle extras = getIntent().getExtras();
+    notificacion = extras.getBoolean("notificacion",false);
     recor_cod=extras.getString("RE_COD");
     persona_cod=extras.getString("PER_COD");
+        if (notificacion){
+            insertarRegistro(Integer.parseInt(recor_cod),Integer.parseInt(persona_cod));
+        }
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yy");
         SimpleDateFormat formatterHora = new SimpleDateFormat("HH:mm");
@@ -228,6 +235,84 @@ final String f = h.H_FECHA;
 
 
     }
+    private void insertarRegistro(int recordatorio,int persona)
+    {
+        ArrayList<ECantidadMed> medicamentos =obtenerCantidadMedicamentos(recordatorio);
+        for (ECantidadMed med: medicamentos) {
+
+            ContentValues registro = new ContentValues();
+            Date Hoy = new Date();
+            String fecha;
+
+            DecimalFormat df = new DecimalFormat("##");
+            fecha = df.format(Hoy.getHours());
+            fecha +=":";
+            fecha += df.format(Hoy.getMinutes());
+            fecha +=" ";
+            fecha += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
+
+            registro.put("H_COD",ultimoID_Historial());
+            registro.put("MEDXRED_COD",obtenerMedxRed_COD(med.medicamento,recordatorio));
+            registro.put("H_FECHA", fecha);
+            registro.put("H_ESTADO", 1);
+            registro.put("H_COMENTARIO", med.medicamento);
+
+            db = admin.getWritableDatabase();
+            int valor = (int) db.insert("HISTORIAL", null, registro);
+
+            db.close();
+        }
+
+    }
+
+    public int ultimoID_Historial(){
+        db = admin.getWritableDatabase();
+        int num=-1;
+        Cursor fila = db.rawQuery("SELECT H_COD FROM HISTORIAL" +
+                " ORDER BY H_COD DESC"+
+                " LIMIT 1;",null);
+        if (fila.moveToFirst()){
+            num=fila.getInt(0);
+            num++;
+        }else   {
+            num = 1;
+        }
+        db.close();
+        return num;
+    }
+    public int obtenerMedxRed_COD(String medicamento, int recordatorio){
+        db = admin.getWritableDatabase();
+
+        int num=-1;
+        Cursor fila = db.rawQuery("SELECT m.MEDXRED_COD FROM MEDXRE m " +
+                " INNER JOIN RECORDATORIO r ON m.RE_COD = r.RE_COD " +
+                " INNER JOIN MEDICAMENTO m2 ON m.MED_COD = m2.MED_COD " +
+                " WHERE r.RE_COD = "+recordatorio+" AND m2.MED_NOMBRE ='"+medicamento+"'",null);
+        if (fila.moveToFirst()){
+            num=fila.getInt(0);
+
+        }
+        db.close();
+        return num;
+    }
+    public ArrayList<ECantidadMed> obtenerCantidadMedicamentos(int recordatorio){
+        db = admin.getWritableDatabase();
+        Cursor fila = db.rawQuery("SELECT m.MED_NOMBRE " +
+                " FROM MEDXRE m2" +
+                " INNER JOIN MEDICAMENTO m ON m2.MED_COD = m.MED_COD " +
+                " WHERE m2.RE_COD = "+recordatorio
+                ,null);
+        ArrayList<ECantidadMed> medicamentos=new ArrayList<ECantidadMed>();
+        while (fila.moveToNext()){
+            ECantidadMed _med = new ECantidadMed();
+            _med.medicamento=fila.getString(0);
+            medicamentos.add(_med);
+        }
+        db.close();
+        return medicamentos;
+    }
+
+
 
     @Override
     public void onBackPressed() {

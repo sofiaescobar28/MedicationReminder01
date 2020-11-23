@@ -1,12 +1,15 @@
 package sv.edu.catolica.medicationreminder;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -47,6 +50,8 @@ public class Add_Recordatorios extends AppCompatActivity {
 
         Bundle extras =getIntent().getExtras();
         id_persona = extras.getString("PER_COD");
+
+
 
         etDD.setEnabled(false);
         etMM.setEnabled(false);
@@ -120,6 +125,17 @@ public class Add_Recordatorios extends AppCompatActivity {
                     db = admin.getWritableDatabase();
                     filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
                     if (filaAfectadas != -1) {
+
+                        Intent service = new Intent(this,MyService.class);
+
+                        service.putExtra("time", valor);
+                        service.putExtra("tipoTiempo", mdh);
+                        service.putExtra("identificador", filaAfectadas);
+                        service.putExtra("persona", id_persona);
+
+                        startService(service);
+
+
                         finish();
                         Intent ventana= new Intent(Add_Recordatorios.this,Recordatorios.class);
                         ventana.putExtra("persona_id",String.valueOf(id_persona));
