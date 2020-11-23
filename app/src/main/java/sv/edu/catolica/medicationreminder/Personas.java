@@ -125,7 +125,7 @@ public class Personas extends AppCompatActivity {
                 ArrayAdapter<String> adaptador = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, datos);
                 lvPersona.setAdapter(adaptador);
             }else{
-                Toast.makeText(getApplicationContext(), "No existen personas", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.busquedanoencontrada), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -136,9 +136,9 @@ public class Personas extends AppCompatActivity {
 
         int fila = db.delete("PERSONA", "PER_NOMBRE='" + nombre + "'", null);
         if (fila == 1){
-            Toast.makeText(getApplicationContext(), "Persona eliminada correctamente", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.persona_delete), Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(getApplicationContext(), "Error al eliminar", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.error_eliminar), Toast.LENGTH_LONG).show();
         }
 
         db.close();
@@ -188,7 +188,7 @@ public class Personas extends AppCompatActivity {
             recordatorios_persona.putExtra("persona_id", fila.getString(0));
             startActivityForResult(recordatorios_persona,777);
         }else{
-            Toast.makeText(getApplicationContext(), "Error al seleccionar la persona", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.error_seleccionar), Toast.LENGTH_LONG).show();
         }
         db.close();
     }
@@ -206,7 +206,7 @@ public class Personas extends AppCompatActivity {
             add_persona.putExtra("persona_nombre", fila.getString(1));
             startActivityForResult(add_persona,777);
         }else{
-            Toast.makeText(getApplicationContext(), "Error al seleccionar la persona", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.error_seleccionar, Toast.LENGTH_LONG).show();
         }
         db.close();
     }

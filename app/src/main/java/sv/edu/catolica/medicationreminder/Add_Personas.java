@@ -32,7 +32,7 @@ public class Add_Personas extends AppCompatActivity {
         if (NombrePersona.getText().toString().trim().isEmpty() )
         {
             validacion.setTextColor(getColor(R.color.rojo));
-            validacion.setText("Los campos no pueden quedar en blanco.");
+            validacion.setText(getText(R.string.campos_vacios));
         }else{
             int count =getCountPersona();
             ContentValues registro = new ContentValues();
@@ -49,12 +49,12 @@ public class Add_Personas extends AppCompatActivity {
 
             if (filaAfectadas !=-1){
                 validacion.setTextColor(getColor(R.color.verde));
-                validacion.setText("Persona registrada correctamente.");
+                validacion.setText(R.string.persona_guardada);
                NombrePersona.setText("");
             }else
             {
                 validacion.setTextColor(getColor(R.color.rojo));
-                validacion.setText("Sucedió un error al guardar.");
+                validacion.setText(getText(R.string.error_guardar));
             }
             db.close();
         }

@@ -12,7 +12,7 @@
 
     <string name="valor_intervalo">Valor de intervalo</string>
     <string name="permanente">Permanente</string>
-    <string name="fecha_final">Fecha final</string>
+    <string name="fecha_final">Fecha final: </string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
     <string name="logo_de_app">logo de app</string>
     <string name="personas">Personas</string>
@@ -32,7 +32,7 @@
     <string name="dosis">Dosis</string>
     <string name="tomar">Tomar</string>
     <string name="comentario">Comentario</string>
-    <string name="tipo">Tipo:</string>
+    <string name="tipo">\Tipo: \</string>
     <string name="seleccionar">Seleccionar</string>
     <string name="datos_de_dosis">Datos de dosis</string>
     <string name="universo_desarrollo" translatable="false">Universo Desarrollo</string>
@@ -48,19 +48,19 @@
     <string name="error">Sucedió un error al guardar.</string>
     <string name="no_hay_elementos">No se encontró nada.</string>
     <string name="error_update">Sucedió un problema al modificar.</string>
-    <string name="id">ID: </string>
-    <string name="dosificacion2">Dosificación: </string>
-    <string name="dosis2">Dosis: </string>
-    <string name="fecha2">Fecha: </string>
-    <string name="estado2">Estado: </string>
+    <string name="id">\ID: \</string>
+    <string name="dosificacion2">\Dosificación: \</string>
+    <string name="dosis2">\Dosis: \</string>
+    <string name="fecha2">\Fecha: \</string>
+    <string name="estado2">\Estado: \</string>
     <string name="comentario2">\Comentario: </string>
     <string name="nuevo_medicamento">Nuevo Medicamento</string>
     <string name="nombre_del_medicamento">Nombre del medicamento</string>
     <string name="tipo_de_medicamento">Tipo de medicamento</string>
     <string name="guardar_cambios">guardar cambios</string>
-    <string name="medicamento2">\Medicamento: </string>
-    <string name="tipo2">Tipo: </string>
-    <string name="busquedanoencontrada">No hay elementos para esta búsqueda.</string>
+    <string name="medicamento2">\Medicamento: \</string>
+    <string name="tipo2">\Tipo: \</string>
+    <string name="busquedanoencontrada">No hay elementos para esta búsqueda</string>
     <string name="salir">Salir</string>
     <string name="editar_medicamento">Editar Medicamento</string>
     <string name="med_reminder" translatable="false">MED REMINDER</string>
@@ -71,10 +71,25 @@
     <string name="fecha_mayor_cero">El valor del intervalo tiene que ser mayor a 0</string>
     <string name="preg_eliminar_medicLista">Desea eliminar este medicamento de su listado de recordatorio?</string>
     <string name="eliminar_medicLista">Eliminar medicamento del recordatorio</string>
+    <string name="persona_guardada">Persona registrada correctamente.</string>
+    <string name="update_ok">Se ha actualizado correctamente</string>
+    <string name="persona_existe">Ya existe una persona con ese nombre.</string>
+    <string name="persona_delete">Persona eliminada correctamente</string>
+    <string name="error_eliminar">Error al eliminar</string>
+    <string name="pregunta_salir">¿Está seguro de salir de Medication Reminder?</string>
+    <string name="minutos">Minutos</string>
+    <string name="horas">Horas</string>
+    <string name="dias">Días</string>
+    <string name="semanas">Semanas</string>
+    <string name="terminado">No activo</string>
+    <string name="Fecha_inicio">\Fecha de inicio: \</string>
+    <string name="intervalo">\Intervalo: \</string>
+    <string name="time">Tiempo</string>
     <string name="tomado">Tomado</string>
     <string name="no_tomado">No tomado</string>
     <string name="retrasado">Retrasado</string>
     <string name="estado_i0">Estado</string>
-    <string name="time">Hora:</string>
+    <string name="error_seleccionar">Error al seleccionar</string>
+    <string name="en_curso">En curso</string>
 
 </resources>

@@ -51,7 +51,7 @@ public class Principal extends AppCompatActivity {
     //Método para salir y detener la aplicación
     public void Salir(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("¿Está seguro de salir de Medication Reminder?").setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+        builder.setMessage(getText(R.string.pregunta_salir)).setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);

@@ -31,7 +31,7 @@
     <string name="dosis">Dose</string>
     <string name="tomar">Drink</string>
     <string name="comentario">Comentary</string>
-    <string name="tipo">Kind:</string>
+    <string name="tipo">\Kind: \</string>
     <string name="seleccionar">To select</string>
     <string name="datos_de_dosis">Dose data</string>
     <string name="universo_desarrollo" translatable="false">Universo Desarrollo</string>
@@ -47,19 +47,19 @@
     <string name="error">An error occurred while saving.</string>
     <string name="no_hay_elementos">Nothing was found.</string>
     <string name="error_update">A problem occurred while modifying.</string>
-    <string name="id">Number: </string>
-    <string name="dosificacion2">Dosage:</string>
-    <string name="dosis2">Dose:</string>
-    <string name="fecha2">Date: </string>
-    <string name="estado2">State: </string>
-    <string name="comentario2">Commentary:</string>
+    <string name="id">\Number: \</string>
+    <string name="dosificacion2">\Dosage: \</string>
+    <string name="dosis2">\Dose: \</string>
+    <string name="fecha2">\Date: \</string>
+    <string name="estado2">\State: \</string>
+    <string name="comentario2">\Commentary: \</string>
     <string name="salir">Get out</string>
     <string name="editar_medicamento">Edit Medication</string>
     <string name="med_reminder" translatable="false">MED REMINDER</string>
     <string name="nombre_del_medicamento">Medication name</string>
-    <string name="tipo2">Kind:</string>
+    <string name="tipo2">\Kind: \</string>
     <string name="busquedanoencontrada">There are no items for this search.</string>
-    <string name="medicamento2">Medication:</string>
+    <string name="medicamento2">\Medication: \</string>
     <string name="guardar_cambios">Save Changes</string>
     <string name="tipo_de_medicamento">Medication type</string>
     <string name="nuevo_medicamento">New Medicine</string>
@@ -73,7 +73,22 @@
     <string name="time">Time</string>
     <string name="tomado">Drunk</string>
     <string name="no_tomado">Not drunk</string>
-    <string name="retrasado">Delayed</string>
+    <string name="retrasado">Postpone</string>
     <string name="estado_i0">State</string>
+    <string name="persona_guardada">Correctly registered person</string>
+    <string name="update_ok">It has been successfully updated</string>
+    <string name="persona_existe">There is already a person with that name</string>
+    <string name="persona_delete">Person deleted correctly</string>
+    <string name="error_eliminar">Error when deleting</string>
+    <string name="error_seleccionar">Error when selecting</string>
+    <string name="pregunta_salir">Are you sure you want to leave Med Reminder?</string>
+    <string name="minutos">Minutes</string>
+    <string name="horas">Hours</string>
+    <string name="dias">Days</string>
+    <string name="semanas">Weeks</string>
+    <string name="en_curso">In progress</string>
+    <string name="terminado">Not active</string>
+    <string name="Fecha_inicio">\Start date: \</string>
+    <string name="intervalo">\Interval: \</string>
 
 </resources>
