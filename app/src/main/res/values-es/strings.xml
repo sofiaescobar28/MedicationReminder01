@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="app_name">MednReminder</string>
     <string name="recordatorio">Recordatorio</string>
     <string name="titulo_recordatorio">Título del recordatorio</string>
     <string name="MDH">Minutos/horas/dias</string>
@@ -17,7 +17,7 @@
     <string name="logo_de_app">logo de app</string>
     <string name="personas">Personas</string>
     <string name="recordatorios">Recordatorios</string>
-    <string name="medication_reminder">Medication Reminder</string>
+    <string name="medication_reminder">Med Reminder</string>
     <string name="buscar">Buscar</string>
     <string name="agregar_persona">Agregar persona</string>
     <string name="nombre">Nombre</string>
@@ -76,7 +76,7 @@
     <string name="persona_existe">Ya existe una persona con ese nombre.</string>
     <string name="persona_delete">Persona eliminada correctamente</string>
     <string name="error_eliminar">Error al eliminar</string>
-    <string name="pregunta_salir">¿Está seguro de salir de Medication Reminder?</string>
+    <string name="pregunta_salir">¿Está seguro de salir de Med Reminder?</string>
     <string name="minutos">Minutos</string>
     <string name="horas">Horas</string>
     <string name="dias">Días</string>

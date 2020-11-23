@@ -78,7 +78,7 @@
     <string name="persona_delete">Personne supprimée avec succès</string>
     <string name="error_eliminar">Erreur lors de la suppression</string>
     <string name="error_seleccionar">Erreur lors de la sélection</string>
-    <string name="pregunta_salir">¿Êtes-vous sûr de vouloir laisser un rappel de médicaments?</string>
+    <string name="pregunta_salir">¿Êtes-vous sûr de quitter Med Reminder?</string>
     <string name="minutos">Minutes</string>
     <string name="horas">Heures</string>
     <string name="dias">Jours</string>
@@ -91,4 +91,5 @@
     <string name="no_tomado">Pas ivre</string>
     <string name="retrasado">Différé</string>
     <string name="estado_i0">Etat</string>
+    <string name="en_curso">En cours</string>
 </resources>

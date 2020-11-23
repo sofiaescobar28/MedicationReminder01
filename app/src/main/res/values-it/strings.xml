@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="app_name">MedReminder</string>
     <string name="recordatorio">Promemoria</string>
     <string name="titulo_recordatorio">Titolo promemoria</string>
     <string name="MDH">Minuti/Ore/Giorni</string>
@@ -17,7 +17,7 @@
     <string name="logo_de_app">" logo dell'app"</string>
     <string name="personas"> Persone</string>
     <string name="recordatorios"> Promemoria</string>
-    <string name="medication_reminder"> Promemoria farmaci</string>
+    <string name="medication_reminder"> Med reminder</string>
     <string name="buscar">Cercare</string>
     <string name="agregar_persona"> Aggiungi persona</string>
     <string name="nombre">Nome</string>
