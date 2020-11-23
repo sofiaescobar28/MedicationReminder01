@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -24,7 +25,10 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static sv.edu.catolica.medicationreminder.R.drawable.botiquin;
@@ -36,8 +40,8 @@ public class Alarm extends BroadcastReceiver
     private PendingIntent pendingIntent;
 
     Notification notification;
-    ManejadorBD admin;
-    SQLiteDatabase db;
+   //ManejadorBD admin;
+    //SQLiteDatabase db;
 
     int MINUTOS=1,HORAS=2,DIAS=3, SEMANAS=4, MESES=5;
 
@@ -60,8 +64,14 @@ public class Alarm extends BroadcastReceiver
 
 
 
+
         final int persona_id = intent.getExtras().getInt("persona_id");
       final int  NOTIFICATION_ID =intent.getExtras().getInt("identificador",-1);
+
+      insertarRegistro(NOTIFICATION_ID,persona_id,context);
+
+       // Historial historiL = new Historial();
+       // historiL.insertarRegistro(NOTIFICATION_ID,persona_id);
 
       String id_dos = String.valueOf(NOTIFICATION_ID);
         String persona_dos = String.valueOf(persona_id);
@@ -139,7 +149,9 @@ public class Alarm extends BroadcastReceiver
     }
 
     public  ArrayList<ENotificacion> buscarInformacionNotificacion(int recordatorio_id,Context ctx){
-
+        ManejadorBD admin;
+        SQLiteDatabase db;
+        admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
     admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
     db = admin.getWritableDatabase();
     Cursor fila = db.rawQuery(" SELECT r.RE_COD ,r.RE_TITULO, m2.MED_NOMBRE,m.MEDXRED_DOSIFICACION,m.RE_DOSIS, p.PER_NOMBRE,p.PER_COD " +
@@ -195,6 +207,8 @@ public class Alarm extends BroadcastReceiver
             i.putExtra("persona_id",person);
             PendingIntent pi = PendingIntent.getBroadcast(context, identificador, i, PendingIntent.FLAG_CANCEL_CURRENT);
             am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000*60*Time, pi); // Millisec * Second * Minute
+
+
         }else if (tipoTiempo == HORAS){
         AlarmManager am =( AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(context, Alarm.class);
@@ -233,6 +247,94 @@ public class Alarm extends BroadcastReceiver
             am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), AlarmManager.INTERVAL_HOUR*30*Time, pi); // Millisec * Second * Minute
         }
 
+    }
+    public ArrayList<ECantidadMed> obtenerCantidadMedicamentos(int recordatorio,Context ctx){
+        ManejadorBD admin;
+        SQLiteDatabase db;
+        admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
+        db = admin.getWritableDatabase();
+        Cursor fila = db.rawQuery("SELECT m.MED_NOMBRE " +
+                        " FROM MEDXRE m2" +
+                        " INNER JOIN MEDICAMENTO m ON m2.MED_COD = m.MED_COD " +
+                        " WHERE m2.RE_COD = "+recordatorio
+                ,null);
+        ArrayList<ECantidadMed> medicamentos=new ArrayList<ECantidadMed>();
+        while (fila.moveToNext()){
+            ECantidadMed _med = new ECantidadMed();
+            _med.medicamento=fila.getString(0);
+            medicamentos.add(_med);
+        }
+        db.close();
+        return medicamentos;
+    }
+
+    public void insertarRegistro(int recordatorio,int persona,Context ctx)
+                {
+                    ManejadorBD admin;
+                    SQLiteDatabase db;
+                    admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
+        ArrayList<ECantidadMed> medicamentos =obtenerCantidadMedicamentos(recordatorio,ctx);
+        for (ECantidadMed med: medicamentos) {
+
+            ContentValues registro = new ContentValues();
+            Date Hoy = new Date();
+            String fecha;
+
+            DecimalFormat df = new DecimalFormat("##");
+            fecha = df.format(Hoy.getHours());
+            fecha +=":";
+            fecha += df.format(Hoy.getMinutes());
+            fecha +=" ";
+            fecha += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
+
+            registro.put("H_COD",ultimoID_Historial(ctx));
+            registro.put("MEDXRED_COD",obtenerMedxRed_COD(med.medicamento,recordatorio,ctx));
+            registro.put("H_FECHA", fecha);
+            registro.put("H_ESTADO", 1);
+            registro.put("H_COMENTARIO", med.medicamento);
+
+            db = admin.getWritableDatabase();
+            int valor = (int) db.insert("HISTORIAL", null, registro);
+
+            db.close();
+        }
+
+    }
+    public int ultimoID_Historial(Context ctx){
+        ManejadorBD admin;
+        SQLiteDatabase db;
+        admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
+        db = admin.getWritableDatabase();
+        int num=-1;
+        Cursor fila = db.rawQuery("SELECT H_COD FROM HISTORIAL" +
+                " ORDER BY H_COD DESC"+
+                " LIMIT 1;",null);
+        if (fila.moveToFirst()){
+            num=fila.getInt(0);
+            num++;
+        }else   {
+            num = 1;
+        }
+        db.close();
+        return num;
+    }
+    public int obtenerMedxRed_COD(String medicamento, int recordatorio,Context ctx){
+        ManejadorBD admin;
+        SQLiteDatabase db;
+        admin=new ManejadorBD(ctx,"MEDICATIONREMINDER",null,1);
+        db = admin.getWritableDatabase();
+
+        int num=-1;
+        Cursor fila = db.rawQuery("SELECT m.MEDXRED_COD FROM MEDXRE m " +
+                " INNER JOIN RECORDATORIO r ON m.RE_COD = r.RE_COD " +
+                " INNER JOIN MEDICAMENTO m2 ON m.MED_COD = m2.MED_COD " +
+                " WHERE r.RE_COD = "+recordatorio+" AND m2.MED_NOMBRE ='"+medicamento+"'",null);
+        if (fila.moveToFirst()){
+            num=fila.getInt(0);
+
+        }
+        db.close();
+        return num;
     }
 
     public void cancelAlarm(Context context)
