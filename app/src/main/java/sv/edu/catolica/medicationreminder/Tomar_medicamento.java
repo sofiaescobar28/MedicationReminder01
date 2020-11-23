@@ -51,13 +51,7 @@ public class Tomar_medicamento extends AppCompatActivity {
             Date Hoy = new Date();
             int est =estado.getSelectedItemPosition();
 
-            DecimalFormat df = new DecimalFormat("##");
-
-            fecha = df.format(Hoy.getHours());
-            fecha +=":";
-            fecha += df.format(Hoy.getMinutes());
-            fecha +=" ";
-            fecha += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
+            fecha = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(Hoy);
 
             registro.put("H_COD",ultimoID_RE());
             registro.put("MEDXRED_COD",MEDxRE);
