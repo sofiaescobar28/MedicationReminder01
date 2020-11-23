@@ -134,7 +134,7 @@ public class Recordatorios extends AppCompatActivity {
             List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
             while (fila.moveToNext()){
-                switch (fila.getString(2)) {
+                switch (fila.getString(3)) {
                     case "1":
                         intervalo = getString(R.string.minutos);
                         break;
@@ -192,7 +192,7 @@ public class Recordatorios extends AppCompatActivity {
 
 
             while (fila.moveToNext()){
-                switch (fila.getString(2)) {
+                switch (fila.getString(3)) {
                     case "1":
                         intervalo = getString(R.string.minutos);
                         break;
