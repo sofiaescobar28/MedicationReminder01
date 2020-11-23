@@ -79,14 +79,7 @@ public class Add_Recordatorios extends AppCompatActivity {
                     mdh = spnMDH.getSelectedItemPosition();
                     estado = 1;
 
-                    DecimalFormat df = new DecimalFormat("##");
-
-                    fInicio = df.format(Hoy.getHours());
-                    fInicio +=":";
-                    fInicio += df.format(Hoy.getMinutes());
-                    fInicio +=" ";
-                    fInicio += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
-
+                    fInicio = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(Hoy);
 
                     registro.put("RE_COD",ultimoID_RE());
                     registro.put("PER_COD",id_persona);
