@@ -86,10 +86,9 @@
     <string name="terminado">Inactif</string>
     <string name="Fecha_inicio">\Date de début: \</string>
     <string name="intervalo">\Intervalle: \</string>
-    <string name="time">Météo</string>
+    <string name="time">Temps</string>
     <string name="tomado">Ivre</string>
     <string name="no_tomado">Pas ivre</string>
-    <string name="retrasado">reporté</string>
+    <string name="retrasado">Différé</string>
     <string name="estado_i0">Etat</string>
-    <string name="en_curso">En cours</string>
 </resources>
