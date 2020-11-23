@@ -57,9 +57,9 @@ public class Editar_Personas extends AppCompatActivity {
         registro.put("PER_NOMBRE", nombre);
         int fila = db.update("PERSONA", registro, "PER_COD='" + persona_id + "'", null);
         if (fila == 1){
-            Toast.makeText(getApplicationContext(), "Se ha actualizado correctamente", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.update_ok), Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(getApplicationContext(), "Error al actualizar nombre", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.error_update), Toast.LENGTH_LONG).show();
         }
 
         db.close();
@@ -68,10 +68,10 @@ public class Editar_Personas extends AppCompatActivity {
     //Boton para actualizar nombre
     public void updatePersona(View view) {
         if(etNombrePersonaEditar.getText().toString().trim().isEmpty()){
-            Toast.makeText(getApplicationContext(), "El campo está vacío", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.campos_vacios), Toast.LENGTH_LONG).show();
         }else{
             if (verificarPersona(etNombrePersonaEditar.getText().toString().trim()) > 0){
-                Toast.makeText(getApplicationContext(), "Ya existe una persona con ese nombre.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.persona_existe), Toast.LENGTH_LONG).show();
             }else{
                 Actualizar(etNombrePersonaEditar.getText().toString().trim());
             }

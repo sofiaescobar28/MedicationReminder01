@@ -136,26 +136,26 @@ public class Recordatorios extends AppCompatActivity {
             while (fila.moveToNext()){
                 switch (fila.getString(2)) {
                     case "1":
-                        intervalo = "Minutos";
+                        intervalo = getString(R.string.minutos);
                         break;
                     case "2":
-                        intervalo = "Hora";
+                        intervalo = getString(R.string.horas);
                         break;
                     case "3":
-                        intervalo = "Días";
+                        intervalo = getString(R.string.dias);
                         break;
                     case "4":
-                        intervalo = "Semanas";
+                        intervalo = getString(R.string.semanas);
                         break;
                     default:
                 }
 
                 switch (fila.getString(6)) {
                     case "1":
-                        estado= "En curso";
+                        estado= getString(R.string.en_curso);
                         break;
                     case "2":
-                        estado = "Terminado";
+                        estado = getString(R.string.terminado);
                         break;
                     default:
                 }
@@ -163,10 +163,10 @@ public class Recordatorios extends AppCompatActivity {
                 Map<String, String> datum = new HashMap<String, String>(6);
                 datum.put("id", fila.getString(0));
                 datum.put("titulo", fila.getString(1));
-                datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
-                datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
-                datum.put("final", "Fecha final: " + fila.getString(5));
-                datum.put("estado", "Estado: " + estado);
+                datum.put("inicio", getString(R.string.Fecha_inicio) + fila.getString(2));
+                datum.put("intervalo", getString(R.string.intervalo) + fila.getString(4) + " "+ intervalo);
+                datum.put("final",  getString(R.string.fecha_final) + fila.getString(5));
+                datum.put("estado", getString(R.string.estado2) + estado);
             }
 
             db.close();
@@ -192,28 +192,28 @@ public class Recordatorios extends AppCompatActivity {
 
 
             while (fila.moveToNext()){
-                switch (fila.getString(3)) {
+                switch (fila.getString(2)) {
                     case "1":
-                        intervalo = "Minutos";
+                        intervalo = getString(R.string.minutos);
                         break;
                     case "2":
-                        intervalo = "Hora";
+                        intervalo = getString(R.string.horas);
                         break;
                     case "3":
-                        intervalo = "Días";
+                        intervalo = getString(R.string.dias);
                         break;
                     case "4":
-                        intervalo = "Semanas";
+                        intervalo = getString(R.string.semanas);
                         break;
                     default:
                 }
 
                 switch (fila.getString(6)) {
                     case "1":
-                        estado= "En curso";
+                        estado= getString(R.string.en_curso);
                         break;
                     case "2":
-                        estado = "Terminado";
+                        estado = getString(R.string.terminado);
                         break;
                     default:
                 }
@@ -221,10 +221,10 @@ public class Recordatorios extends AppCompatActivity {
                 Map<String, String> datum = new HashMap<String, String>(6);
                 datum.put("id", fila.getString(0));
                 datum.put("titulo", fila.getString(1));
-                datum.put("inicio", "Fecha de inicio: " + fila.getString(2));
-                datum.put("intervalo", "Intervalo: " + fila.getString(4) + " "+ intervalo);
-                datum.put("final", "Fecha final: " + fila.getString(5));
-                datum.put("estado", "Estado: " + estado);
+                datum.put("inicio", getString(R.string.Fecha_inicio) + fila.getString(2));
+                datum.put("intervalo", getString(R.string.intervalo) + fila.getString(4) + " "+ intervalo);
+                datum.put("final",  getString(R.string.fecha_final) + fila.getString(5));
+                datum.put("estado", getString(R.string.estado2) + estado);
                 data.add(datum);
             }
 

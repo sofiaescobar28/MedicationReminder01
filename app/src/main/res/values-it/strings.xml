@@ -32,7 +32,7 @@
     <string name="dosis">Dose</string>
     <string name="tomar">BEVANDA</string>
     <string name="comentario">Commento</string>
-    <string name="tipo">Genere:</string>
+    <string name="tipo">\Genere: \</string>
     <string name="seleccionar">Selezionare</string>
     <string name="datos_de_dosis">Dati sulla dose</string>
     <string name="universo_desarrollo" translatable="false">Universo Desarrollo</string>
@@ -48,19 +48,19 @@
     <string name="error">Si è verificato un errore durante il salvataggio.</string>
     <string name="no_hay_elementos">Non è stato trovato niente.</string>
     <string name="error_update">Si è verificato un problema durante la modifica.</string>
-    <string name="id">Numero: </string>
-    <string name="dosificacion2">Dosaggio:</string>
-    <string name="dosis2">Dose:</string>
-    <string name="fecha2">Data: </string>
-    <string name="estado2">Stato:</string>
-    <string name="comentario2">Commento:</string>
+    <string name="id">\Numero: \</string>
+    <string name="dosificacion2">\Dosaggio: \</string>
+    <string name="dosis2">\Dose: \</string>
+    <string name="fecha2">\Data: \</string>
+    <string name="estado2">\Stato: \</string>
+    <string name="comentario2">\Commento: \</string>
     <string name="med_reminder" translatable="false">MED REMINDER</string>
     <string name="busquedanoencontrada">Non ci sono elementi per questa ricerca.</string>
-    <string name="medicamento2">Farmaco:</string>
+    <string name="medicamento2">\Farmaco: \</string>
     <string name="guardar_cambios">Salvare le modifiche</string>
     <string name="tipo_de_medicamento">Tipo di farmaco</string>
     <string name="nuevo_medicamento">NUOVA MEDICINA</string>
-    <string name="tipo2">Genere: </string>
+    <string name="tipo2">\Genere: \</string>
     <string name="editar_medicamento">EDIT MEDICATION</string>
     <string name="salir">Esci</string>
     <string name="nombre_del_medicamento">Nome del farmaco</string>
@@ -71,4 +71,25 @@
     <string name="fecha_mayor_cero">Il valore dell´intervallo deve essere maggiore di 0</string>
     <string name="preg_eliminar_medicLista">Vuoi rimuovere questo farmaco dall´elenco dei promemoria?</string>
     <string name="eliminar_medicLista">Rimuovi i farmaci dal promemoria</string>
+
+    <string name="persona_guardada">Persona registrata con successo</string>
+    <string name="update_ok">È stato aggiornato con successo</string>
+    <string name="persona_existe">Esiste già una persona con quel nome</string>
+    <string name="persona_delete">Persona rimossa con successo</string>
+    <string name="error_eliminar">Eliminazione non riuscita</string>
+    <string name="error_seleccionar">Impossibile selezionare</string>
+    <string name="pregunta_salir">¿Sei sicuro di uscire da Med Reminder?</string>
+    <string name="minutos">Minuti</string>
+    <string name="horas">Ore</string>
+    <string name="dias">Giorni</string>
+    <string name="semanas">Settimane</string>
+    <string name="terminado">Non attivo</string>
+    <string name="Fecha_inicio">\Data d´inizio: \</string>
+    <string name="intervalo">\Intervallo: \</string>
+    <string name="time">Tempo</string>
+    <string name="tomado">Prese</string>
+    <string name="no_tomado">Non preso</string>
+    <string name="retrasado">Rinviato</string>
+    <string name="estado_i0">Stato</string>
+    <string name="en_curso">In corso</string>
 </resources>
