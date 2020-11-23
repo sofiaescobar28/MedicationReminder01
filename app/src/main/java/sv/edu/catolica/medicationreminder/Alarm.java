@@ -133,7 +133,7 @@ public class Alarm extends BroadcastReceiver
 
 
         // Put here YOUR code.
-        Toast.makeText(context, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show(); // For example
+        Toast.makeText(context, "¡Alarma de medicamentos!", Toast.LENGTH_LONG).show(); // For example
 
         wl.release();
     }
