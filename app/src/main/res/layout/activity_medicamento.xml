@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:background="#FFEADB"
+    android:padding="15dp"
     tools:context=".Medicamento">
 
     <TextView
@@ -14,22 +15,26 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="MED REMINDER"
-        android:textSize="28sp" />
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MEDICAMENTOS"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        android:text="@string/medicamentos"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/btnAgregarMedicamento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:onClick="pantallaNuevoMed"
-        android:text="agregar medicamento" />
+        android:text="agregar medicamento"
+        android:visibility="invisible"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,6 +45,8 @@
             android:id="@+id/txtBuscarMedicamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
             android:layout_weight="1"
             android:hint="Nombre del medicamento" />
 
@@ -51,22 +58,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-
-    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <LinearLayout
         android:id="@+id/lyContenedorMedicamentos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="134dp"
-
-            android:background="@color/colorAccent">
+            android:layout_height="wrap_content">
 
             <TableRow android:gravity="end">
 
@@ -74,6 +77,8 @@
 
                     <Button
                         android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:background="#FF9A76"
                         android:text="Editar" />
                 </TableRow>
 
@@ -156,4 +161,12 @@
         </TableLayout>
     </LinearLayout>
     </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addMed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="10dp"
+        android:onClick="pantallaNuevoMed"
+        android:src="@drawable/plus_blanco"/>
 </LinearLayout>

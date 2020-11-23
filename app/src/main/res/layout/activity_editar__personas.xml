@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
+    android:padding="15dp"
     tools:context=".Editar_Personas">
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:text="@string/medication_reminder"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="@string/med_reminder"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -21,7 +23,7 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/editar_persona"
         android:textColor="#000000"
         android:textSize="25sp" />
@@ -31,15 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         android:inputType="textPersonName"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:hint="@string/nombre"
         android:importantForAutofill="no" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -47,6 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="updatePersona"
+            android:background="#FF9A76"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:text="@string/guardar" />
 
@@ -55,7 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="Cancelar"
+            android:background="#679B9B"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:text="@string/cancelar" />
     </LinearLayout>
 

@@ -60,6 +60,7 @@ public class medicina_por_recordatorio extends AppCompatActivity {
                 this.finish();
                 Intent MedicamentoRE = new Intent(getApplicationContext(),medicamento_recordatorio.class);
                 MedicamentoRE.putExtra("RE_COD",String.valueOf(IDrec));
+                MedicamentoRE.putExtra("PER_COD",Per_cod);
                 startActivity(MedicamentoRE);
             } else {
                 validacion.setTextColor(getColor(R.color.rojo));

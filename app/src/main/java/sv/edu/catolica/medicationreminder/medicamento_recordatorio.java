@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.Icon;
@@ -23,6 +25,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class medicamento_recordatorio extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class medicamento_recordatorio extends AppCompatActivity {
     private LinearLayout contenedor;
     ManejadorBD admin;
     SQLiteDatabase db;
+    FloatingActionButton boton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,8 @@ public class medicamento_recordatorio extends AppCompatActivity {
         Re_cod = extras.getString("RE_COD");
         Per_cod =extras.getString("PER_COD");
         contenedor = findViewById(R.id.ContenedorTomar);
+        boton = findViewById(R.id.ElegirMed);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
         buscarMedNombres();
@@ -69,7 +76,12 @@ public class medicamento_recordatorio extends AppCompatActivity {
             Button btnEliminar = new Button(this);
 
             btnTomar.setText(R.string.tomar);
+            btnTomar.setTextSize(20);
+            btnTomar.setBackgroundColor(Color.parseColor("#FF9A76"));
             btnEliminar.setText(R.string.eliminar);
+            btnEliminar.setTextSize(20);
+            btnEliminar.setBackgroundColor(Color.parseColor("#679B9B"));
+
 
             btnEliminar.setGravity(Gravity.RIGHT);
             btnEliminar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -83,17 +95,23 @@ public class medicamento_recordatorio extends AppCompatActivity {
 
 
             tvIdValor.setText(String.valueOf(mr.MED_COD));
+            tvIdValor.setTextSize(18);
+            tvIdValor.setTextColor(Color.parseColor("#000000"));
             tvNombreValor.setText(mr.MED_NOMBRE);
+            tvNombreValor.setTextSize(18);
+            tvNombreValor.setTextColor(Color.parseColor("#000000"));
             tvTipoValor.setText(mr.MED_TIPO);
+            tvTipoValor.setTextSize(18);
+            tvTipoValor.setTextColor(Color.parseColor("#000000"));
             tvDosificValor.setText(getText(R.string.dosificacion)+": "+mr.MEDXRED_DOSIFICACION);
+            tvDosificValor.setTextSize(18);
+            tvDosificValor.setTextColor(Color.parseColor("#000000"));
             tvDosisValor.setText(getText(R.string.dosis)+": "+mr.RE_DOSIS);
+            tvDosisValor.setTextSize(18);
+            tvDosisValor.setTextColor(Color.parseColor("#000000"));
 
             tvIdValor.setVisibility(View.INVISIBLE);
             tvNombreValor.setGravity(Gravity.TOP);
-            tvNombreValor.setTextSize(27);
-            tvTipoValor.setTextSize(27);
-            tvDosificValor.setTextSize(15);
-            tvDosisValor.setTextSize(15);
 
             btnTomar.setGravity(Gravity.RIGHT);
 

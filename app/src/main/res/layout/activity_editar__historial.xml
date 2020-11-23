@@ -5,24 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFEADB"
     tools:context=".Editar_Historial"
-    android:padding="20dp">
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/aplication_reminder"
-        android:textSize="28sp" />
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:text="@string/med_reminder"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/lbltituloEditHistorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
         android:text="@string/recordatorio"
-        android:textSize="24sp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,6 +37,8 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:layout_weight="1"
             android:text="@string/dosificacion2" />
 
@@ -40,6 +46,8 @@
             android:id="@+id/lblValorDosificacionEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -53,12 +61,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:text="@string/dosis2" />
 
         <TextView
             android:id="@+id/lblValorDosisEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -72,36 +84,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:text="@string/fecha2" />
 
         <TextView
             android:id="@+id/lblValorFechaEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/hora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:text="@string/time" />
 
         <TextView
             android:id="@+id/lblValorhoraEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000000"
             android:layout_weight="1" />
     </LinearLayout>
     <Spinner
         android:id="@+id/spnEstado"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="10dp"
         android:entries="@array/estado_historial" />
 
     <EditText
@@ -109,25 +133,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:hint="@string/comentario"
-        android:inputType="textMultiLine" />
+        android:layout_marginBottom="20dp"
+        android:inputType="textMultiLine"
+        android:importantForAutofill="no" />
 
-    <Button
-        android:id="@+id/btnGuardarRec"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="updateHistorial"
-        android:text="@string/guardar_cambios"
-        android:textSize="20sp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/btnCancelarRec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="Salir"
-        android:text="@string/salir"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/btnGuardarRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="updateHistorial"
+            android:text="@string/guardar_cambios"
+            android:background="#FF9A76"
+            android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/btnCancelarRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Salir"
+            android:layout_weight="1"
+            android:text="@string/salir"
+            android:background="#679B9B"
+            android:textSize="20sp" />
+    </LinearLayout>
     <TextView
         android:id="@+id/lblvalidarHistoEd"
         android:layout_width="match_parent"

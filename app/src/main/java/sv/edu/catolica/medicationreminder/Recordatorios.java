@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +34,7 @@ public class Recordatorios extends AppCompatActivity {
     private ListView lvRecordatorio;
     private EditText etBuscarRecordatorio;
     String persona_id;
+    FloatingActionButton boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class Recordatorios extends AppCompatActivity {
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
         lvRecordatorio = findViewById(R.id.lvRecordar);
         etBuscarRecordatorio = findViewById(R.id.etBuscarRecordatorio);
+        boton = findViewById(R.id.addRecordatorios);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         //Obtener id de la persona de la actividad Persona
         Bundle extras = getIntent().getExtras();
@@ -65,6 +71,16 @@ public class Recordatorios extends AppCompatActivity {
         });
 
         registerForContextMenu(lvRecordatorio);
+
+        lvRecordatorio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                finish();
+                Intent pregunta = new Intent(Recordatorios.this,Recordatorio_pregunta.class);
+                pregunta.putExtra("Info",lvRecordatorio.getAdapter().getItem(i).toString());
+                startActivity(pregunta);
+            }
+        });
     }
 
     //Crear menuRecordatorio
@@ -86,12 +102,6 @@ public class Recordatorios extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.listaRecordatorioSeleccionar:
-                finish();
-                Intent pregunta = new Intent(Recordatorios.this,Recordatorio_pregunta.class);
-                pregunta.putExtra("Info",lvRecordatorio.getAdapter().getItem(info.position).toString());
-                startActivity(pregunta);
-                break;
             case R.id.listaRecordatorioEditar:
                 try {
                     finish();

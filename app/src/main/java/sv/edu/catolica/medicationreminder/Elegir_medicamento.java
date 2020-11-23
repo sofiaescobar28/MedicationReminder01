@@ -130,6 +130,8 @@ public class Elegir_medicamento extends AppCompatActivity {
 
             Button btnSel = new Button(this);
             btnSel.setText(R.string.seleccionar);
+            btnSel.setTextSize(20);
+            btnSel.setBackgroundColor(Color.parseColor("#FF9A76"));
 
             final TextView tvIdValor=new TextView(this);
             final TextView tvNombreValor=new TextView(this);
@@ -137,12 +139,18 @@ public class Elegir_medicamento extends AppCompatActivity {
 
 
             tvIdValor.setText(String.valueOf(m.MED_COD));
+            tvIdValor.setTextSize(20);
+            tvIdValor.setTextColor(Color.parseColor("#000000"));
             tvNombreValor.setText(m.MED_NOMBRE);
+            tvNombreValor.setTextSize(18);
+            tvNombreValor.setTextColor((Color.parseColor("#000000")));
             tvTipoValor.setText(m.MED_TIPO);
+            tvTipoValor.setTextSize(18);
+            tvTipoValor.setTextColor((Color.parseColor("#000000")));
+
 
             tvIdValor.setVisibility(View.INVISIBLE);
             tvNombreValor.setGravity(Gravity.CENTER);
-            tvNombreValor.setTextSize(20);
 
             btnSel.setOnClickListener(new View.OnClickListener() {
                                                 @Override

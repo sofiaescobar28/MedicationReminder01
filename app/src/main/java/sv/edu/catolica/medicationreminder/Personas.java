@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -24,16 +25,17 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 
 public class Personas extends AppCompatActivity {
     ManejadorBD admin;
     SQLiteDatabase db;
-    private Button btnAgregar;
     private ListView lvPersona;
     private EditText etBuscarPersona;
-
+    FloatingActionButton boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,10 @@ public class Personas extends AppCompatActivity {
         setContentView(R.layout.activity_personas);
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
-        btnAgregar = findViewById(R.id.btnAgregar);
         lvPersona = findViewById(R.id.lvPersona);
         etBuscarPersona = findViewById(R.id.etBuscarPersona);
+        boton = findViewById(R.id.addPersonas);
+        boton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pGris)));
 
         //Llenar la lista
         buscarPersonaNombres();
@@ -68,6 +71,13 @@ public class Personas extends AppCompatActivity {
 
         //Asignar el menú contextual a la lista
         registerForContextMenu(lvPersona);
+
+        lvPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                recordatoriosPersona(lvPersona.getAdapter().getItem(i).toString());
+            }
+        });
     }
 
     //Método para traer todos los nombres
@@ -155,9 +165,6 @@ public class Personas extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.listaRecordatorios:
-                recordatoriosPersona(lvPersona.getAdapter().getItem(info.position).toString());
-                break;
             case R.id.listaEditar:
                 editarPersona(lvPersona.getAdapter().getItem(info.position).toString());
                 break;

@@ -38,8 +38,6 @@ public class Editar_Medicamento extends AppCompatActivity {
 
         NombreMedicamento.setText(nombre_med);
         TipoMed.setText(tipo_med);
-
-
     }
 
     public void updateMedicamento(View view) {

@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,7 +44,6 @@ public class Add_Recordatorios extends AppCompatActivity {
         etMM = findViewById(R.id.etMes);
         etAA = findViewById(R.id.etAnio);
         spnMDH = findViewById(R.id.spnMDH);
-        spnEstado = findViewById(R.id.spnEstado);
         radPerm = findViewById(R.id.radPermanente);
         radFFinal = findViewById(R.id.radFechaFinal);
         validacion = findViewById(R.id.tvValidarRe);
@@ -75,22 +75,23 @@ public class Add_Recordatorios extends AppCompatActivity {
 
     public void Guardar(View view) {
         titulo = etTit.getText().toString().trim();
-        if (!etValor.getText().toString().trim().isEmpty() && spnMDH.getSelectedItemPosition()>0 && spnEstado.getSelectedItemPosition()>0) {
+        if (!etValor.getText().toString().trim().isEmpty() && spnMDH.getSelectedItemPosition()>0) {
             if (!titulo.isEmpty()) {
                 valor = Integer.parseInt(etValor.getText().toString().trim());
                 if (valor>0){
                     ContentValues registro = new ContentValues();
                     Date Hoy = new Date();
                     mdh = spnMDH.getSelectedItemPosition();
-                    estado = spnEstado.getSelectedItemPosition();
+                    estado = 1;
 
-                    fInicio = String.valueOf(Hoy.getHours());
+                    DecimalFormat df = new DecimalFormat("##");
+
+                    fInicio = df.format(Hoy.getHours());
                     fInicio +=":";
-                    fInicio += String.valueOf(Hoy.getMinutes());
+                    fInicio += df.format(Hoy.getMinutes());
                     fInicio +=" ";
-                    fInicio += String.valueOf(Hoy.getDay()+1);
-                    fInicio += getString(R.string.pleca) + Hoy.getMonth();
-                    fInicio += getString(R.string.pleca) + Hoy.getYear();
+                    fInicio += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
+
 
                     registro.put("RE_COD",ultimoID_RE());
                     registro.put("PER_COD",id_persona);

@@ -28,7 +28,6 @@ public class Agregar_Medicamento extends AppCompatActivity {
         validacion=findViewById(R.id.lblValidacion);
 
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
-
     }
 
     public void insertarMedicamento(View v){
@@ -67,13 +66,14 @@ public class Agregar_Medicamento extends AppCompatActivity {
                 }
                 db.close();
             }
-
         }
     }
+
     public void LimpiarCasilas(){
         NombreMedicamento.setText("");
         TipoMed.setText("");
     }
+
     public int getCount(){
         db = admin.getWritableDatabase();
         int num=-1;
@@ -92,9 +92,7 @@ public class Agregar_Medicamento extends AppCompatActivity {
         }
         db.close();
         return num;
-
     }
-
 
     public  ArrayList<EMedicamento> validarInsertMedicamento(){
         db = admin.getWritableDatabase();
@@ -115,11 +113,17 @@ public class Agregar_Medicamento extends AppCompatActivity {
         db.close();
         return meds;
     }
+
     public void Cancelar(View v){
         finish();
-            Intent ventana= new Intent(getApplicationContext(),Medicamento.class);
-            startActivity(ventana);
+        Intent ventana= new Intent(Agregar_Medicamento.this, Medicamento.class);
+        startActivity(ventana);
     }
 
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent ventana= new Intent(getApplicationContext(),Medicamento.class);
+        startActivity(ventana);
+    }
 }

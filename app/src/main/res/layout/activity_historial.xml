@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:background="#FFEADB"
+    android:padding="15dp"
     tools:context=".Historial">
 
     <TextView
@@ -14,17 +15,18 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/med_reminder"
-        android:textSize="28sp" />
-
-
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/historial"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -32,10 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lySecundario"
-            android:layout_margin="10dp"
             android:orientation="vertical">
-
-
         </LinearLayout>
     </ScrollView>
 

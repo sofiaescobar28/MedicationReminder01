@@ -12,14 +12,14 @@
 
     <string name="valor_intervalo">Valeur d\'intervalle</string>
     <string name="permanente">Permanent</string>
-    <string name="fecha_final">" Date finale"</string>
+    <string name="fecha_final"> Date finale</string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
     <string name="logo_de_app">" logo de l'application"</string>
     <string name="personas">Gens</string>
-    <string name="recordatorios">" Rappels"</string>
-    <string name="medication_reminder">" Rappel de médicaments"</string>
+    <string name="recordatorios"> Rappels</string>
+    <string name="medication_reminder"> Rappel de médicaments</string>
     <string name="buscar">Chercher</string>
-    <string name="agregar_persona">" Ajouter une personne"</string>
+    <string name="agregar_persona"> Ajouter une personne</string>
     <string name="nombre">Nom</string>
     <string name="guardar">Sauvegarder</string>
     <string name="cancelar">Annuler</string>
@@ -48,19 +48,19 @@
     <string name="error">Une erreur s\'est produite lors de l\'enregistrement.</string>
     <string name="no_hay_elementos">Rien n\'a été trouvé.</string>
     <string name="error_update">Un problème est survenu lors de la modification.</string>
-    <string name="id">\" Le numéro: \"</string>
-    <string name="dosificacion2">\"Dosage:\"</string>
-    <string name="dosis2">\"Dose:\"</string>
-    <string name="fecha2">\"Date: \"</string>
-    <string name="estado2">\"Etat: \"</string>
-    <string name="comentario2">\"Commentaire:\"</string>
+    <string name="id">Le numéro: </string>
+    <string name="dosificacion2">Dosage:</string>
+    <string name="dosis2">Dose:</string>
+    <string name="fecha2">Date: </string>
+    <string name="estado2">Etat: </string>
+    <string name="comentario2">Commentaire:</string>
     <string name="med_reminder" translatable="false">MED REMINDER</string>
     <string name="nuevo_medicamento">NOUVELLE MÉDECINE</string>
     <string name="tipo_de_medicamento">Type de médicament</string>
     <string name="guardar_cambios">Enregistrer les modifications</string>
-    <string name="medicamento2">\"Médicament:\"</string>
+    <string name="medicamento2">Médicament:</string>
     <string name="busquedanoencontrada">Il n\'y a aucun élément pour cette recherche.</string>
-    <string name="tipo2">\"Type: \"</string>
+    <string name="tipo2">Type: </string>
     <string name="editar_medicamento">MODIFIER LE MÉDICAMENT</string>
     <string name="salir">Sortir</string>
     <string name="nombre_del_medicamento">Nom du médicament</string>
