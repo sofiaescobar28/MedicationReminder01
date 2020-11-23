@@ -15,28 +15,19 @@ public class MyService extends Service {
 
 int tipoTiempo, identificador,time,persona;
 
-
-
-
-
-
     public MyService() {
-
     }
-
-
         Alarm alarm = new Alarm();
         public void onCreate()
         {
             super.onCreate();
-
 
         }
 
         @Override
         public int onStartCommand(Intent intent, int flags, int startId)
         {
-         time = intent.getExtras().getInt("time");
+            time = intent.getExtras().getInt("time");
             tipoTiempo = intent.getExtras().getInt("tipoTiempo");
             identificador = intent.getExtras().getInt("identificador");
             persona = Integer.parseInt(intent.getExtras().getString("persona"));
@@ -54,7 +45,7 @@ int tipoTiempo, identificador,time,persona;
                         // Instanciamos e inicializamos nuestro manager.
                         NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-
+                        alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -62,7 +53,8 @@ int tipoTiempo, identificador,time,persona;
 
                 }
             }).start();
-            alarm.setAlarm(this, time,identificador,tipoTiempo,persona);
+
+
             Toast.makeText(this,"creado",Toast.LENGTH_LONG).show();
             return START_STICKY;
         }

@@ -82,7 +82,7 @@ public class Add_Recordatorios extends AppCompatActivity {
                     ContentValues registro = new ContentValues();
                     Date Hoy = new Date();
                     mdh = spnMDH.getSelectedItemPosition();
-                    estado = 1;
+                    estado = 2;
 
                     fInicio = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(Hoy);
 
@@ -119,16 +119,6 @@ public class Add_Recordatorios extends AppCompatActivity {
                     db = admin.getWritableDatabase();
                     filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
                     if (filaAfectadas != -1) {
-
-                        Intent service = new Intent(this,MyService.class);
-
-                        service.putExtra("time", valor);
-                        service.putExtra("tipoTiempo", mdh);
-                        service.putExtra("identificador", filaAfectadas);
-                        service.putExtra("persona", id_persona);
-
-                        startService(service);
-
 
                         finish();
                         Intent ventana= new Intent(Add_Recordatorios.this,Recordatorios.class);

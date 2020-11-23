@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -117,6 +118,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
     }
 
 
+
     public void PermanenteEdit (View v){
         etDD.setEnabled(false);
         etMM.setEnabled(false);
@@ -170,19 +172,52 @@ public class Editar_Recordatorio extends AppCompatActivity {
                         registro.put("RE_F_FINAL", getText(R.string.permanente).toString());
                     }
                     registro.put("RE_ESTADO", estado);
-
-                    filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
-                    if (filaAfectadas ==1){
-                        validacion.setText("");
-                        finish();
-                        Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
-                        ventana.putExtra("persona_id",String.valueOf(id_persona));
-                        startActivity(ventana);
-                    }else
+                    if (estado==1)
                     {
-                        validacion.setTextColor(getColor(R.color.rojo));
-                        validacion.setText(R.string.error_update);
+                        if (obtenerCantidadMedicamentos(id).size()>0){
+                            db = admin.getWritableDatabase();
+                            filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
+                            if (filaAfectadas ==1){
+                                Intent service = new Intent(this,MyService.class);
+
+                                service.putExtra("time", valor);
+                                service.putExtra("tipoTiempo", mdh);
+                                service.putExtra("identificador", id);
+                                service.putExtra("persona", String.valueOf(id_persona));
+
+                                startService(service);
+                                validacion.setText("");
+                                finish();
+                                Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
+                                ventana.putExtra("persona_id",String.valueOf(id_persona));
+                                startActivity(ventana);
+                            }else
+                            {
+                                validacion.setTextColor(getColor(R.color.rojo));
+                                validacion.setText(R.string.error_update);
+                            }
+                        }else {
+                            Toast.makeText(this,"Debe agregar medicamentos antes de activar el recordatorio",Toast.LENGTH_LONG).show();
+                        }
+
+                    }else{
+
+                        filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
+                        if (filaAfectadas ==1){
+//Eliinar el recordatorio
+                            validacion.setText("");
+                            finish();
+                            Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
+                            ventana.putExtra("persona_id",String.valueOf(id_persona));
+                            startActivity(ventana);
+                        }else
+                        {
+                            validacion.setTextColor(getColor(R.color.rojo));
+                            validacion.setText(R.string.error_update);
+                        }
                     }
+
+
                     db.close();
                 }
                 else{
@@ -198,6 +233,22 @@ public class Editar_Recordatorio extends AppCompatActivity {
             validacion.setTextColor(getColor(R.color.rojo));
             validacion.setText(getText(R.string.campos_vacios));
         }
+    }
+    public ArrayList<ECantidadMed> obtenerCantidadMedicamentos(int recordatorio){
+        db = admin.getWritableDatabase();
+        Cursor fila = db.rawQuery("SELECT m.MED_NOMBRE " +
+                        " FROM MEDICAMENTO m" +
+                        " INNER JOIN MEDXRE m2 ON m.MED_COD = m2.MED_COD " +
+                        " WHERE m2.RE_COD = "+recordatorio
+                ,null);
+        ArrayList<ECantidadMed> medicamentos=new ArrayList<ECantidadMed>();
+        while (fila.moveToNext()){
+            ECantidadMed _med = new ECantidadMed();
+            _med.medicamento=fila.getString(0);
+            medicamentos.add(_med);
+        }
+        db.close();
+        return medicamentos;
     }
 
     public static boolean validarFechaEdit(String fecha) {

@@ -3,6 +3,6 @@
     <string-array name="EstadoR_valores">
         <item>Estado</item>
         <item>En curso</item>
-        <item>Terminado</item>
+        <item>No activo</item>
     </string-array>
 </resources>
