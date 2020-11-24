@@ -335,6 +335,7 @@ public class Alarm extends BroadcastReceiver
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if(sender != null) {
             alarmManager.cancel(sender);
+            Toast.makeText(context,"¡Alarma de medicametos cancelada!",Toast.LENGTH_LONG).show();
         }
 
     }

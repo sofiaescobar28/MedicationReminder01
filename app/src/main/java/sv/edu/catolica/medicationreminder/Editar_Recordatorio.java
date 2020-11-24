@@ -31,7 +31,8 @@ public class Editar_Recordatorio extends AppCompatActivity {
     private TextView validacion;
     ManejadorBD admin;
     SQLiteDatabase db;
-    int filaAfectadas,valor,mdh,id,id_persona,estado;
+    int filaAfectadas,valor,mdh,id,id_persona,estado,encurso;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +114,9 @@ public class Editar_Recordatorio extends AppCompatActivity {
             etValor.setText( fila.getString(4));
             fFinal = fila.getString(5);
             spnEstado.setSelection(fila.getInt(6));
+            encurso=fila.getInt(6);
             fInicio = fila.getString(7);
+
         }
     }
 
@@ -178,6 +181,10 @@ public class Editar_Recordatorio extends AppCompatActivity {
                             db = admin.getWritableDatabase();
                             filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
                             if (filaAfectadas ==1){
+                                if(encurso==1){
+                                    Alarm alarma = new Alarm();
+                                    alarma.cancelAlarm(this,id);
+                                }
                                 Intent service = new Intent(this,MyService.class);
 
                                 service.putExtra("time", valor);
