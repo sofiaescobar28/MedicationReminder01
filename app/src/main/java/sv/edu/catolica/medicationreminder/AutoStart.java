@@ -5,11 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 
+//import static androidx.core.content.ContextCompat.startForegroundService;
+
 public class AutoStart extends BroadcastReceiver
 {
+
 
     @Override
     public void onReceive(Context context, Intent intent)
@@ -25,8 +31,12 @@ public class AutoStart extends BroadcastReceiver
                 service.putExtra("tipoTiempo", r.RE_INTERVALO_MDH);
                 service.putExtra("identificador", r.RE_COD);
                 service.putExtra("persona", String.valueOf(r.PER_COD));
+                if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+                    context.startForegroundService(service);
+                }else{
+                    context.startService(service);
+                }
 
-                context.startService(service);
             }
 
         }
