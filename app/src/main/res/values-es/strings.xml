@@ -12,7 +12,7 @@
 
     <string name="valor_intervalo">Valor de intervalo</string>
     <string name="permanente">Permanente</string>
-    <string name="fecha_final">Fecha final: </string>
+    <string name="fecha_final">Fecha final </string>
     <string name="dd_mm_aaa">dd/mm/aaa</string>
     <string name="logo_de_app">logo de app</string>
     <string name="personas">Personas</string>

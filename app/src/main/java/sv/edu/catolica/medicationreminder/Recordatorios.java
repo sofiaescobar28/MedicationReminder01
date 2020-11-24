@@ -165,7 +165,7 @@ public class Recordatorios extends AppCompatActivity {
                 datum.put("titulo", fila.getString(1));
                 datum.put("inicio", getString(R.string.Fecha_inicio) + fila.getString(2));
                 datum.put("intervalo", getString(R.string.intervalo) + fila.getString(4) + " "+ intervalo);
-                datum.put("final",  getString(R.string.fecha_final) + fila.getString(5));
+                datum.put("final",  getString(R.string.fecha_final) +": "+ fila.getString(5));
                 datum.put("estado", getString(R.string.estado2) + estado);
             }
 
@@ -223,7 +223,7 @@ public class Recordatorios extends AppCompatActivity {
                 datum.put("titulo", fila.getString(1));
                 datum.put("inicio", getString(R.string.Fecha_inicio) + fila.getString(2));
                 datum.put("intervalo", getString(R.string.intervalo) + fila.getString(4) + " "+ intervalo);
-                datum.put("final",  getString(R.string.fecha_final) + fila.getString(5));
+                datum.put("final",  getString(R.string.fecha_final) +": "+ fila.getString(5));
                 datum.put("estado", getString(R.string.estado2) + estado);
                 data.add(datum);
             }

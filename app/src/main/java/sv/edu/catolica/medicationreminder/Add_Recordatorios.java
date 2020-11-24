@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class Add_Recordatorios extends AppCompatActivity {
     private EditText etTit,etValor,etDD,etMM,etAA;
-    private Spinner spnMDH,spnEstado;
+    private Spinner spnMDH;
     private RadioButton radPerm,radFFinal;
     private String titulo,fInicio,fFinal,id_persona;
     private TextView validacion;
@@ -115,20 +115,20 @@ public class Add_Recordatorios extends AppCompatActivity {
                         registro.put("RE_F_FINAL", getText(R.string.permanente).toString());
                     }
                     registro.put("RE_ESTADO", estado);
-
-                    db = admin.getWritableDatabase();
-                    filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
-                    if (filaAfectadas != -1) {
-
-                        finish();
-                        Intent ventana= new Intent(Add_Recordatorios.this,Recordatorios.class);
-                        ventana.putExtra("persona_id",String.valueOf(id_persona));
-                        startActivity(ventana);
-                    } else {
-                        validacion.setTextColor(getColor(R.color.rojo));
-                        validacion.setText(R.string.error_guardar);
+                    if (validarFecha(fFinal)) {
+                        db = admin.getWritableDatabase();
+                        filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
+                        db.close();
+                        if (filaAfectadas != -1) {
+                            finish();
+                            Intent ventana = new Intent(Add_Recordatorios.this, Recordatorios.class);
+                            ventana.putExtra("persona_id", String.valueOf(id_persona));
+                            startActivity(ventana);
+                        } else {
+                            validacion.setTextColor(getColor(R.color.rojo));
+                            validacion.setText(R.string.error_guardar);
+                        }
                     }
-                    db.close();
                 }
                 else{
                     validacion.setTextColor(getColor(R.color.rojo));
