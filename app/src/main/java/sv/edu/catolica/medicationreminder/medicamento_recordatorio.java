@@ -1,29 +1,21 @@
 package sv.edu.catolica.medicationreminder;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
-import android.content.DialogInterface;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
-import android.graphics.drawable.Icon;
-import android.icu.text.AlphabeticIndex;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.PointerIcon;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -73,18 +65,18 @@ public class medicamento_recordatorio extends AppCompatActivity {
             TableRow lineaBoton = new TableRow(getApplicationContext());
 
             Button btnTomar = new Button(this);
-            Button btnEliminar = new Button(this);
+            //Button btnEliminar = new Button(this);
 
             btnTomar.setText(R.string.tomar);
             btnTomar.setTextSize(20);
             btnTomar.setBackgroundColor(Color.parseColor("#FF9A76"));
-            btnEliminar.setText(R.string.eliminar);
+            /*btnEliminar.setText(R.string.eliminar);
             btnEliminar.setTextSize(20);
             btnEliminar.setBackgroundColor(Color.parseColor("#679B9B"));
 
 
             btnEliminar.setGravity(Gravity.RIGHT);
-            btnEliminar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            btnEliminar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);*/
             btnTomar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
             final TextView tvIdValor=new TextView(this);
@@ -128,7 +120,7 @@ public class medicamento_recordatorio extends AppCompatActivity {
                                           }
                                       }
             );
-            btnEliminar.setOnClickListener(new View.OnClickListener() {
+            /*btnEliminar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder pregunta = new AlertDialog.Builder(medicamento_recordatorio.this);
@@ -139,13 +131,19 @@ public class medicamento_recordatorio extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                             int id = Integer.parseInt(tvIdValor.getText().toString().trim());
-                            /*int fila = db.delete(" MEDXRE ", " MEDXRED_COD =" + id + ";", null);
+                            Intent Eliminar = new Intent(medicamento_recordatorio.this,EliminarMEDxRE.class);
+                            Eliminar.putExtra("RE_COD",Re_cod);
+                            Eliminar.putExtra("PER_COD",Per_cod);
+                            Eliminar.putExtra("ID",id);
+                            startActivity(Eliminar);
+                            buscarMedNombres();
+                            /*int fila <= db.delete(" MEDXRE ", " MEDXRED_COD =" + id + ";", null);
                             if (fila == 1) {
                                 Toast.makeText(getApplicationContext(),"Eliminado correctamente",Toast.LENGTH_LONG);
                                 buscarMedNombres();
                             }else{
                                 Toast.makeText(getApplicationContext(),"Error al eliminar",Toast.LENGTH_LONG);
-                            }*/
+                            }>
                         }
                     });
                     pregunta.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -157,7 +155,7 @@ public class medicamento_recordatorio extends AppCompatActivity {
                     pregunta.create();
                     pregunta.show();
                 }
-            });
+            });*/
 
             lineaIdRExMED.addView(tvIdValor);
 
@@ -168,7 +166,7 @@ public class medicamento_recordatorio extends AppCompatActivity {
             lineaTipo.addView(tvDosisValor);
 
             lineaBoton.addView(btnTomar);
-            lineaBoton.addView(btnEliminar);
+            //lineaBoton.addView(btnEliminar);
 
             tablaVista.addView(lineaIdRExMED);
             tablaVista.addView(lineaNombreMED);
