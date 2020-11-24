@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="app_name">MedReminder</string>
     <string name="recordatorio">Rappel</string>
     <string name="titulo_recordatorio">Titre du rappel</string>
     <string name="MDH">Minutes/Heures/Jours</string>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="app_name">MedReminder</string>
     <string name="recordatorio">Reminder</string>
     <string name="titulo_recordatorio">Reminder title</string>
     <string name="MDH">Minutes/hours/days</string>
