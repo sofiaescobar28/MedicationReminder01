@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="app_name">MedReminder</string>
     <string name="recordatorio">Reminder</string>
     <string name="titulo_recordatorio">Reminder title</string>
     <string name="MDH">Minutes/hours/days</string>
@@ -16,7 +16,7 @@
     <string name="logo_de_app"> app logo</string>
     <string name="personas"> People</string>
     <string name="recordatorios">Reminders</string>
-    <string name="medication_reminder">Medication Reminder</string>
+    <string name="medication_reminder">Med Reminder</string>
     <string name="buscar">Search </string>
     <string name="agregar_persona"> Add person</string>
     <string name="nombre"> Name</string>
