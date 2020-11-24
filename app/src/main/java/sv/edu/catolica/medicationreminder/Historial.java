@@ -188,6 +188,8 @@ final String f = h.H_FECHA;
             }
 
             ValorComentario.setText(h.H_COMENTARIO);
+          ValorComentario.setTextSize(18);
+          ValorComentario.setTextColor(Color.parseColor("#000000"));
           btnEditar.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View view) {
