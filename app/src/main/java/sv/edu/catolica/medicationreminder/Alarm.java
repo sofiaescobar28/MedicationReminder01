@@ -236,15 +236,6 @@ public class Alarm extends BroadcastReceiver
             i.putExtra("persona_id",person);
             PendingIntent pi = PendingIntent.getBroadcast(context, identificador, i, 0);
             am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), AlarmManager.INTERVAL_DAY*7*Time, pi); // Millisec * Second * Minute
-        }else if (tipoTiempo == MESES){
-            AlarmManager am =( AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-            Intent i = new Intent(context, Alarm.class);
-            i.putExtra("identificador",identificador);
-            i.putExtra("titulo",titulo);
-            i.putExtra("medicamento",medicamento);
-            i.putExtra("persona_id",person);
-            PendingIntent pi = PendingIntent.getBroadcast(context, identificador, i, 0);
-            am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), AlarmManager.INTERVAL_HOUR*30*Time, pi); // Millisec * Second * Minute
         }
 
     }
@@ -337,11 +328,14 @@ public class Alarm extends BroadcastReceiver
         return num;
     }
 
-    public void cancelAlarm(Context context)
+    public void cancelAlarm(Context context, int identificador)
     {
         Intent intent = new Intent(context, Alarm.class);
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
+        PendingIntent sender = PendingIntent.getBroadcast(context, identificador, intent, PendingIntent.FLAG_NO_CREATE);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(sender);
+        if(sender != null) {
+            alarmManager.cancel(sender);
+        }
+
     }
 }

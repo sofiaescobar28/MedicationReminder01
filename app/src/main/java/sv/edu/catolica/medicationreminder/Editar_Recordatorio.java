@@ -205,6 +205,8 @@ public class Editar_Recordatorio extends AppCompatActivity {
                         filaAfectadas = (int)db.update("RECORDATORIO", registro,"RE_COD = "+id,null);
                         if (filaAfectadas ==1){
 //Eliinar el recordatorio
+                           Alarm alarma = new Alarm();
+                           alarma.cancelAlarm(this,id);
                             validacion.setText("");
                             finish();
                             Intent ventana= new Intent(getApplicationContext(),Recordatorios.class);
