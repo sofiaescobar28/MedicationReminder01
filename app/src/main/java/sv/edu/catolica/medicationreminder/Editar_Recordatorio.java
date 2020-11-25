@@ -237,7 +237,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
                         }
 
                     }else{
-                        if (validarFechaEdit(fFinal)) {
+                        if (radPerm.isChecked()){
                             filaAfectadas = (int) db.update("RECORDATORIO", registro, "RE_COD = " + id, null);
                             db.close();
                             if (filaAfectadas == 1) {
@@ -252,6 +252,25 @@ public class Editar_Recordatorio extends AppCompatActivity {
                             } else {
                                 validacion.setTextColor(getColor(R.color.rojo));
                                 validacion.setText(R.string.error_update);
+                            }
+                        }
+                        else {
+                            if (validarFechaEdit(fFinal)) {
+                                filaAfectadas = (int) db.update("RECORDATORIO", registro, "RE_COD = " + id, null);
+                                db.close();
+                                if (filaAfectadas == 1) {
+//Eliinar el recordatorio
+                                    Alarm alarma = new Alarm();
+                                    alarma.cancelAlarm(this, id);
+                                    validacion.setText("");
+                                    finish();
+                                    Intent ventana = new Intent(getApplicationContext(), Recordatorios.class);
+                                    ventana.putExtra("persona_id", String.valueOf(id_persona));
+                                    startActivity(ventana);
+                                } else {
+                                    validacion.setTextColor(getColor(R.color.rojo));
+                                    validacion.setText(R.string.error_update);
+                                }
                             }
                         }
                     }
