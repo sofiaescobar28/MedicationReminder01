@@ -27,10 +27,27 @@ int tipoTiempo, identificador,time,persona;
         @Override
         public int onStartCommand(Intent intent, int flags, int startId)
         {
-            time = intent.getExtras().getInt("time");
-            tipoTiempo = intent.getExtras().getInt("tipoTiempo");
-            identificador = intent.getExtras().getInt("identificador");
-            persona = Integer.parseInt(intent.getExtras().getString("persona"));
+           // if (intent.hasExtra("time"))
+            Bundle bundle = intent.getExtras();
+            if (bundle != null){
+                if (!String.valueOf(bundle.getInt("time")).trim().isEmpty())
+                time = bundle.getInt("time",0);
+
+                if (!String.valueOf(bundle.getInt("tipoTiempo")).trim().isEmpty())
+                tipoTiempo = bundle.getInt("tipoTiempo",0);
+
+                if (!String.valueOf(bundle.getInt("identificador")).trim().isEmpty())
+                identificador = bundle.getInt("identificador",0);
+
+                if (!String.valueOf(bundle.getInt("persona")).trim().isEmpty())
+                persona = Integer.parseInt(bundle.getString("persona"));
+            }else{
+                time=0;
+                tipoTiempo=0;
+                identificador=0;
+                persona=0;
+            }
+
             new Thread(new Runnable() {
 
                 @Override
@@ -44,8 +61,8 @@ int tipoTiempo, identificador,time,persona;
 
                         // Instanciamos e inicializamos nuestro manager.
                         NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    if (time !=0){ alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);}
 
-                        alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -59,10 +76,17 @@ int tipoTiempo, identificador,time,persona;
             return START_STICKY;
         }
 
-        @Override
+  /*  @Override
+    public boolean stopService(Intent name) {
+
+        return super.stopService(name);
+
+    }*/
+
+    @Override
         public void onStart(Intent intent, int startId)
         {
-            alarm.setAlarm(this, time,identificador,tipoTiempo,persona);
+            if (time !=0){ alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);}
         }
 
         @Override
@@ -74,6 +98,8 @@ int tipoTiempo, identificador,time,persona;
     @Override
     public void onDestroy() {
         //super.onDestroy();
+       // Intent nuevo = new Intent(this,MyService.class);
+       // stopService(nuevo);
         sendBroadcast(new Intent("android.intent.action.reinicio"));
     }
 }

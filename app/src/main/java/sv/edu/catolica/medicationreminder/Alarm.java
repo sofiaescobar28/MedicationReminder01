@@ -1,5 +1,6 @@
 package sv.edu.catolica.medicationreminder;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -51,7 +52,7 @@ public class Alarm extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tag");
+        @SuppressLint("InvalidWakeLockTag") PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tag");
         wl.acquire();
 //Notificacion còdigo
         String NOTIFICATION_CHANNEL_ID = context.getString(R.string.app_name);
@@ -271,12 +272,7 @@ public class Alarm extends BroadcastReceiver
             Date Hoy = new Date();
             String fecha;
 
-            DecimalFormat df = new DecimalFormat("##");
-            fecha = df.format(Hoy.getHours());
-            fecha +=":";
-            fecha += df.format(Hoy.getMinutes());
-            fecha +=" ";
-            fecha += new SimpleDateFormat("dd/MM/yyyy").format(Hoy);
+            fecha = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(Hoy);
 
             registro.put("H_COD",ultimoID_Historial(ctx));
             registro.put("MEDXRED_COD",obtenerMedxRed_COD(med.medicamento,recordatorio,ctx));

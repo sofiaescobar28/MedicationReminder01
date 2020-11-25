@@ -25,11 +25,51 @@ public class AutoStart extends BroadcastReceiver
 
             for (ERecordatorio r : alarmas){
                 Intent service = new Intent(context,MyService.class);
+                if (String.valueOf(r.RE_INTER_VALOR )!= null   ){
+                    if(!String.valueOf(r.RE_INTER_VALOR ).trim().isEmpty()){
+                        service.putExtra("time", r.RE_INTER_VALOR);
+                    }else{
+                        service.putExtra("time", 0);
+                    }
 
-                service.putExtra("time", r.RE_INTER_VALOR);
-                service.putExtra("tipoTiempo", r.RE_INTERVALO_MDH);
-                service.putExtra("identificador", r.RE_COD);
-                service.putExtra("persona", String.valueOf(r.PER_COD));
+                }else{
+                    service.putExtra("time", 0);
+                }
+                if (String.valueOf(r.RE_INTERVALO_MDH )!= null  ){
+                    if(!String.valueOf(r.RE_INTERVALO_MDH ).trim().isEmpty()){
+                        service.putExtra("tipoTiempo", r.RE_INTERVALO_MDH);
+                    }else{
+                        service.putExtra("tipoTiempo", 0);
+
+                    }
+
+                }else{
+                    service.putExtra("tipoTiempo", 0);
+
+                } if (String.valueOf( r.RE_COD )!= null  ){
+                    if(!String.valueOf(r.RE_COD ).trim().isEmpty()){
+                        service.putExtra("identificador", r.RE_COD);
+                    }else{
+                        service.putExtra("identificador", 0);
+                    }
+
+                }else{
+                    service.putExtra("identificador", 0);
+                } if (String.valueOf(r.PER_COD )!= null  ){
+                    if(!String.valueOf(r.PER_COD ).trim().isEmpty()){
+                        service.putExtra("persona", String.valueOf(r.PER_COD));
+                    }else{
+                        service.putExtra("persona", String.valueOf(0));
+                    }
+
+                }else{
+                    service.putExtra("persona", String.valueOf(0));
+                }
+
+
+
+
+
                 if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
                     context.startForegroundService(service);
                 }else{
