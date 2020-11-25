@@ -9,7 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -46,9 +48,7 @@ public class Historial extends AppCompatActivity {
         Fecha = findViewById(R.id.labelvalorFecha);
         valor = findViewById(R.id.lblValidarCantidad);*/
        ly = findViewById(R.id.lySecundario);
-
         admin=new ManejadorBD(getApplicationContext(),"MEDICATIONREMINDER",null,1);
-
     Bundle extras = getIntent().getExtras();
     notificacion = extras.getBoolean("notificacion",false);
     recor_cod=extras.getString("RE_COD");
@@ -251,7 +251,8 @@ final String f = h.H_FECHA;
                 " INNER JOIN MEDXRE  ON HISTORIAL.MEDXRED_COD = MEDXRE.MEDXRED_COD"+
                 " INNER JOIN RECORDATORIO ON MEDXRE.RE_COD = RECORDATORIO.RE_COD" +
                         " INNER JOIN MEDICAMENTO ON MEDXRE.MED_COD = MEDICAMENTO.MED_COD" +
-                        " WHERE RECORDATORIO.RE_COD = "+recor_cod
+                        " WHERE RECORDATORIO.RE_COD = "+recor_cod+" " +
+                        " ORDER BY HISTORIAL.H_COD DESC "
 
                 ,null);
         ArrayList<EHistorial> historial = new ArrayList<EHistorial>();
