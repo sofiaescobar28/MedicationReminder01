@@ -255,6 +255,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
                             }
                         }
                         else {
+
                             if (validarFechaEdit(fFinal)) {
                                 filaAfectadas = (int) db.update("RECORDATORIO", registro, "RE_COD = " + id, null);
                                 db.close();
