@@ -88,7 +88,7 @@ public class Editar_Personas extends AppCompatActivity {
     //Al presionar el botón Atrás
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == event.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
             finish();
             Intent ventana= new Intent(getApplicationContext(), Personas.class);
             startActivity(ventana);

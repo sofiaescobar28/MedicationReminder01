@@ -73,7 +73,7 @@ int tipoTiempo, identificador,time,persona;
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
+        //super.onDestroy();
         sendBroadcast(new Intent("android.intent.action.reinicio"));
     }
 }

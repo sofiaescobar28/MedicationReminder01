@@ -315,11 +315,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
             formatoFecha.setLenient(false);
             formatoFecha.parse(fecha);
             Date Fparametro = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
-            if(Fparametro.after(fechaactual)){
-                return true;
-            }else{
-                return false;
-            }
+            return Fparametro.after(fechaactual);
         } catch (ParseException e) {
             return false;
         }

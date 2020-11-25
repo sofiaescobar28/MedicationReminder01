@@ -51,7 +51,7 @@ public class Alarm extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,new String("tag"));
+        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tag");
         wl.acquire();
 //Notificacion còdigo
         String NOTIFICATION_CHANNEL_ID = context.getString(R.string.app_name);
@@ -190,10 +190,10 @@ public class Alarm extends BroadcastReceiver
         for (int j=0;j<=noti.size()-1;j++  ) {
 
             if (j==0)
-             titulo= titulo + noti.get(j).titulo.toString() + " - "+noti.get(j).persona;
+             titulo= titulo + noti.get(j).titulo + " - "+noti.get(j).persona;
 
              if (j==noti.size()-1)
-            medicamento= medicamento + noti.get(j).Medicamento+"\n Dosificación: "+noti.get(j).Dosificacion+"\n Dosis: "+noti.get(j).Dosis_Cantidad+"\n \nPresiona para tomar medicamentos";
+            medicamento= medicamento + noti.get(j).Medicamento+"\n Dosificación: "+noti.get(j).Dosificacion+"\n Dosis: "+noti.get(j).Dosis_Cantidad+"\n \nPresiona para gestionar toma";
             else  medicamento= medicamento + noti.get(j).Medicamento+"\n Dosificación: "+noti.get(j).Dosificacion+"\n Dosis: "+noti.get(j).Dosis_Cantidad+"\nMedicamento:";
 
 

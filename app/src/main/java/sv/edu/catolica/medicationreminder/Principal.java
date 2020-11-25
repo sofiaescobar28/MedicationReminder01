@@ -72,7 +72,7 @@ public class Principal extends AppCompatActivity {
     //Al presionar Atrás
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == event.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
             Salir();
         }
         return super.onKeyDown(keyCode, event);

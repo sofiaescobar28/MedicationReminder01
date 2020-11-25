@@ -196,7 +196,7 @@ final String f = h.H_FECHA;
                                                         finish();
                                                         Intent ventanaEditarHistorial = new Intent(getApplicationContext(),Editar_Historial.class);
                                                         ventanaEditarHistorial.putExtra("Titulo",title.getText().toString());
-                                                        ventanaEditarHistorial.putExtra("Medre",n.toString());
+                                                        ventanaEditarHistorial.putExtra("Medre", n);
                                                         ventanaEditarHistorial.putExtra("IDEH",valorIDH.getText());
                                                         ventanaEditarHistorial.putExtra("Dosificacion",ValorDosificacion.getText().toString());
                                                         ventanaEditarHistorial.putExtra("Dosis",ValorDosis.getText().toString());

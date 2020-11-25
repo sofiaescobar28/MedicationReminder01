@@ -3,6 +3,7 @@ package sv.edu.catolica.medicationreminder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class medicina_por_recordatorio extends AppCompatActivity {
 
@@ -57,6 +61,22 @@ public class medicina_por_recordatorio extends AppCompatActivity {
             db = admin.getWritableDatabase();
             filaAfectadas = (int) db.insert("MEDXRE", null, registro);
             if (filaAfectadas != -1) {
+                ERecordatorio objRecordatorio = traerRecordatorio(IDrec);
+                if (objRecordatorio.RE_ESTADO == 1) {
+                    Alarm alarma = new Alarm();
+                    alarma.cancelAlarm(this, IDrec);
+                    Intent service = new Intent(this, MyService.class);
+
+                    service.putExtra("time", objRecordatorio.RE_INTER_VALOR);
+                    service.putExtra("tipoTiempo", objRecordatorio.RE_INTERVALO_MDH);
+                    service.putExtra("identificador", IDrec);
+                    service.putExtra("persona", String.valueOf(objRecordatorio.PER_COD));
+
+                    startService(service);
+
+                    Toast.makeText(this,"La alarma se ha modificado, la alarma se ha reiniciado",Toast.LENGTH_LONG).show();
+                }
+
                 this.finish();
                 Intent MedicamentoRE = new Intent(getApplicationContext(),medicamento_recordatorio.class);
                 MedicamentoRE.putExtra("RE_COD",String.valueOf(IDrec));
@@ -88,6 +108,25 @@ public class medicina_por_recordatorio extends AppCompatActivity {
         }
         db.close();
         return num;
+    }
+    public ERecordatorio traerRecordatorio(int recor){
+
+        Cursor fila = db.rawQuery("SELECT RE_COD,PER_COD, RE_INTERVALO_MDH, RE_INTERVALO_VALOR, RE_ESTADO FROM RECORDATORIO " +
+                        "WHERE RE_COD = "+recor
+                ,null);
+        ERecordatorio _recor = new ERecordatorio();
+        if (fila.moveToFirst()){
+
+            _recor.RE_COD=fila.getInt(0);
+            _recor.PER_COD=fila.getInt(1);
+            _recor.RE_INTERVALO_MDH=fila.getInt(2);
+            _recor.RE_INTER_VALOR=fila.getInt(3);
+            _recor.RE_ESTADO=fila.getInt(4);
+
+
+        }
+
+        return _recor;
     }
 
     @Override

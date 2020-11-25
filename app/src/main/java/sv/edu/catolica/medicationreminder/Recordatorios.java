@@ -253,7 +253,7 @@ public class Recordatorios extends AppCompatActivity {
 
     //Al presionar el botón Atrás
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == event.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
             finish();
             Intent persona = new Intent(getApplicationContext(), Personas.class);
             startActivity(persona);
