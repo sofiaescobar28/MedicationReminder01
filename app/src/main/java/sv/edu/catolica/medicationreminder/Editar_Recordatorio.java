@@ -178,7 +178,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
                     if (estado==1)
                     {
                         if (obtenerCantidadMedicamentos(id).size()>0){
-                            if (validarFechaEdit(fFinal)) {
+                            if (radPerm.isChecked()){
                                 db = admin.getWritableDatabase();
                                 filaAfectadas = (int) db.update("RECORDATORIO", registro, "RE_COD = " + id, null);
                                 if (filaAfectadas == 1) {
@@ -202,6 +202,34 @@ public class Editar_Recordatorio extends AppCompatActivity {
                                 } else {
                                     validacion.setTextColor(getColor(R.color.rojo));
                                     validacion.setText(R.string.error_update);
+                                }
+                            }
+                            else {
+                                if (validarFechaEdit(fFinal)) {
+                                    db = admin.getWritableDatabase();
+                                    filaAfectadas = (int) db.update("RECORDATORIO", registro, "RE_COD = " + id, null);
+                                    if (filaAfectadas == 1) {
+                                        if (encurso == 1) {
+                                            Alarm alarma = new Alarm();
+                                            alarma.cancelAlarm(this, id);
+                                        }
+                                        Intent service = new Intent(this, MyService.class);
+
+                                        service.putExtra("time", valor);
+                                        service.putExtra("tipoTiempo", mdh);
+                                        service.putExtra("identificador", id);
+                                        service.putExtra("persona", String.valueOf(id_persona));
+
+                                        startService(service);
+                                        validacion.setText("");
+                                        finish();
+                                        Intent ventana = new Intent(getApplicationContext(), Recordatorios.class);
+                                        ventana.putExtra("persona_id", String.valueOf(id_persona));
+                                        startActivity(ventana);
+                                    } else {
+                                        validacion.setTextColor(getColor(R.color.rojo));
+                                        validacion.setText(R.string.error_update);
+                                    }
                                 }
                             }
                         }else {

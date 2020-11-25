@@ -115,7 +115,7 @@ public class Add_Recordatorios extends AppCompatActivity {
                         registro.put("RE_F_FINAL", getText(R.string.permanente).toString());
                     }
                     registro.put("RE_ESTADO", estado);
-                    if (validarFecha(fFinal)) {
+                    if (radPerm.isChecked()){
                         db = admin.getWritableDatabase();
                         filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
                         db.close();
@@ -127,6 +127,22 @@ public class Add_Recordatorios extends AppCompatActivity {
                         } else {
                             validacion.setTextColor(getColor(R.color.rojo));
                             validacion.setText(R.string.error_guardar);
+                        }
+                    }
+                    else {
+                        if (validarFecha(fFinal)) {
+                            db = admin.getWritableDatabase();
+                            filaAfectadas = (int) db.insert("RECORDATORIO", null, registro);
+                            db.close();
+                            if (filaAfectadas != -1) {
+                                finish();
+                                Intent ventana = new Intent(Add_Recordatorios.this, Recordatorios.class);
+                                ventana.putExtra("persona_id", String.valueOf(id_persona));
+                                startActivity(ventana);
+                            } else {
+                                validacion.setTextColor(getColor(R.color.rojo));
+                                validacion.setText(R.string.error_guardar);
+                            }
                         }
                     }
                 }
