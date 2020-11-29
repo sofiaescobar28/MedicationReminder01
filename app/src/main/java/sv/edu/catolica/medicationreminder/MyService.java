@@ -28,51 +28,56 @@ int tipoTiempo, identificador,time,persona;
         public int onStartCommand(Intent intent, int flags, int startId)
         {
            // if (intent.hasExtra("time"))
-            Bundle bundle = intent.getExtras();
-            if (bundle != null){
-                if (!String.valueOf(bundle.getInt("time")).trim().isEmpty())
-                time = bundle.getInt("time",0);
+            try{
+                Bundle bundle = intent.getExtras();
+                if (bundle != null){
+                    if (!String.valueOf(bundle.getInt("time")).trim().isEmpty())
+                        time = bundle.getInt("time",0);
 
-                if (!String.valueOf(bundle.getInt("tipoTiempo")).trim().isEmpty())
-                tipoTiempo = bundle.getInt("tipoTiempo",0);
+                    if (!String.valueOf(bundle.getInt("tipoTiempo")).trim().isEmpty())
+                        tipoTiempo = bundle.getInt("tipoTiempo",0);
 
-                if (!String.valueOf(bundle.getInt("identificador")).trim().isEmpty())
-                identificador = bundle.getInt("identificador",0);
+                    if (!String.valueOf(bundle.getInt("identificador")).trim().isEmpty())
+                        identificador = bundle.getInt("identificador",0);
 
-                if (!String.valueOf(bundle.getInt("persona")).trim().isEmpty())
-                persona = Integer.parseInt(bundle.getString("persona"));
-            }else{
-                time=0;
-                tipoTiempo=0;
-                identificador=0;
-                persona=0;
-            }
-
-            new Thread(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    // El servicio se finaliza a sí mismo cuando finaliza su
-                    // trabajo.
-                    try {
-                        // Simulamos trabajo de 10 segundos.
-                        Thread.sleep(10000);
-
-                        // Instanciamos e inicializamos nuestro manager.
-                        NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    if (time !=0){ alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);}
-
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
+                    if (!String.valueOf(bundle.getInt("persona")).trim().isEmpty())
+                        persona = Integer.parseInt(bundle.getString("persona"));
+                }else{
+                    time=0;
+                    tipoTiempo=0;
+                    identificador=0;
+                    persona=0;
                 }
-            }).start();
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        // El servicio se finaliza a sí mismo cuando finaliza su
+                        // trabajo.
+                        try {
+                            // Simulamos trabajo de 10 segundos.
+                            Thread.sleep(10000);
+
+                            // Instanciamos e inicializamos nuestro manager.
+                            NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                            if (time !=0){ alarm.setAlarm(getApplicationContext(), time,identificador,tipoTiempo,persona);}
+
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
 
 
-            Toast.makeText(this,"¡Nueva alarma de medicametos creada!",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"¡Nueva alarma de medicametos creada!",Toast.LENGTH_LONG).show();
+            }
+            catch (Exception ex){
+                
+            }
             return START_STICKY;
         }
 
