@@ -72,7 +72,7 @@ int tipoTiempo, identificador,time,persona;
             }).start();
 
 
-            Toast.makeText(this,"¡Nueva alarma de medicametos creada!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.nuevaalarmacreada,Toast.LENGTH_LONG).show();
             return START_STICKY;
         }
 

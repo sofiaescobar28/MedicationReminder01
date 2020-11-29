@@ -90,5 +90,9 @@
     <string name="terminado">Not active</string>
     <string name="Fecha_inicio">\Start date: \</string>
     <string name="intervalo">\Interval: \</string>
+    <string name="alarmacreada">Medication alarm!</string>
+    <string name="alarmademedicamentoscancela">Medication alarm canceled!</string>
+    <string name="nuevaalarmacreada">New medication alarm created!</string>
+    <string name="presionapara_gestionar">" Press to manage medications"</string>
 
 </resources>
