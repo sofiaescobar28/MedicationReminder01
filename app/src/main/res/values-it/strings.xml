@@ -97,6 +97,7 @@
     <string name="nuevaalarmacreada">Nuovo allarme farmaco creato!</string>
     <string name="presionapara_gestionar">Premere per gestire i farmaci</string>
     <string name="debe_agregar_med">È necessario aggiungere i farmaci prima di attivare il promemoria</string>
+    <string name="ejemplo">Esempio: 500mg</string>
     <string-array name="EstadoR_valores">
         <item>Stato</item>
         <item>In corso</item>

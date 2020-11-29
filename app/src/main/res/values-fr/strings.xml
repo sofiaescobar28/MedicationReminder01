@@ -97,6 +97,7 @@
     <string name="nuevaalarmacreada">" Nouvelle alarme de médicaments créée!"</string>
     <string name="presionapara_gestionar">" Apuyez pour gérer les médicaments"</string>
     <string name="debe_agregar_med">Vous devez ajouter des médicaments avant d´activer le rappel</string>
+    <string name="ejemplo">Exemple: 500mg</string>
     <string-array name="EstadoR_valores">
         <item>Statut</item>
         <item>En cours</item>

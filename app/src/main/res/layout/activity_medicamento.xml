@@ -48,7 +48,7 @@
             android:layout_marginBottom="20dp"
             android:textSize="18sp"
             android:layout_weight="1"
-            android:hint="Nombre del medicamento" />
+            android:hint="@string/nombre_del_medicamento" />
 
 
     </LinearLayout>

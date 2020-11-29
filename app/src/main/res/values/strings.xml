@@ -95,6 +95,7 @@
     <string name="nuevaalarmacreada">New medication alarm created!</string>
     <string name="presionapara_gestionar">" Press to manage medications"</string>
     <string name="debe_agregar_med">You must add medication before activating the reminder</string>
+    <string name="ejemplo">Example: 500mg</string>
 
     <string-array name="EstadoR_valores">
         <item>State</item>
