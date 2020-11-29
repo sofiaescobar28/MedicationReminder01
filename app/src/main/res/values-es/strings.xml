@@ -91,5 +91,9 @@
     <string name="estado_i0">Estado</string>
     <string name="error_seleccionar">Error al seleccionar</string>
     <string name="en_curso">En curso</string>
+    <string name="alarmademedicamentoscancela">¡Alarma de medicametos cancelada!</string>
+    <string name="alarmacreada">¡Alarma de medicamentos!</string>
+    <string name="nuevaalarmacreada">¡Nueva alarma de medicametos creada!</string>
+    <string name="presionapara_gestionar">Presiona para gestionar medicamentos</string>
 
 </resources>

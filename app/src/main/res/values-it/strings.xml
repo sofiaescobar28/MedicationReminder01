@@ -92,4 +92,8 @@
     <string name="retrasado">Rinviato</string>
     <string name="estado_i0">Stato</string>
     <string name="en_curso">In corso</string>
+    <string name="alarmademedicamentoscancela">" Allarme farmaco annullato!"</string>
+    <string name="alarmacreada">" Allarme farmaco!"</string>
+    <string name="nuevaalarmacreada">Nuovo allarme farmaco creato!</string>
+    <string name="presionapara_gestionar">Premere per gestire i farmaci</string>
 </resources>

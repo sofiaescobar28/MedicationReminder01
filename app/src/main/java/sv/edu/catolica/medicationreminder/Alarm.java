@@ -144,7 +144,7 @@ public class Alarm extends BroadcastReceiver
 
 
         // Put here YOUR code.
-        Toast.makeText(context, "¡Alarma de medicamentos!", Toast.LENGTH_LONG).show(); // For example
+        Toast.makeText(context, R.string.alarmacreada, Toast.LENGTH_LONG).show(); // For example
 
         wl.release();
     }
@@ -187,15 +187,15 @@ public class Alarm extends BroadcastReceiver
     public void setAlarm(Context context, int Time, int identificador,int tipoTiempo,int person)
     {
         ArrayList<ENotificacion> noti = buscarInformacionNotificacion(identificador,context);
-        String titulo="",medicamento="Medicamento: ";
+        String titulo="",medicamento=""+context.getText(R.string.medicamento2);
         for (int j=0;j<=noti.size()-1;j++  ) {
 
             if (j==0)
              titulo= titulo + noti.get(j).titulo + " - "+noti.get(j).persona;
 
              if (j==noti.size()-1)
-            medicamento= medicamento + noti.get(j).Medicamento+"\n Dosificación: "+noti.get(j).Dosificacion+"\n Dosis: "+noti.get(j).Dosis_Cantidad+"\n \nPresiona para gestionar toma";
-            else  medicamento= medicamento + noti.get(j).Medicamento+"\n Dosificación: "+noti.get(j).Dosificacion+"\n Dosis: "+noti.get(j).Dosis_Cantidad+"\nMedicamento:";
+            medicamento= medicamento + noti.get(j).Medicamento+"\n "+context.getText(R.string.dosificacion2)+noti.get(j).Dosificacion+"\n "+context.getText(R.string.dosis2)+noti.get(j).Dosis_Cantidad+"\n"+context.getText(R.string.presionapara_gestionar);
+            else  medicamento= medicamento + noti.get(j).Medicamento+"\n "+context.getText(R.string.dosificacion2)+noti.get(j).Dosificacion+"\n "+context.getText(R.string.dosis2)+noti.get(j).Dosis_Cantidad+"\n"+context.getText(R.string.medicamento2);
 
 
         }
@@ -277,7 +277,7 @@ public class Alarm extends BroadcastReceiver
             registro.put("H_COD",ultimoID_Historial(ctx));
             registro.put("MEDXRED_COD",obtenerMedxRed_COD(med.medicamento,recordatorio,ctx));
             registro.put("H_FECHA", fecha);
-            registro.put("H_ESTADO", 1);
+            registro.put("H_ESTADO", 2);
             registro.put("H_COMENTARIO", med.medicamento);
 
             db = admin.getWritableDatabase();
@@ -331,7 +331,7 @@ public class Alarm extends BroadcastReceiver
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if(sender != null) {
             alarmManager.cancel(sender);
-            Toast.makeText(context,"¡Alarma de medicametos cancelada!",Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.alarmademedicamentoscancela,Toast.LENGTH_LONG).show();
         }
 
     }

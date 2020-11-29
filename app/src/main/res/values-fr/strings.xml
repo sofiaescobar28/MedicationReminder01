@@ -92,4 +92,8 @@
     <string name="retrasado">Différé</string>
     <string name="estado_i0">Etat</string>
     <string name="en_curso">En cours</string>
+    <string name="alarmademedicamentoscancela">" Alarme médicamenteuse annulée!"</string>
+    <string name="alarmacreada">" Alarme médicamenteuse!"</string>
+    <string name="nuevaalarmacreada">" Nouvelle alarme de médicaments créée!"</string>
+    <string name="presionapara_gestionar">" Apuyez pour gérer les médicaments"</string>
 </resources>
