@@ -233,7 +233,7 @@ public class Editar_Recordatorio extends AppCompatActivity {
                                 }
                             }
                         }else {
-                            Toast.makeText(this,"Debe agregar medicamentos antes de activar el recordatorio",Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, getText(R.string.debe_agregar_med),Toast.LENGTH_LONG).show();
                         }
 
                     }else{

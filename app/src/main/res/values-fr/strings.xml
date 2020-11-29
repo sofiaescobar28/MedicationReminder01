@@ -96,4 +96,5 @@
     <string name="alarmacreada">" Alarme médicamenteuse!"</string>
     <string name="nuevaalarmacreada">" Nouvelle alarme de médicaments créée!"</string>
     <string name="presionapara_gestionar">" Apuyez pour gérer les médicaments"</string>
+    <string name="debe_agregar_med">Vous devez ajouter des médicaments avant d´activer le rappel</string>
 </resources>

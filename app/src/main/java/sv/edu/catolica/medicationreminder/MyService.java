@@ -73,7 +73,7 @@ int tipoTiempo, identificador,time,persona;
                 }).start();
 
 
-            Toast.makeText(this, R.string.nuevaalarmacreada,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getText(R.string.nuevaalarmacreada),Toast.LENGTH_LONG).show();
             }
             catch (Exception ex){
 

@@ -96,4 +96,5 @@
     <string name="alarmacreada">" Allarme farmaco!"</string>
     <string name="nuevaalarmacreada">Nuovo allarme farmaco creato!</string>
     <string name="presionapara_gestionar">Premere per gestire i farmaci</string>
+    <string name="debe_agregar_med">È necessario aggiungere i farmaci prima di attivare il promemoria</string>
 </resources>

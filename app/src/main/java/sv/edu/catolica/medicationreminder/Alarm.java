@@ -144,7 +144,7 @@ public class Alarm extends BroadcastReceiver
 
 
         // Put here YOUR code.
-        Toast.makeText(context, R.string.alarmacreada, Toast.LENGTH_LONG).show(); // For example
+        Toast.makeText(context, context.getText(R.string.alarmacreada), Toast.LENGTH_LONG).show(); // For example
 
         wl.release();
     }
@@ -331,7 +331,7 @@ public class Alarm extends BroadcastReceiver
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if(sender != null) {
             alarmManager.cancel(sender);
-            Toast.makeText(context, R.string.alarmademedicamentoscancela,Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getText(R.string.alarmademedicamentoscancela),Toast.LENGTH_LONG).show();
         }
 
     }

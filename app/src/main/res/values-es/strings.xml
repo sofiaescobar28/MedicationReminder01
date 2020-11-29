@@ -95,5 +95,6 @@
     <string name="alarmacreada">¡Alarma de medicamentos!</string>
     <string name="nuevaalarmacreada">¡Nueva alarma de medicametos creada!</string>
     <string name="presionapara_gestionar">Presiona para gestionar medicamentos</string>
+    <string name="debe_agregar_med">Debe agregar medicamentos antes de activar el recordatorio</string>
 
 </resources>

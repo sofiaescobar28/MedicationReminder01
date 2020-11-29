@@ -94,5 +94,6 @@
     <string name="alarmademedicamentoscancela">Medication alarm canceled!</string>
     <string name="nuevaalarmacreada">New medication alarm created!</string>
     <string name="presionapara_gestionar">" Press to manage medications"</string>
+    <string name="debe_agregar_med">You must add medication before activating the reminder</string>
 
 </resources>
