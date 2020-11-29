@@ -96,4 +96,18 @@
     <string name="presionapara_gestionar">" Press to manage medications"</string>
     <string name="debe_agregar_med">You must add medication before activating the reminder</string>
 
+    <string-array name="EstadoR_valores">
+        <item>State</item>
+        <item>In progress</item>
+        <item>Not active</item>
+    </string-array>
+
+    <string-array name="MDH_valores">
+        <item>Select</item>
+        <item>Minutes</item>
+        <item>Hours</item>
+        <item>Days</item>
+        <item>Weeks</item>
+    </string-array>
+
 </resources>

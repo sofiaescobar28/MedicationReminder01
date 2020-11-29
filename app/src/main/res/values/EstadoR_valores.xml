@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="EstadoR_valores">
-        <item>Estado</item>
-        <item>En curso</item>
-        <item>No activo</item>
-    </string-array>
-</resources>

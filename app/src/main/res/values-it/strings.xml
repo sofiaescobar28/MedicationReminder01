@@ -97,4 +97,16 @@
     <string name="nuevaalarmacreada">Nuovo allarme farmaco creato!</string>
     <string name="presionapara_gestionar">Premere per gestire i farmaci</string>
     <string name="debe_agregar_med">È necessario aggiungere i farmaci prima di attivare il promemoria</string>
+    <string-array name="EstadoR_valores">
+        <item>Stato</item>
+        <item>In corso</item>
+        <item>Non attivo</item>
+    </string-array>
+    <string-array name="MDH_valores">
+        <item>Selezionare</item>
+        <item>Minuti</item>
+        <item>Ore</item>
+        <item>Giorni</item>
+        <item>Settimane</item>
+    </string-array>
 </resources>
